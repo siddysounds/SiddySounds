@@ -61,12 +61,12 @@
             fetch(blogUrl)
                 .then(response => response.json())
                 .then(data => {
-                    const posts = data.feed.entry;
+                    const posts = data.feed.entry || [];
                     const postContainer = document.getElementById("blog-posts");
 
                     posts.forEach(post => {
                         let title = post.title.$t;
-                        let content = post.content.$t;
+                        let content = post.content ? post.content.$t : "No content available.";
                         let publishedDate = new Date(post.published.$t).toDateString();
 
                         // Create a div for the blog post
