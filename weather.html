@@ -47,8 +47,9 @@
     </div>
 
     <script>
+        const apiKey = "9cd21a430571e08e73f5bed41ec92ad3"; // OpenWeather API Key
+
         async function fetchWeather(lat, lon) {
-            const apiKey = "9cd21a430571e08e73f5bed41ec92ad3"; // Your OpenWeather API key
             const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
 
             try {
@@ -58,9 +59,9 @@
                 document.getElementById("temperature").textContent = Math.round(data.main.temp);
                 document.getElementById("weather-description").textContent = data.weather[0].description;
             } catch (error) {
-                console.error("Weather data fetch error:", error);
-                document.getElementById("city-name").textContent = "Location Error";
-                document.getElementById("weather-description").textContent = "Unable to fetch weather.";
+                console.error("Weather fetch error:", error);
+                document.getElementById("city-name").textContent = "Weather Unavailable";
+                document.getElementById("weather-description").textContent = "Try again later.";
             }
         }
 
@@ -73,13 +74,24 @@
                         fetchWeather(lat, lon);
                     },
                     (error) => {
-                        console.error("Geolocation error:", error);
-                        document.getElementById("city-name").textContent = "Location Denied";
-                        document.getElementById("weather-description").textContent = "Enable location for weather.";
+                        console.warn("Geolocation failed, using IP-based location...");
+                        getLocationByIP();
                     }
                 );
             } else {
-                document.getElementById("city-name").textContent = "Geolocation Not Supported";
+                getLocationByIP();
+            }
+        }
+
+        async function getLocationByIP() {
+            try {
+                const response = await fetch("https://ip-api.com/json");
+                const data = await response.json();
+                fetchWeather(data.lat, data.lon);
+            } catch (error) {
+                console.error("IP-based location failed:", error);
+                document.getElementById("city-name").textContent = "Location Error";
+                document.getElementById("weather-description").textContent = "Unable to detect location.";
             }
         }
 
