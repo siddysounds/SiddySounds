@@ -3,49 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to SidxSuri.com</title>
+    <title>Welcome to Sidx Suri's Blog</title>
+    <!-- Font Awesome for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f4;
+        /* CSS Reset */
+        body, h1, h2, h3, p, ul {
             margin: 0;
             padding: 0;
         }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
         .container {
-            max-width: 600px;
-            margin: 100px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
         }
-        h1 {
-            color: #333;
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
         }
-        p {
-            color: #666;
+        header .logo {
+            float: left;
+            width: 50px;
         }
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
+        header nav {
+            float: right;
+        }
+        header nav ul {
+            list-style: none;
+        }
+        header nav ul li {
+            display: inline;
+            margin-left: 20px;
+        }
+        header nav ul li a {
+            color: #fff;
             text-decoration: none;
-            background: #007bff;
-            color: white;
-            border-radius: 5px;
-            transition: 0.3s;
         }
-        .btn:hover {
-            background: #0056b3;
+        section#home {
+            padding: 2rem 0;
+            background: #fff;
+            text-align: center;
+        }
+        section#blog {
+            padding: 2rem 0;
+        }
+        .post {
+            background: #fff;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        footer .social-media a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer .social-media a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to SidxSuri.com</h1>
-        <p>This is my personal space on the web. Stay tuned for updates!</p>
-        <a href="https://github.com/SidxSuri" class="btn">Visit My GitHub</a>
-    </div>
+    <header>
+        <div class="container">
+            <img src="logo.png" alt="Sidx Suri Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="container">
+            <h1>Welcome to My Personal Blog</h1>
+            <p>Sharing insights and stories from my journey.</p>
+        </div>
+    </section>
+
+    <section id="blog">
+        <div class="container">
+            <h2>Latest Posts</h2>
+            <!-- Blog posts will go here -->
+            <article class="post">
+                <h3>Post Title 1</h3>
+                <p>Summary of the first post...</p>
+                <a href="#">Read more</a>
+            </article>
+            <article class="post">
+                <h3>Post Title 2</h3>
+                <p>Summary of the second post...</p>
+                <a href="#">Read more</a>
+            </article>
+            <!-- Add more posts as needed -->
+        </div>
+    </section>
+
+    <section id="instagram-feed">
+        <div class="container">
+            <h2>My Instagram Feed</h2>
+            <!-- Instagram feed will be embedded here -->
+            <div id="elfsight-app"></div>
+            <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+            <script>
+                (function() {
+                    const elfsightApp = document.getElementById('elfsight-app');
+                    if (elfsightApp) {
+                        elfsightApp.classList.add('elfsight-app-XXXXXXX');
+                    }
+                })();
+            </script>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-media">
+                <a href="https://www.instagram.com/sidxsuri" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://www.twitter.com/sidxsuri" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="https://www.linkedin.com/in/sidxsuri" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <!-- Add more social links as needed -->
+            </div>
+            <p>&copy; 2025 Sidx Suri. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
