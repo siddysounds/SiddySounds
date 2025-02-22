@@ -136,22 +136,7 @@
     transition: 0.3s;
 }
 
-/* Media query for mobile-friendly design */
-@media (max-width: 460px) {
-    #weather-tile {
-        font-size: 16px; /* Reduce font size on smaller screens */
-        padding: 15px; /* Adjust padding for smaller screens */
-    }
 
-    .weather-container {
-        padding: 0 5px; /* Smaller horizontal padding on mobile */
-    }
-
-    /* Adjust text size for the weather info */
-    #weather-info {
-        font-size: 14px;
-    }
-}
         .tile:nth-child(1) { background: #3b5998; }
         .tile:nth-child(2) { background: #E1306C; }
         .tile:nth-child(3) { background: #1DA1F2; }
@@ -167,20 +152,40 @@
         .tile:nth-child(12) { background: #1DB954; } /* Spotify */
         .stats:hover span { transform: scale(1.2); }
 
-        @media (max-width: 600px) {
-            .stats-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .stats {
-                width: 100%;
-                max-width: 100%;
-            }
-            footer {
-                position: relative;
-                bottom: auto;
-            }
-        }
+        /* Media query for mobile-friendly design */
+@media (max-width: 600px) {
+    .stats-container {
+        flex-direction: column;  /* Stack them vertically */
+        align-items: center;
+        gap: 20px; /* Add gap between stats sections */
+    }
+
+    .stats {
+        width: 100%;  /* Make each section take up the full width */
+        max-width: 460px;  /* Set max-width to 460px */
+        margin-bottom: 20px;  /* Space between stats sections */
+    }
+
+    /* Weather Tile */
+    .weather-container {
+        width: 100%;  /* Ensure weather tile takes full width */
+        padding: 0 10px;  /* Add horizontal padding */
+    }
+
+    #weather-tile {
+        width: 100%;  /* Make the weather tile full-width */
+        max-width: 460px;  /* Set max-width to 460px */
+        padding: 20px;
+        text-align: center;
+        font-size: 16px;  /* Adjust font size for mobile */
+    }
+
+    #weather-info {
+        font-size: 16px;  /* Ensure proper font size for weather info */
+        font-weight: bold;  /* Make weather info bold */
+        transition: 0.3s; /* Smooth transition effect */
+    }
+}
     </style>
 </head>
 <body>
