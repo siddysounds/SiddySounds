@@ -3,24 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Connect with Sid Suri across multiple platforms including Facebook, Instagram, LinkedIn, Twitter, and more. Stay updated with his content and latest posts.">
-    <meta name="keywords" content="Sid Suri, connect with Sid, social media, Instagram, Facebook, LinkedIn, Twitter, YouTube, TikTok, social platforms">
-    <meta name="author" content="Sid Suri">
-    <meta property="og:title" content="SidxSuri - Connect With Me">
-    <meta property="og:description" content="Connect with Sid Suri across multiple platforms including Facebook, Instagram, LinkedIn, Twitter, and more.">
-    <meta property="og:image" content="your-profile-image.jpg">
-    <meta property="og:url" content="https://www.sidxsuri.com">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SidxSuri - Connect With Me">
-    <meta name="twitter:description" content="Connect with Sid Suri across multiple platforms including Facebook, Instagram, LinkedIn, Twitter, and more.">
-    <meta name="twitter:image" content="your-profile-image.jpg">
-    <meta name="robots" content="index, follow">
     <title>SidxSuri - Connect With Me</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="icon.png">
-    <link rel="canonical" href="https://www.sidxsuri.com">
-    
-    <!-- Google Analytics -->
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFMLHSXTWF"></script>
     <script type="module" src="google_analytics.js"></script>
 
@@ -48,25 +34,30 @@
             padding: 20px;
         }
 
-        .form-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .home-button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
             margin-top: 20px;
         }
 
-        iframe {
-            border: none;
+        .home-button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <!-- Google Form Embed -->
-    <div class="form-container">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSen2jaw3rakVqufihqwSHCNk6FaYanmVruTSXqVzeVBwYXNhg/viewform?embedded=true">
-            Loading…
-        </iframe>
+    <!-- Back to Home Button -->
+    <button class="home-button" onclick="window.location.href='index.html'">Back to Home</button>
+
+    <!-- Embed the Google Form directly into the page -->
+    <div>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSen2jaw3rakVqufihqwSHCNk6FaYanmVruTSXqVzeVBwYXNhg/viewform?embedded=true">Loading...</iframe>
     </div>
+
 </body>
 </html>
