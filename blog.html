@@ -35,6 +35,11 @@
             box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.2);
             background: #222;
         }
+        .blog-post-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
         .blog-post {
             margin-bottom: 30px;
             padding: 15px;
@@ -45,8 +50,9 @@
         }
         .blog-post h2 {
             font-size: 22px;
-            margin-bottom: 10px;
-            color: #ffffff;
+        margin: 0;
+        color: #ffffff;
+        flex-grow: 1;
         }
         .blog-post p {
             font-size: 16px;
@@ -54,9 +60,9 @@
         }
         .blog-date {
             font-size: 14px;
-            color: #bbb;
-            margin-bottom: 10px;
-            display: block;
+        color: #bbb;
+        margin-left: 15px;
+        white-space: nowrap;
         }
     </style>
 </head>
@@ -86,13 +92,13 @@
                 const title = post.title.$t;
                 const content = post.content ? post.content.$t : "No content available.";
                 const publishedDate = new Date(post.published.$t).toDateString();
-                let location = "Unknown Location";
 
                 postsHtml += `
                     <div class="blog-post">
+                    <div class="blog-post-header">
                         <h2>${title}</h2>
                         <span class="blog-date">Published on: ${publishedDate}</span>
-                        <p><strong>📍 Location:</strong> ${location}</p>
+                         </div>
                         <p>${content}</p>
                     </div>
                 `;
