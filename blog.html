@@ -11,7 +11,7 @@
             margin: 20px;
         }
         .blog-container {
-            max-width: 600px;
+            max-width: 700px;
             margin: auto;
             padding: 20px;
             border: 1px solid #ddd;
@@ -19,15 +19,24 @@
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
         }
         .blog-post {
-            margin: 10px 0;
-            padding: 10px;
+            margin: 20px 0;
+            padding: 15px;
             background: #f9f9f9;
             border-radius: 5px;
+            text-align: left;
+        }
+        .blog-post h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .blog-post p {
+            font-size: 16px;
+            color: #444;
         }
         .blog-post a {
             text-decoration: none;
             color: #007bff;
-            font-size: 18px;
+            font-weight: bold;
         }
         .blog-post a:hover {
             text-decoration: underline;
@@ -55,7 +64,15 @@
             posts.forEach(post => {
                 const title = post.title.$t;
                 const link = post.link.find(l => l.rel === "alternate").href;
-                postsHtml += `<div class="blog-post"><a href="${link}" target="_blank">${title}</a></div>`;
+                const content = post.content ? post.content.$t : "No content available."; // Extract full content
+                
+                postsHtml += `
+                    <div class="blog-post">
+                        <h2><a href="${link}" target="_blank">${title}</a></h2>
+                        <p>${content.substring(0, 300)}...</p> 
+                        <a href="${link}" target="_blank">Read More</a>
+                    </div>
+                `;
             });
 
             document.getElementById("blog-posts").innerHTML = postsHtml;
