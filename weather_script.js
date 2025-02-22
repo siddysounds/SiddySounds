@@ -1,5 +1,11 @@
 const apiKey = "9cd21a430571e08e73f5bed41ec92ad3";
 
+// Default coordinates for Atlanta, Georgia (latitude: 33.7490, longitude: -84.3880)
+const defaultLocation = {
+    lat: 33.7490,
+    lon: -84.3880
+};
+
 function fetchWeather(lat, lon) {
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
     fetch(url)
@@ -16,16 +22,19 @@ function fetchWeather(lat, lon) {
 
 function getLocation() {
     if (navigator.geolocation) {
+        // Try to get the user's location
         navigator.geolocation.getCurrentPosition(
             position => {
                 fetchWeather(position.coords.latitude, position.coords.longitude);
             },
             () => {
-                document.getElementById("weather-info").textContent = "Location blocked";
+                // If location access is denied or fails, use default location (Atlanta)
+                fetchWeather(defaultLocation.lat, defaultLocation.lon);
             }
         );
     } else {
-        document.getElementById("weather-info").textContent = "Geolocation not supported";
+        // If geolocation is not supported, use default location (Atlanta)
+        fetchWeather(defaultLocation.lat, defaultLocation.lon);
     }
 }
 
