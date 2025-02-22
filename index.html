@@ -22,7 +22,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
-        import { getFirestore, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+        import { getFirestore, doc, getDoc, setDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyBuzAqahAhfKEeDSq_ap_1M5GkxlkMXM3o",
@@ -39,20 +39,26 @@
         const analytics = getAnalytics(app);
         const db = getFirestore(app);
 
-        async function updateVisitorCount() {
-            const counterRef = doc(db, "visitorCount", "counter");
-            const counterSnap = await getDoc(counterRef);
+        async function trackVisitors() {
+            const ip = await fetch('https://api64.ipify.org?format=json').then(res => res.json()).then(data => data.ip);
+            const visitorRef = doc(db, "visitorRecords", ip);
+            const visitorSnap = await getDoc(visitorRef);
+            const countRef = doc(db, "visitorCount", "counter");
+            const countSnap = await getDoc(countRef);
 
-            if (counterSnap.exists()) {
-                let newCount = counterSnap.data().count + 1;
-                await updateDoc(counterRef, { count: newCount });
-                document.getElementById("visitor-count").innerText = newCount;
-            } else {
-                console.error("No counter document found!");
-                document.getElementById("visitor-count").innerText = "Error";
+            if (!visitorSnap.exists()) {
+                await setDoc(visitorRef, { visitedAt: new Date() });
+                let newUniqueCount = countSnap.exists() ? countSnap.data().unique + 1 : 1;
+                await setDoc(countRef, { unique: newUniqueCount }, { merge: true });
             }
+
+            let newTotalCount = countSnap.exists() ? (countSnap.data().total || 0) + 1 : 1;
+            await setDoc(countRef, { total: newTotalCount }, { merge: true });
+            document.getElementById("unique-visitors").innerText = newUniqueCount;
+            document.getElementById("total-visits").innerText = newTotalCount;
         }
-        updateVisitorCount();
+
+        trackVisitors();
     </script>
     
     <style>
@@ -61,36 +67,19 @@
             background: black;
             color: white;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
         }
         .container {
             background: rgba(255, 255, 255, 0.1);
             padding: 50px;
             border-radius: 20px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
             width: 90%;
             max-width: 600px;
+            margin: auto;
         }
         .social-links a {
             color: white;
             font-size: 30px;
             margin: 10px;
-        }
-        .visitor-counter {
-            font-size: 18px;
-            margin-top: 20px;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-        }
-        footer {
-            margin-top: 20px;
-            font-size: 14px;
-            opacity: 0.8;
         }
     </style>
 </head>
@@ -108,9 +97,9 @@
             <a href="https://www.youtube.com/@sidxsuri" target="_blank"><i class="fab fa-youtube"></i></a>
             <a href="https://www.twitch.tv/sidxsuri" target="_blank"><i class="fab fa-twitch"></i></a>
         </div>
-        <p class="visitor-counter">Visitors: <span id="visitor-count">Loading...</span></p>
     </div>
     <footer>
+        <p>Unique Visitors: <span id="unique-visitors">Loading...</span> | Total Visits: <span id="total-visits">Loading...</span></p>
         <p>For more information, please refer to our <a href="privacy.html">Privacy Policy</a> and <a href="cookies.html">Cookie Policy</a>.</p>
         <p>&copy; 2025 SidxSuri | All Rights Reserved</p>
     </footer>
