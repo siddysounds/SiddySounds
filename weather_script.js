@@ -20,5 +20,5 @@ function fetchWeather(lat, lon) {
         });
 }
 
-// Directly fetch weather for Atlanta without asking for geolocation
+// Fetch weather data for Atlanta directly
 fetchWeather(defaultLocation.lat, defaultLocation.lon);
