@@ -98,7 +98,8 @@
         .tile:nth-child(10) { background: #606060; }
         .tile:nth-child(11) { background: #12100E; } /* Medium */
         .tile:nth-child(12) { background: #00AFF0; } /* Skype */
-    </style>
+    .stats:hover span { color: yellow; transform: scale(1.1); }
+</style>
 </head>
 <body>
     <h1>Connect With Me</h1>
@@ -116,14 +117,14 @@
         <div class="tile"><a href="https://medium.com/@sidxsuri" target="_blank"><i class="fab fa-medium"></i><p>Medium</p></a></div>
         <div class="tile"><a href="https://join.skype.com/invite/nD5lXiWhfihM"><i class="fab fa-skype"></i><p>Skype</p></a></div>
     </div>
-    <div class="stats-container" style="display: flex; gap: 15px; justify-content: center; margin-top: 20px;">
-        <div class="stats" style="padding: 15px; background: rgba(255, 255, 255, 0.2); border-radius: 10px; font-size: 18px; width: 150px; text-align: center;">
+    <div class="stats-container" style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
+        <div class="stats" style="padding: 20px; background: rgba(255, 255, 255, 0.2); border-radius: 10px; font-size: 20px; width: 200px; text-align: center; transition: 0.3s;">
             <p><strong>Unique Visitors:</strong></p>
-            <p><span id="unique-visitors">Loading...</span></p>
+            <p><span id="unique-visitors" style="font-size: 24px; font-weight: bold; transition: 0.3s;">Loading...</span></p>
         </div>
         <div class="stats" style="padding: 15px; background: rgba(255, 255, 255, 0.2); border-radius: 10px; font-size: 18px; width: 150px; text-align: center;">
             <p><strong>Total Visits:</strong></p>
-            <p><span id="total-visits">Loading...</span></p>
+            <p><span id="total-visits" style="font-size: 24px; font-weight: bold; transition: 0.3s;">Loading...</span></p>
         </div>
     </div>
     <footer style="position: absolute; bottom: 0; width: 100%; background: rgba(255, 255, 255, 0.1); padding: 10px;">
