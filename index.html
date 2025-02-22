@@ -28,18 +28,20 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             text-align: center;
+            padding: 20px;
         }
         .container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
             padding: 20px;
-            max-width: 800px;
+            max-width: 500px;
+            width: 100%;
         }
         .tile {
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             text-align: center;
             transition: transform 0.3s;
@@ -49,31 +51,32 @@
             justify-content: center;
         }
         .tile:hover {
-            transform: scale(1.2);
+            transform: scale(1.1);
         }
         .tile:hover p {
             display: none;
         }
         .tile i {
-            font-size: 50px;
-            margin-bottom: 10px;
+            font-size: 40px;
+            margin-bottom: 5px;
         }
         .tile p {
-            margin-top: 10px;
-            font-size: 16px;
+            margin-top: 5px;
+            font-size: 14px;
             font-weight: bold;
         }
         .stats {
-            margin-top: 20px;
-            padding: 15px;
+            margin-top: 15px;
+            padding: 10px;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 10px;
-            font-size: 18px;
-            width: 50%;
+            font-size: 14px;
+            width: 100%;
+            max-width: 300px;
         }
         footer {
-            margin-top: 20px;
-            font-size: 14px;
+            margin-top: 15px;
+            font-size: 12px;
             text-align: center;
         }
         a {
