@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     
     <!-- Google Analytics & Consent Mode -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFMLHSXTWF"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKWXVL5930"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-HFMLHSXTWF', {
+        gtag('config', 'G-TKWXVL5930', {
             'anonymize_ip': true
         });
     </script>
@@ -40,22 +40,35 @@
         const db = getFirestore(app);
 
         async function trackVisitors() {
-            const ip = await fetch('https://api64.ipify.org?format=json').then(res => res.json()).then(data => data.ip);
-            const visitorRef = doc(db, "visitorRecords", ip);
-            const visitorSnap = await getDoc(visitorRef);
-            const countRef = doc(db, "visitorCount", "counter");
-            const countSnap = await getDoc(countRef);
+            try {
+                const response = await fetch("https://api64.ipify.org?format=json");
+                const data = await response.json();
+                const userIP = data.ip;
 
-            if (!visitorSnap.exists()) {
-                await setDoc(visitorRef, { visitedAt: new Date() });
-                let newUniqueCount = countSnap.exists() ? countSnap.data().unique + 1 : 1;
-                await setDoc(countRef, { unique: newUniqueCount }, { merge: true });
+                const visitorRef = doc(db, "visitorRecords", userIP);
+                const visitorSnap = await getDoc(visitorRef);
+                const countRef = doc(db, "visitorCount", "counter");
+                const countSnap = await getDoc(countRef);
+
+                let uniqueVisitors = countSnap.exists() ? countSnap.data().unique || 0 : 0;
+                let totalVisits = countSnap.exists() ? countSnap.data().total || 0 : 0;
+
+                if (!visitorSnap.exists()) {
+                    await setDoc(visitorRef, { visitedAt: new Date() });
+                    uniqueVisitors++;
+                }
+
+                totalVisits++;
+
+                await setDoc(countRef, { unique: uniqueVisitors, total: totalVisits }, { merge: true });
+
+                document.getElementById("unique-visitors").innerText = uniqueVisitors;
+                document.getElementById("total-visits").innerText = totalVisits;
+            } catch (error) {
+                console.error("Error tracking visitors:", error);
+                document.getElementById("unique-visitors").innerText = "Error";
+                document.getElementById("total-visits").innerText = "Error";
             }
-
-            let newTotalCount = countSnap.exists() ? (countSnap.data().total || 0) + 1 : 1;
-            await setDoc(countRef, { total: newTotalCount }, { merge: true });
-            document.getElementById("unique-visitors").innerText = newUniqueCount;
-            document.getElementById("total-visits").innerText = newTotalCount;
         }
 
         trackVisitors();
