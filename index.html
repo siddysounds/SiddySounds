@@ -25,41 +25,44 @@
             background: black;
             color: white;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             text-align: center;
-            flex-direction: column;
-            padding: 20px;
         }
         .container {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 50px;
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-            width: 90%;
-            max-width: 500px;
+            padding: 20px;
+        }
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
         }
         .social-links a {
             color: white;
-            font-size: 32px;
-            margin: 10px;
-            transition: transform 0.3s ease-in-out;
+            font-size: 30px;
+            text-decoration: none;
+            transition: transform 0.3s ease;
         }
         .social-links a:hover {
             transform: scale(1.2);
-            color: grey;
+        }
+        .stats {
+            margin-top: 20px;
+            font-size: 18px;
         }
         footer {
             position: absolute;
             bottom: 10px;
             font-size: 14px;
             text-align: center;
-            width: 100%;
         }
         a {
             color: white;
@@ -84,11 +87,15 @@
             <a href="https://www.threads.net/@sidxsuri" target="_blank"><i class="fab fa-threads"></i></a>
             <a href="https://www.twitch.tv/sidxsuri" target="_blank"><i class="fab fa-twitch"></i></a>
         </div>
-        <p><strong>Unique Visitors:</strong> <span id="unique-visitors">Loading...</span></p>
-        <p><strong>Total Visits:</strong> <span id="total-visits">Loading...</span></p>
+        <div class="stats">
+            <p>Unique Visitors: <span id="unique-visitors">Loading...</span></p>
+            <p>Total Visits: <span id="total-visits">Loading...</span></p>
+        </div>
     </div>
     <footer>
-        <p>For more information, please refer to our <a href="privacy.html">Privacy Policy</a> and <a href="cookies.html">Cookie Policy</a>.</p>
+        <p>For more information, please refer to <a href="privacy.html">Privacy Policy</a> and <a href="cookies.html">Cookie Policy</a>, or contact me at <a href="mailto:mail@sidxsuri.com">mail@sidxsuri.com</a></p>
+        <p>For more information, please contact me at <a href="mailto:mail@sidxsuri.com">mail@sidxsuri.com</a></p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="cookies.html">Cookie Policy</a></p>
         <p>&copy; 2025 SidxSuri | All Rights Reserved</p>
     </footer>
 </body>
