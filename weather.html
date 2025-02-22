@@ -41,16 +41,15 @@
 <body>
 
     <div class="weather-widget">
-        <h3>Weather in <span id="city-name">Your City</span></h3>
+        <h3>Weather in <span id="city-name">Detecting...</span></h3>
         <p><i class="fas fa-temperature-high"></i> <span id="temperature">--</span>°C</p>
         <p><i class="fas fa-cloud"></i> <span id="weather-description">Loading...</span></p>
     </div>
 
     <script>
-        async function fetchWeather() {
+        async function fetchWeather(lat, lon) {
             const apiKey = "9cd21a430571e08e73f5bed41ec92ad3"; // Your OpenWeather API key
-            const city = "New York"; // Change this to your desired city
-            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+            const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
 
             try {
                 const response = await fetch(url);
@@ -60,10 +59,31 @@
                 document.getElementById("weather-description").textContent = data.weather[0].description;
             } catch (error) {
                 console.error("Weather data fetch error:", error);
+                document.getElementById("city-name").textContent = "Location Error";
+                document.getElementById("weather-description").textContent = "Unable to fetch weather.";
             }
         }
 
-        fetchWeather();
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        fetchWeather(lat, lon);
+                    },
+                    (error) => {
+                        console.error("Geolocation error:", error);
+                        document.getElementById("city-name").textContent = "Location Denied";
+                        document.getElementById("weather-description").textContent = "Enable location for weather.";
+                    }
+                );
+            } else {
+                document.getElementById("city-name").textContent = "Geolocation Not Supported";
+            }
+        }
+
+        getLocation();
     </script>
 
 </body>
