@@ -57,6 +57,27 @@ function changeBackgroundColor(weatherDescription) {
 
     // Apply background color to the weather tile
     document.getElementById("weather-tile").style.backgroundColor = backgroundColor;
+
+    // Calculate brightness of the background color
+    const brightness = calculateBrightness(backgroundColor);
+
+    // Set text color based on brightness
+    const textColor = brightness < 128 ? "#FFFFFF" : "#000000"; // Dark text for light backgrounds, light text for dark backgrounds
+    document.getElementById("weather-tile").style.color = textColor;
+}
+
+// Helper function to calculate brightness of a color
+function calculateBrightness(hexColor) {
+    // Remove the "#" if it's there
+    hexColor = hexColor.replace("#", "");
+
+    // Convert hex to RGB
+    const r = parseInt(hexColor.substring(0, 2), 16);
+    const g = parseInt(hexColor.substring(2, 4), 16);
+    const b = parseInt(hexColor.substring(4, 6), 16);
+
+    // Calculate brightness using the luminance formula
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b;
 }
 
 // Fetch weather data for Atlanta without asking for the user's location
