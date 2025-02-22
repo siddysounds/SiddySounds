@@ -3,10 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Connect with Sid Suri across multiple platforms including Facebook, Instagram, LinkedIn, Twitter, and more. Stay updated with his content and latest posts.">
+    <meta name="keywords" content="Sid Suri, connect with Sid, social media, Instagram, Facebook, LinkedIn, Twitter, YouTube, TikTok, social platforms">
+    <meta name="author" content="Sid Suri">
+    <meta property="og:title" content="SidxSuri - Connect With Me">
+    <meta property="og:description" content="Connect with Sid Suri across multiple platforms including Facebook, Instagram, LinkedIn, Twitter, and more.">
+    <meta property="og:image" content="your-profile-image.jpg">
+    <meta property="og:url" content="https://www.sidxsuri.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SidxSuri - Connect With Me">
+    <meta name="twitter:description" content="Connect with Sid Suri across multiple platforms including Facebook, Instagram, LinkedIn, Twitter, and more.">
+    <meta name="twitter:image" content="your-profile-image.jpg">
+    <meta name="robots" content="index, follow">
     <title>SidxSuri - Connect With Me</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="icon.png">
-
+    <link rel="canonical" href="https://www.sidxsuri.com">
+    
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFMLHSXTWF"></script>
     <script type="module" src="google_analytics.js"></script>
@@ -118,82 +131,58 @@
             text-decoration: none;
         }
 
-        /* Ensure full-width layout for weather tile, and limit max-width on larger screens */
-.weather-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    padding: 0 10px;  /* Add some horizontal padding for small screens */
-}
+        .weather-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 0 10px;
+        }
 
-#weather-tile {
-    width: 100%; /* Full width */
-    max-width: 460px; /* Max width limit for larger screens */
-    padding: 20px;
-    border-radius: 10px;
-    font-size: 20px;
-    text-align: center;
-    transition: 0.3s;
-}
+        #weather-tile {
+            width: 100%;
+            max-width: 460px;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 20px;
+            text-align: center;
+            transition: 0.3s;
+        }
 
-
-        .tile:nth-child(1) { background: #3b5998; }
-        .tile:nth-child(2) { background: #E1306C; }
-        .tile:nth-child(3) { background: #1DA1F2; }
-        .tile:nth-child(4) { background: #0077B5; }
-        .tile:nth-child(5) { background: #FF0000; }
-        .tile:nth-child(6) { background: #FF0050; }
-        .tile:nth-child(7) { background: #FFFC00; } /* Snapchat - Yellow background */
-        .tile:nth-child(7) p { color: #020202; } /* Snapchat - Black text */
-        .tile:nth-child(8) { background: #000000; color: white; }
-        .tile:nth-child(9) { background: #6441A5; }
-        .tile:nth-child(10) { background: #606060; }
-        .tile:nth-child(11) { background: #12100E; } /* Medium */
-        .tile:nth-child(12) { background: #1DB954; } /* Spotify */
-        .stats:hover span { transform: scale(1.2); }
-
-        /* Media query for mobile-friendly design */
-@media (max-width: 600px) {
-    .stats-container {
-        flex-direction: column;  /* Stack them vertically */
-        align-items: center;
-        gap: 20px; /* Add gap between stats sections */
-    }
-
-    .stats {
-        width: 100%;  /* Make each section take up the full width */
-        max-width: 460px;  /* Set max-width to 460px */
-        margin-bottom: 20px;  /* Space between stats sections */
-    }
-
-    /* Weather Tile */
-    .weather-container {
-        width: 100%;  /* Ensure weather tile takes full width */
-        padding: 0 10px;  /* Add horizontal padding */
-    }
-
-    #weather-tile {
-        width: 100%;  /* Make the weather tile full-width */
-        max-width: 460px;  /* Set max-width to 460px */
-        padding: 20px;
-        text-align: center;
-        font-size: 16px;  /* Adjust font size for mobile */
-    }
-
-    #weather-info {
-        font-size: 16px;  /* Ensure proper font size for weather info */
-        font-weight: bold;  /* Make weather info bold */
-        transition: 0.3s; /* Smooth transition effect */
-    }
-}
+        /* Ensure mobile-friendly design */
+        @media (max-width: 600px) {
+            .stats-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            .stats {
+                width: 100%;
+                max-width: 460px;
+                margin-bottom: 20px;
+            }
+            .weather-container {
+                width: 100%;
+                padding: 0 10px;
+            }
+            #weather-tile {
+                width: 100%;
+                max-width: 460px;
+                padding: 20px;
+                text-align: center;
+                font-size: 16px;
+            }
+            #weather-info {
+                font-size: 16px;
+                font-weight: bold;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Profile Section -->
     <div class="profile-section">
-        <img src="your-profile-image.jpg" alt="SidxSuri" class="profile-pic">
+        <img src="your-profile-image.jpg" alt="Sid Suri" class="profile-pic">
         <h1>Sid Suri</h1>
-    
         <p>Connect With Me</p>
     </div>
 
@@ -215,26 +204,27 @@
 
     <!-- Stats Section -->
     <div class="stats-container" style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
-        <div class="stats" style="padding: 20px; background: rgba(255, 255, 255, 0.2); border-radius: 10px; font-size: 18px; width: 220px; text-align: center; transition: 0.3s;">
+        <div class="stats">
             <p><i class="fas fa-user"></i> Unique Visitors</p>
-            <p><span id="unique-visitors" style="font-size: 18px; font-weight: bold; transition: 0.3s; display: inline-block;">Loading...</span></p>
+            <p><span id="unique-visitors">Loading...</span></p>
         </div>
-        <div class="stats" style="padding: 20px; background: rgba(255, 255, 255, 0.2); border-radius: 10px; font-size: 18px; width: 220px; text-align: center; transition: 0.3s;">
+        <div class="stats">
             <p><i class="fas fa-chart-line"></i> Total Visits</p>
-            <p><span id="total-visits" style="font-size: 18px; font-weight: bold; transition: 0.3s; display: inline-block;">Loading...</span></p>
+            <p><span id="total-visits">Loading...</span></p>
         </div>
     </div>
 
-   <div class="weather-container" style="display: flex; gap: 20px; justify-content: center; margin-top: 18px;">
-    <div id="weather-tile" class="stats" style="padding: 20px; border-radius: 10px; font-size: 20px; width: 100%; text-align: center; transition: 0.3s;">
-        <p><i class="fas fa-cloud-sun"></i> Weather at my location</p>
-        <p><span id="weather-info" style="font-size: 18px; font-weight: bold; transition: 0.3s; display: inline-block;">Loading...</span></p>
+    <!-- Weather Section -->
+    <div class="weather-container">
+        <div id="weather-tile" class="stats">
+            <p><i class="fas fa-cloud-sun"></i> Weather at my location</p>
+            <p><span id="weather-info">Loading...</span></p>
+        </div>
     </div>
-</div>
 
     <!-- Footer -->
     <footer>
-        <p>For more information, please refer to <a href="privacy.html" style="text-decoration: underline;">Privacy Policy</a> and <a href="cookies.html" style="text-decoration: underline;">Cookie Policy</a><br><br>
+        <p>For more information, please refer to <a href="privacy.html">Privacy Policy</a> and <a href="cookies.html">Cookie Policy</a></p>
         <p>&copy; 2025 SidxSuri | All Rights Reserved</p>
     </footer>
 </body>
