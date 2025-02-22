@@ -6,11 +6,15 @@
     <title>SidxSuri - Connect With Me</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Google Analytics Tag -->
+    <!-- Google Analytics & Consent Mode -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFMLHSXTWF"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied'
+        });
         gtag('js', new Date());
         gtag('config', 'G-HFMLHSXTWF');
     </script>
@@ -114,10 +118,18 @@
         function acceptConsent() {
             document.getElementById('consent-banner').style.display = 'none';
             localStorage.setItem('cookieConsent', 'true');
+            gtag('consent', 'update', {
+                'ad_storage': 'granted',
+                'analytics_storage': 'granted'
+            });
         }
         window.onload = function() {
             if (localStorage.getItem('cookieConsent')) {
                 document.getElementById('consent-banner').style.display = 'none';
+                gtag('consent', 'update', {
+                    'ad_storage': 'granted',
+                    'analytics_storage': 'granted'
+                });
             }
         }
     </script>
