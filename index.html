@@ -1,4 +1,4 @@
-<!DOCTYPE html>\>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,18 +6,16 @@
     <title>SidxSuri - Connect With Me</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    
-    <!-- Google Analytics & Consent Mode -->
+
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKWXVL5930"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-TKWXVL5930', {
-            'anonymize_ip': true
-        });
+        gtag('config', 'G-TKWXVL5930', {'anonymize_ip': true});
     </script>
-    
+
     <!-- Firebase SDK -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
@@ -49,21 +47,23 @@
                 const userIP = data.query;
                 const country = data.country;
                 const state = data.regionName;
-
+                
                 const visitorRef = doc(db, "visitorRecords", userIP);
                 const visitorSnap = await getDoc(visitorRef);
                 const countRef = doc(db, "visitorCount", "counter");
                 const countSnap = await getDoc(countRef);
-
+                
                 let uniqueVisitors = countSnap.exists() ? countSnap.data().unique || 0 : 0;
                 let totalVisits = countSnap.exists() ? countSnap.data().total || 0 : 0;
-
+                
                 if (!visitorSnap.exists()) {
                     await setDoc(visitorRef, { visitedAt: new Date(), country: country, state: state });
                     uniqueVisitors++;
                 }
                 totalVisits++;
+                
                 await setDoc(countRef, { unique: uniqueVisitors, total: totalVisits }, { merge: true });
+                
                 document.getElementById("unique-visitors").innerText = uniqueVisitors;
                 document.getElementById("total-visits").innerText = totalVisits;
                 updateLocationList();
@@ -86,12 +86,13 @@
 
         trackVisitors();
     </script>
-    
+
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             background: black;
             color: white;
+            text-align: center;
         }
         .container {
             background: rgba(255, 255, 255, 0.1);
@@ -100,13 +101,6 @@
             width: 90%;
             max-width: 600px;
             margin: auto;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-            text-align: center;
-        }
-        .social-links a {
-            color: white;
-            font-size: 30px;
-            margin: 10px;
         }
     </style>
 </head>
@@ -119,13 +113,12 @@
             <a href="https://www.twitter.com/sidxsuri" target="_blank"><i class="fab fa-twitter"></i></a>
             <a href="https://www.linkedin.com/in/sidxsuri" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="https://www.youtube.com/@sidxsuri" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.tiktok.com/@sidxsuri" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.snapchat.com/add/sidxsuri" target="_blank"><i class="fab fa-snapchat"></i></a>
+            <a href="https://www.twitch.tv/sidxsuri" target="_blank"><i class="fab fa-twitch"></i></a>
         </div>
-    </div>
-    <footer>
         <p>Unique Visitors: <span id="unique-visitors">Loading...</span> | Total Visits: <span id="total-visits">Loading...</span></p>
         <p>Visitors from: <span id="visitor-locations">Loading...</span></p>
-        <p>For more information, please refer to our <a href="privacy.html">Privacy Policy</a> and <a href="cookies.html">Cookie Policy</a>.</p>
-        <p>&copy; 2025 SidxSuri | All Rights Reserved</p>
-    </footer>
+    </div>
 </body>
 </html>
