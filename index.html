@@ -157,6 +157,17 @@
             z-index: 100;
         }
 
+        .underline-link {
+    text-decoration: underline;
+    color: inherit; /* Ensure the link uses the inherited text color */
+}
+
+.underline-link:active,
+.underline-link:focus {
+    color: inherit; /* Prevent color change on click/focus */
+    text-decoration: underline; /* Keep the underline */
+        }
+
         /* Media query for mobile-friendly design */
         @media (max-width: 600px) {
             .stats-container {
@@ -254,7 +265,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>For more information, please refer to <a href="privacy.html">Privacy Policy</a> and <a href="cookies.html">Cookie Policy</a></p>
+        <p>For more information, please refer to <a href="privacy.html" class="underline-link">Privacy Policy</a> and <a href="cookies.html" class="underline-link">Cookie Policy</a></p>
         <p>&copy; 2025 SidxSuri | All Rights Reserved</p>
     </footer>
 </body>
