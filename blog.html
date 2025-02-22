@@ -43,30 +43,26 @@
     </div>
 
     <script>
-        async function fetchBlogPosts() {
-            const url = "https://sidxsuri.blogspot.com/feeds/posts/default?alt=json";
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
-
-                let postsHtml = "";
-                const posts = data.feed.entry.slice(0, 5); // Get the latest 5 posts
-
-                posts.forEach(post => {
-                    const title = post.title.$t;
-                    const link = post.link.find(l => l.rel === "alternate").href;
-                    postsHtml += `<div class="blog-post"><a href="${link}" target="_blank">${title}</a></div>`;
-                });
-
-                document.getElementById("blog-posts").innerHTML = postsHtml;
-            } catch (error) {
-                document.getElementById("blog-posts").innerHTML = "<p>Failed to load posts.</p>";
-                console.error("Error fetching blog posts:", error);
+        function fetchBlogPosts(data) {
+            if (!data.feed || !data.feed.entry) {
+                document.getElementById("blog-posts").innerHTML = "<p>No posts found.</p>";
+                return;
             }
-        }
 
-        fetchBlogPosts();
+            let postsHtml = "";
+            const posts = data.feed.entry.slice(0, 5); // Get the latest 5 posts
+
+            posts.forEach(post => {
+                const title = post.title.$t;
+                const link = post.link.find(l => l.rel === "alternate").href;
+                postsHtml += `<div class="blog-post"><a href="${link}" target="_blank">${title}</a></div>`;
+            });
+
+            document.getElementById("blog-posts").innerHTML = postsHtml;
+        }
     </script>
+
+    <script src="https://sidxsuri.blogspot.com/feeds/posts/default?alt=json-in-script&callback=fetchBlogPosts"></script>
 
 </body>
 </html>
