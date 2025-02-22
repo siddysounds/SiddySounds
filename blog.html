@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Latest Blog Posts - Sid Suri</title>
+    <title>My Blog - Sid Suri</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,41 +11,35 @@
             margin: 20px;
         }
         .blog-container {
-            max-width: 700px;
+            max-width: 800px;
             margin: auto;
             padding: 20px;
             border: 1px solid #ddd;
             border-radius: 10px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            background: #f9f9f9;
         }
         .blog-post {
-            margin: 20px 0;
+            margin-bottom: 30px;
             padding: 15px;
-            background: #f9f9f9;
+            background: white;
             border-radius: 5px;
             text-align: left;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
         }
         .blog-post h2 {
-            font-size: 20px;
+            font-size: 22px;
             margin-bottom: 10px;
         }
         .blog-post p {
             font-size: 16px;
-            color: #444;
-        }
-        .blog-post a {
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-        }
-        .blog-post a:hover {
-            text-decoration: underline;
+            color: #333;
         }
     </style>
 </head>
 <body>
 
-    <h1>Latest Blog Posts</h1>
+    <h1>My Latest Blog Posts</h1>
     
     <div class="blog-container" id="blog-posts">
         <p>Loading blog posts...</p>
@@ -59,16 +53,15 @@
             }
 
             let postsHtml = "";
-            const posts = data.feed.entry.slice(0, 5); // Get the latest 5 posts
+            const posts = data.feed.entry; // Fetch all posts without limit
 
             posts.forEach(post => {
                 const title = post.title.$t;
-                const link = post.link.find(l => l.rel === "alternate").href;
-                const content = post.content ? post.content.$t : "No content available."; // Extract full content
+                const content = post.content ? post.content.$t : "No content available."; // Full content
                 
                 postsHtml += `
                     <div class="blog-post">
-                        <h2><a href="${link}" target="_blank">${title}</a></h2>
+                        <h2>${title}</h2>
                         <p>${content}</p>
                     </div>
                 `;
