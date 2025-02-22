@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sid's Blog</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .swiper {
+            width: 90%;
+            height: auto;
+            padding: 20px 0;
+        }
+        .swiper-slide {
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+        }
+        h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+        p {
+            font-size: 16px;
+        }
+        .date {
+            font-size: 14px;
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Sid's Latest Blog Posts</h1>
+
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper" id="blog-posts">
+            <!-- Blog posts will be inserted here -->
+        </div>
+        <!-- Navigation Buttons -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const blogUrl = "https://sidxsuri.blogspot.com/feeds/posts/default?alt=json";
+
+            fetch(blogUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const posts = data.feed.entry;
+                    const postContainer = document.getElementById("blog-posts");
+
+                    posts.forEach(post => {
+                        let title = post.title.$t;
+                        let content = post.content.$t;
+                        let publishedDate = new Date(post.published.$t).toDateString();
+
+                        // Create a div for the blog post
+                        let slide = document.createElement("div");
+                        slide.classList.add("swiper-slide");
+                        slide.innerHTML = `
+                            <h2>${title}</h2>
+                            <p class="date">Published on: ${publishedDate}</p>
+                            <p>${content}</p>
+                        `;
+
+                        postContainer.appendChild(slide);
+                    });
+
+                    // Initialize Swiper
+                    new Swiper(".mySwiper", {
+                        loop: true,
+                        spaceBetween: 20,
+                        navigation: {
+                            nextEl: ".swiper-button-next",
+                            prevEl: ".swiper-button-prev",
+                        },
+                        pagination: {
+                            el: ".swiper-pagination",
+                            clickable: true,
+                        },
+                    });
+                })
+                .catch(error => console.log("Error fetching posts: ", error));
+        });
+    </script>
+
+</body>
+</html>
