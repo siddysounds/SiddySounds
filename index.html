@@ -118,21 +118,40 @@
             text-decoration: none;
         }
 
-        .weather-container {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-        }
+        /* Ensure full-width layout for weather tile, and limit max-width on larger screens */
+.weather-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0 10px;  /* Add some horizontal padding for small screens */
+}
 
-        #weather-tile {
-            width: 100%; /* Ensures it spans full width */
-            max-width: 100%;
-            padding: 20px;
-            border-radius: 10px;
-            font-size: 20px;
-            text-align: center;
-            transition: 0.3s;
-        }
+#weather-tile {
+    width: 100%; /* Full width */
+    max-width: 600px; /* Max width limit for larger screens */
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+/* Media query for mobile-friendly design */
+@media (max-width: 600px) {
+    #weather-tile {
+        font-size: 16px; /* Reduce font size on smaller screens */
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .weather-container {
+        padding: 0 5px; /* Smaller horizontal padding on mobile */
+    }
+
+    /* Adjust text size for the weather info */
+    #weather-info {
+        font-size: 14px;
+    }
+}
         .tile:nth-child(1) { background: #3b5998; }
         .tile:nth-child(2) { background: #E1306C; }
         .tile:nth-child(3) { background: #1DA1F2; }
