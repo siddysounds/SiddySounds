@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Widget</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .weather-widget {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+        .weather-widget h3 {
+            margin-bottom: 10px;
+        }
+        .weather-widget p {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+        .weather-widget i {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="weather-widget">
+        <h3>Weather in <span id="city-name">Your City</span></h3>
+        <p><i class="fas fa-temperature-high"></i> <span id="temperature">--</span>°C</p>
+        <p><i class="fas fa-cloud"></i> <span id="weather-description">Loading...</span></p>
+    </div>
+
+    <script>
+        async function fetchWeather() {
+            const apiKey = "9cd21a430571e08e73f5bed41ec92ad3"; // Your OpenWeather API key
+            const city = "New York"; // Change this to your desired city
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                document.getElementById("city-name").textContent = data.name;
+                document.getElementById("temperature").textContent = Math.round(data.main.temp);
+                document.getElementById("weather-description").textContent = data.weather[0].description;
+            } catch (error) {
+                console.error("Weather data fetch error:", error);
+            }
+        }
+
+        fetchWeather();
+    </script>
+
+</body>
+</html>
