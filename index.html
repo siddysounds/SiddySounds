@@ -16,76 +16,87 @@
         gtag('config', 'G-HFMLHSXTWF', {'anonymize_ip': true});
     </script>
 
-    <!-- Firebase SDK -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
-        import { getFirestore, doc, getDoc, setDoc, updateDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
+    import { getFirestore, doc, getDoc, setDoc, updateDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyBuzAqahAhfKEeDSq_ap_1M5GkxlkMXM3o",
-            authDomain: "sidxsuri1986.firebaseapp.com",
-            databaseURL: "https://sidxsuri1986-default-rtdb.firebaseio.com",
-            projectId: "sidxsuri1986",
-            storageBucket: "sidxsuri1986.firebasestorage.app",
-            messagingSenderId: "65985778635",
-            appId: "1:65985778635:web:c78b95e54f8eaa4917dc4e",
-            measurementId: "G-TKWXVL5930"
-        };
+    // ✅ Firebase Configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyBuzAqahAhfKEeDSq_ap_1M5GkxlkMXM3o",
+        authDomain: "sidxsuri1986.firebaseapp.com",
+        databaseURL: "https://sidxsuri1986-default-rtdb.firebaseio.com",
+        projectId: "sidxsuri1986",
+        storageBucket: "sidxsuri1986.firebasestorage.app",
+        messagingSenderId: "65985778635",
+        appId: "1:65985778635:web:c78b95e54f8eaa4917dc4e",
+        measurementId: "G-TKWXVL5930"
+    };
 
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const db = getFirestore(app);
+    // ✅ Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getFirestore(app);
 
-        async function trackVisitors() {
-            try {
-                const response = await fetch("https://ip-api.com/json/?fields=status,country,regionName,query");
-                const data = await response.json();
-                if (data.status !== "success") {
-                    throw new Error("Failed to fetch IP data");
-                }
-                const userIP = data.query;
-                const country = data.country;
-                const state = data.regionName;
-                
-                const visitorRef = doc(db, "visitorRecords", userIP);
-                const visitorSnap = await getDoc(visitorRef);
-                const countRef = doc(db, "visitorCount", "counter");
-                const countSnap = await getDoc(countRef);
-                
-                let uniqueVisitors = countSnap.exists() ? countSnap.data().unique || 0 : 0;
-                let totalVisits = countSnap.exists() ? countSnap.data().total || 0 : 0;
-                
-                if (!visitorSnap.exists()) {
-                    await setDoc(visitorRef, { visitedAt: new Date(), country: country, state: state });
-                    uniqueVisitors++;
-                }
-                totalVisits++;
-                
-                await setDoc(countRef, { unique: uniqueVisitors, total: totalVisits }, { merge: true });
-                
-                document.getElementById("unique-visitors").innerText = uniqueVisitors;
-                document.getElementById("total-visits").innerText = totalVisits;
-                updateLocationList();
-            } catch (error) {
-                console.error("Error tracking visitors:", error);
-                document.getElementById("unique-visitors").innerText = "Error";
-                document.getElementById("total-visits").innerText = "Error";
+    async function trackVisitors() {
+        try {
+            // 🔹 Fetch Visitor IP & Location from ipinfo.io
+            const response = await fetch("https://ipinfo.io/json?token=YOUR_IPINFO_TOKEN");
+            const data = await response.json();
+            if (!data.ip) {
+                throw new Error("Failed to fetch IP data");
             }
-        }
 
-        async function updateLocationList() {
-            const locations = new Set();
-            const querySnapshot = await getDocs(collection(db, "visitorRecords"));
-            querySnapshot.forEach((doc) => {
-                const data = doc.data();
-                locations.add(`${data.state}, ${data.country}`);
-            });
-            document.getElementById("visitor-locations").innerText = Array.from(locations).join(" | ");
-        }
+            const userIP = data.ip;
+            const country = data.country;
+            const state = data.region;
 
-        trackVisitors();
-    </script>
+            // 🔹 Firestore References
+            const visitorRef = doc(db, "visitorRecords", userIP);
+            const visitorSnap = await getDoc(visitorRef);
+            const countRef = doc(db, "visitorCount", "counter");
+            const countSnap = await getDoc(countRef);
+
+            let uniqueVisitors = countSnap.exists() ? countSnap.data().unique || 0 : 0;
+            let totalVisits = countSnap.exists() ? countSnap.data().total || 0 : 0;
+
+            if (!visitorSnap.exists()) {
+                // ✅ New visitor → Store in Firestore
+                await setDoc(visitorRef, { visitedAt: new Date(), country: country, state: state });
+                uniqueVisitors++;
+            }
+
+            // ✅ Always increment total visits
+            totalVisits++;
+
+            // ✅ Update Firestore counts
+            await setDoc(countRef, { unique: uniqueVisitors, total: totalVisits }, { merge: true });
+
+            // ✅ Update HTML Elements
+            document.getElementById("unique-visitors").innerText = uniqueVisitors;
+            document.getElementById("total-visits").innerText = totalVisits;
+
+            updateLocationList();
+        } catch (error) {
+            console.error("Error tracking visitors:", error);
+            document.getElementById("unique-visitors").innerText = "Error";
+            document.getElementById("total-visits").innerText = "Error";
+        }
+    }
+
+    async function updateLocationList() {
+        const locations = new Set();
+        const querySnapshot = await getDocs(collection(db, "visitorRecords"));
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+            locations.add(`${data.state}, ${data.country}`);
+        });
+
+        document.getElementById("visitor-locations").innerText = Array.from(locations).join(" | ");
+    }
+
+    trackVisitors();
+</script>
 
     <style>
         body {
