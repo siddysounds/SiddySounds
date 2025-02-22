@@ -18,11 +18,11 @@
         });
     </script>
     
-    <!-- Firebase SDK -->
+   <!-- Firebase SDK -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
-        import { getFirestore, doc, getDoc, setDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+        import { getFirestore, doc, getDoc, setDoc, updateDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyBuzAqahAhfKEeDSq_ap_1M5GkxlkMXM3o",
@@ -41,9 +41,11 @@
 
         async function trackVisitors() {
             try {
-                const response = await fetch("https://api64.ipify.org?format=json");
+                const response = await fetch("http://ip-api.com/json/");
                 const data = await response.json();
-                const userIP = data.ip;
+                const userIP = data.query;
+                const country = data.country;
+                const state = data.regionName;
 
                 const visitorRef = doc(db, "visitorRecords", userIP);
                 const visitorSnap = await getDoc(visitorRef);
@@ -54,7 +56,7 @@
                 let totalVisits = countSnap.exists() ? countSnap.data().total || 0 : 0;
 
                 if (!visitorSnap.exists()) {
-                    await setDoc(visitorRef, { visitedAt: new Date() });
+                    await setDoc(visitorRef, { visitedAt: new Date(), country: country, state: state });
                     uniqueVisitors++;
                 }
 
@@ -64,11 +66,23 @@
 
                 document.getElementById("unique-visitors").innerText = uniqueVisitors;
                 document.getElementById("total-visits").innerText = totalVisits;
+
+                updateLocationList();
             } catch (error) {
                 console.error("Error tracking visitors:", error);
                 document.getElementById("unique-visitors").innerText = "Error";
                 document.getElementById("total-visits").innerText = "Error";
             }
+        }
+
+        async function updateLocationList() {
+            const locations = new Set();
+            const querySnapshot = await getDocs(collection(db, "visitorRecords"));
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                locations.add(`${data.state}, ${data.country}`);
+            });
+            document.getElementById("visitor-locations").innerText = Array.from(locations).join(" | ");
         }
 
         trackVisitors();
@@ -130,7 +144,8 @@
     </div>
     <footer>
         <p>Unique Visitors: <span id="unique-visitors">Loading...</span> | Total Visits: <span id="total-visits">Loading...</span></p>
-        <p>For more information, please refer to our <a href="privacy.html">Privacy Policy</a> and <a href="cookies.html">Cookie Policy</a>.</p>
+        <p>Visitors from: <span id="visitor-locations">Loading...</span></p>
+                <p>For more information, please refer to our <a href="privacy.html">Privacy Policy</a> and <a href="cookies.html">Cookie Policy</a>.</p>
         <p>&copy; 2025 SidxSuri | All Rights Reserved</p>
     </footer>
 </body>
