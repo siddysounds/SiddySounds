@@ -64,7 +64,7 @@
             transition: transform 0.3s;
         }
         .profile-pic:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
         .profile-section h1 {
             font-size: 24px;
@@ -95,6 +95,7 @@
         }
         .tile:hover {
             transform: scale(1.1);
+            background: rgba(0, 0, 0, 0.6); /* Dark overlay effect */
         }
         .tile:hover p {
             display: none;
@@ -147,6 +148,13 @@
             font-size: 20px;
             text-align: center;
             transition: 0.3s;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: #000;
+            z-index: 100;
         }
 
         /* Media query for mobile-friendly design */
@@ -203,7 +211,7 @@
 <body>
     <!-- Profile Section -->
     <div class="profile-section">
-        <img src="your-profile-image.jpg" alt="Sid Suri" class="profile-pic">
+        <img src="your-profile-image.jpg" alt="Sid Suri" class="profile-pic" loading="lazy">
         <h1>Sid Suri</h1>
         <p>Connect With Me</p>
     </div>
