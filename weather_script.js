@@ -6,7 +6,22 @@ const defaultLocation = {
     lon: -84.3529257
 };
 
-// Function to change background color based on weather
+function fetchWeather(lat, lon) {
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const temp = Math.round(data.main.temp);
+            const desc = data.weather[0].description;
+            document.getElementById("weather-info").textContent = `${temp}°C | ${desc}`;
+            // Change the background color of the weather tile
+        changeBackgroundColor(desc); 
+        })
+        .catch(error => {
+            document.getElementById("weather-info").textContent = "Weather unavailable";
+        });
+}
+
 function changeBackgroundColor(weatherDescription) {
     let backgroundColor;
 
@@ -40,48 +55,9 @@ function changeBackgroundColor(weatherDescription) {
             backgroundColor = "#000000"; // Default black background
     }
 
-    // Apply background color
-    document.body.style.backgroundColor = backgroundColor;
+    // Apply background color to the weather tile
+    document.getElementById("weather-tile").style.backgroundColor = backgroundColor;
 }
 
-function fetchWeather(lat, lon) {
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            const temp = Math.round(data.main.temp);
-            const desc = data.weather[0].description;
-            // Update weather info
-            document.getElementById("weather-info").textContent = `${temp}°C | ${desc}`;
-
-            // Change background color based on weather
-            changeBackgroundColor(desc);
-        })
-        .catch(error => {
-            document.getElementById("weather-info").textContent = "Weather unavailable";
-        });
-}
-
-// Function to get current location of the user
-function getUserLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            position => {
-                const lat = position.coords.latitude;
-                const lon = position.coords.longitude;
-                fetchWeather(lat, lon);
-            },
-            error => {
-                console.warn("Geolocation access denied, falling back to Atlanta.");
-                // If user denies, fetch weather for Atlanta
-                fetchWeather(defaultLocation.lat, defaultLocation.lon);
-            }
-        );
-    } else {
-        console.warn("Geolocation not supported, falling back to Atlanta.");
-        fetchWeather(defaultLocation.lat, defaultLocation.lon); // Fallback to Atlanta if geolocation is not supported
-    }
-}
-
-// Fetch weather data based on user’s location or default to Atlanta
-getUserLocation();
+// Fetch weather data for Atlanta without asking for the user's location
+fetchWeather(defaultLocation.lat, defaultLocation.lon);
