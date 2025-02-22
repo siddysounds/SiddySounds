@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sid Suri - Digital Profile</title>
+    <title>SidxSuri - Connect With Me</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="icon.png">
 
@@ -20,165 +20,142 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            background: black;
             color: white;
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 2rem;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
         }
 
+        /* Profile Section */
         .profile-section {
             text-align: center;
-            margin-bottom: 2rem;
-            animation: fadeIn 1s ease-in;
+            margin-bottom: 20px;
         }
-
         .profile-pic {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             border: 3px solid #fff;
-            box-shadow: 0 0 20px rgba(255,255,255,0.3);
-            margin-bottom: 1rem;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            margin-bottom: 10px;
             transition: transform 0.3s;
         }
-
         .profile-pic:hover {
-            transform: rotate(5deg) scale(1.05);
+            transform: scale(1.05);
+        }
+        .profile-section h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .profile-section p {
+            font-size: 16px;
+            color: #ccc;
         }
 
         .container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 15px;
-            max-width: 800px;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+            padding: 20px;
+            max-width: 500px;
             width: 100%;
-            margin: 1rem 0;
         }
-
         .tile {
-            padding: 1.2rem;
-            border-radius: 15px;
+            padding: 15px;
+            border-radius: 10px;
             text-align: center;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tile:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        .tile:hover::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1));
-        }
-
-        .tile i {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
             transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
-
-        .tile:hover i {
-            transform: scale(1.2);
+        .tile:hover {
+            transform: scale(1.1);
         }
-
+        .tile:hover p {
+            display: none;
+        }
+        .tile i {
+            font-size: 40px;
+            margin-bottom: 5px;
+        }
         .tile p {
-            font-size: 0.9rem;
-            font-weight: 600;
-            opacity: 0.8;
-            transition: opacity 0.3s;
+            margin-top: 5px;
+            font-size: 14px;
+            font-weight: bold;
         }
-
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            width: 100%;
-            max-width: 800px;
-            margin: 2rem 0;
-        }
-
         .stats {
-            padding: 1.5rem;
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            transition: all 0.3s;
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            font-size: 14px;
+            width: 100%;
+            max-width: 300px;
         }
-
-        .stats:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
         footer {
-            margin-top: auto;
-            padding: 1.5rem;
+            margin-top: 15px;
+            font-size: 12px;
             text-align: center;
+            padding: 10px;
             width: 100%;
         }
-
-        /* Platform-specific Gradients */
-        .tile:nth-child(1) { background: linear-gradient(45deg, #3b5998, #2d4373); }
-        .tile:nth-child(2) { background: linear-gradient(45deg, #E1306C, #c13584); }
-        .tile:nth-child(3) { background: linear-gradient(45deg, #1DA1F2, #0d8ecf); }
-        .tile:nth-child(4) { background: linear-gradient(45deg, #0077B5, #005582); }
-        .tile:nth-child(5) { background: linear-gradient(45deg, #FF0000, #cc0000); }
-        .tile:nth-child(6) { background: linear-gradient(45deg, #FF0050, #ff0033); }
-        .tile:nth-child(7) { background: linear-gradient(45deg, #FFFC00, #ffea00); }
-        .tile:nth-child(7) p { color: black; } /* Snapchat - Black text */
-        .tile:nth-child(8) { background: linear-gradient(45deg, #000000, #333333); }
-        .tile:nth-child(9) { background: linear-gradient(45deg, #6441A5, #4b307b); }
-        .tile:nth-child(10) { background: linear-gradient(45deg, #606060, #404040); }
-        .tile:nth-child(11) { background: linear-gradient(45deg, #12100E, #000000); }
-        .tile:nth-child(12) { background: linear-gradient(45deg, #00AFF0, #0099cc); }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        a {
+            color: white;
+            text-decoration: none;
         }
+        a:hover {
+            text-decoration: none;
+        }
+        .tile:nth-child(1) { background: #3b5998; }
+        .tile:nth-child(2) { background: #E1306C; }
+        .tile:nth-child(3) { background: #1DA1F2; }
+        .tile:nth-child(4) { background: #0077B5; }
+        .tile:nth-child(5) { background: #FF0000; }
+        .tile:nth-child(6) { background: #FF0050; }
+        .tile:nth-child(7) { background: #FFFC00; } /* Snapchat - Yellow background */
+        .tile:nth-child(7) p { color: black; } /* Snapchat - Black text */
+        .tile:nth-child(8) { background: #000000; color: white; }
+        .tile:nth-child(9) { background: #6441A5; }
+        .tile:nth-child(10) { background: #606060; }
+        .tile:nth-child(11) { background: #12100E; } /* Medium */
+        .tile:nth-child(12) { background: #00AFF0; } /* Skype */
+        .stats:hover span { transform: scale(1.2); }
 
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
+        @media (max-width: 600px) {
             .stats-container {
-                grid-template-columns: 1fr;
+                flex-direction: column;
+                align-items: center;
             }
-            
-            .profile-pic {
-                width: 120px;
-                height: 120px;
+            .stats {
+                width: 100%;
+                max-width: 100%;
+            }
+            footer {
+                position: relative;
+                bottom: auto;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Add your profile picture here -->
+    <!-- Profile Section -->
     <div class="profile-section">
-        <img src="your-profile-image.jpg" alt="Sid Suri" class="profile-pic">
-        <h1>Sid Suri</h1>
+        <img src="your-profile-image.jpg" alt="SidxSuri" class="profile-pic">
+        <h1>SidxSuri</h1>
         <p>Connect With Me</p>
     </div>
 
+    <!-- Social Media Tiles -->
     <div class="container">
-        <!-- Social Media Tiles (same as before) -->
         <div class="tile"><a href="https://www.facebook.com/sidxsuri" target="_blank"><i class="fab fa-facebook"></i><p>Facebook</p></a></div>
         <div class="tile"><a href="https://www.instagram.com/sidxsuri" target="_blank"><i class="fab fa-instagram"></i><p>Instagram</p></a></div>
         <div class="tile"><a href="https://www.twitter.com/sidxsuri" target="_blank"><i class="fab fa-twitter"></i><p>Twitter</p></a></div>
@@ -193,23 +170,22 @@
         <div class="tile"><a href="https://join.skype.com/invite/nD5lXiWhfihM"><i class="fab fa-skype"></i><p>Skype</p></a></div>
     </div>
 
-    <div class="stats-container">
-        <div class="stats">
+    <!-- Stats Section -->
+    <div class="stats-container" style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
+        <div class="stats" style="padding: 20px; background: rgba(255, 255, 255, 0.2); border-radius: 10px; font-size: 20px; width: 220px; text-align: center; transition: 0.3s;">
             <p><i class="fas fa-user"></i> Unique Visitors</p>
-            <p><span id="unique-visitors">Loading...</span></p>
+            <p><span id="unique-visitors" style="font-size: 26px; font-weight: bold; transition: 0.3s; display: inline-block;">Loading...</span></p>
         </div>
-        <div class="stats">
+        <div class="stats" style="padding: 20px; background: rgba(255, 255, 255, 0.2); border-radius: 10px; font-size: 20px; width: 220px; text-align: center; transition: 0.3s;">
             <p><i class="fas fa-chart-line"></i> Total Visits</p>
-            <p><span id="total-visits">Loading...</span></p>
+            <p><span id="total-visits" style="font-size: 26px; font-weight: bold; transition: 0.3s; display: inline-block;">Loading...</span></p>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
-        <p>For more information, please refer to 
-            <a href="privacy.html">Privacy Policy</a> and 
-            <a href="cookies.html">Cookie Policy</a>
-        </p>
-        <p>&copy; 2025 Sid Suri | All Rights Reserved</p>
+        <p>For more information, please refer to <a href="privacy.html" style="text-decoration: underline;">Privacy Policy</a> and <a href="cookies.html" style="text-decoration: underline;">Cookie Policy</a><br><br>
+        <p>&copy; 2025 SidxSuri | All Rights Reserved</p>
     </footer>
 </body>
 </html>
