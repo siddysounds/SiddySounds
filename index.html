@@ -43,9 +43,16 @@
             border-radius: 10px;
             text-align: center;
             transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         .tile:hover {
-            transform: scale(1.1);
+            transform: scale(1.2);
+        }
+        .tile:hover p {
+            display: none;
         }
         .tile i {
             font-size: 50px;
@@ -74,14 +81,14 @@
             text-decoration: none;
         }
         a:hover {
-            text-decoration: underline;
+            text-decoration: none;
         }
         .tile:nth-child(1) { background: #3b5998; }
         .tile:nth-child(2) { background: #E1306C; }
         .tile:nth-child(3) { background: #1DA1F2; }
         .tile:nth-child(4) { background: #0077B5; }
         .tile:nth-child(5) { background: #FF0000; }
-        .tile:nth-child(6) { background: #69C9D0; }
+        .tile:nth-child(6) { background: #25F4EE; }
         .tile:nth-child(7) { background: #FFFC00; color: black; }
         .tile:nth-child(8) { background: #000000; }
         .tile:nth-child(9) { background: #6441A5; }
@@ -98,7 +105,7 @@
         <div class="tile"><a href="https://www.youtube.com/@sidxsuri" target="_blank"><i class="fab fa-youtube"></i><p>YouTube</p></a></div>
         <div class="tile"><a href="https://www.tiktok.com/@sidxsuri" target="_blank"><i class="fab fa-tiktok"></i><p>TikTok</p></a></div>
         <div class="tile"><a href="https://www.snapchat.com/add/sidxsuri" target="_blank"><i class="fab fa-snapchat"></i><p>Snapchat</p></a></div>
-        <div class="tile"><a href="https://www.threads.net/@sidxsuri" target="_blank"><i class="fab fa-threads"></i><p>Threads</p></a></div>
+        <div class="tile"><a href="https://www.threads.net/@sidxsuri" target="_blank"><i class="fab fa-instagram"></i><p>Threads</p></a></div>
         <div class="tile"><a href="https://www.twitch.tv/sidxsuri" target="_blank"><i class="fab fa-twitch"></i><p>Twitch</p></a></div>
         <div class="tile"><a href="mailto:mail@sidxsuri.com"><i class="fas fa-envelope"></i><p>Email</p></a></div>
     </div>
