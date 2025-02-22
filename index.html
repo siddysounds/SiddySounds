@@ -16,7 +16,9 @@
             'analytics_storage': 'denied'
         });
         gtag('js', new Date());
-        gtag('config', 'G-HFMLHSXTWF');
+        gtag('config', 'G-HFMLHSXTWF', {
+            'anonymize_ip': true  // Hides visitor IPs for privacy compliance
+        });
     </script>
     
     <style>
@@ -110,6 +112,7 @@
             <a href="https://www.twitch.tv/sidxsuri" target="_blank"><i class="fab fa-twitch"></i></a>
         </div>
         <p>Email: <a href="mailto:mail@sidxsuri.com">mail@sidxsuri.com</a></p>
+        <p>Visitors: <span id="visitor-count">Loading...</span></p>
     </div>
     <footer>
         <p>For more information, please refer to our <a href="privacy.html">Privacy Policy</a> and <a href="cookies.html">Cookie Policy</a>.</p>
@@ -137,6 +140,12 @@
                 });
             }
         }
+        fetch('https://api.countapi.xyz/hit/sidxsuri.com/visits')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('visitor-count').innerText = data.value;
+            })
+            .catch(error => console.error('Error fetching visitor count:', error));
     </script>
 </body>
 </html>
