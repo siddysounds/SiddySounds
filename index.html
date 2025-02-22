@@ -117,6 +117,22 @@
         a:hover {
             text-decoration: none;
         }
+
+        .weather-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        #weather-tile {
+            width: 100%; /* Ensures it spans full width */
+            max-width: 100%;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 20px;
+            text-align: center;
+            transition: 0.3s;
+        }
         .tile:nth-child(1) { background: #3b5998; }
         .tile:nth-child(2) { background: #E1306C; }
         .tile:nth-child(3) { background: #1DA1F2; }
@@ -185,7 +201,7 @@
         </div>
     </div>
 
-   <div class="stats-container" style="display: flex; gap: 20px; justify-content: center; margin-top: 18px;">
+   <div class="weather-container" style="display: flex; gap: 20px; justify-content: center; margin-top: 18px;">
     <div id="weather-tile" class="stats" style="padding: 20px; border-radius: 10px; font-size: 20px; width: 100%; text-align: center; transition: 0.3s;">
         <p><i class="fas fa-cloud-sun"></i> Weather at my location</p>
         <p><span id="weather-info" style="font-size: 18px; font-weight: bold; transition: 0.3s; display: inline-block;">Loading...</span></p>
