@@ -20,22 +20,5 @@ function fetchWeather(lat, lon) {
         });
 }
 
-function getLocation() {
-    if (navigator.geolocation) {
-        // Try to get the user's location
-        navigator.geolocation.getCurrentPosition(
-            position => {
-                fetchWeather(position.coords.latitude, position.coords.longitude);
-            },
-            () => {
-                // If location access is denied or fails, use default location (Atlanta)
-                fetchWeather(defaultLocation.lat, defaultLocation.lon);
-            }
-        );
-    } else {
-        // If geolocation is not supported, use default location (Atlanta)
-        fetchWeather(defaultLocation.lat, defaultLocation.lon);
-    }
-}
-
-getLocation();
+// Directly fetch weather for Atlanta without asking for geolocation
+fetchWeather(defaultLocation.lat, defaultLocation.lon);
