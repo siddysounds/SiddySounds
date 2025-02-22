@@ -86,11 +86,13 @@
                 const title = post.title.$t;
                 const content = post.content ? post.content.$t : "No content available.";
                 const publishedDate = new Date(post.published.$t).toDateString();
+                let location = "Unknown Location";
 
                 postsHtml += `
                     <div class="blog-post">
                         <h2>${title}</h2>
                         <span class="blog-date">Published on: ${publishedDate}</span>
+                        <p><strong>📍 Location:</strong> ${location}</p>
                         <p>${content}</p>
                     </div>
                 `;
