@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SidxSuri - Connect With Me</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -41,10 +48,6 @@
             font-size: 32px;
             margin-bottom: 10px;
             animation: slideDown 1.2s ease-in-out;
-        }
-        @keyframes slideDown {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
         }
         .social-links {
             display: flex;
@@ -87,9 +90,17 @@
             <a href="https://www.twitch.tv/sidxsuri" target="_blank"><i class="fab fa-twitch"></i></a>
         </div>
         <p>Email: <a href="mailto:mail@sidxsuri.com" style="color: white; text-decoration: none;">mail@sidxsuri.com</a></p>
+        <p>Visitors: <span id="visitor-count">Loading...</span></p>
     </div>
     <footer>
         <p>&copy; 2025 SidxSuri | All Rights Reserved</p>
     </footer>
+    <script>
+        fetch('https://api.countapi.xyz/hit/sidxsuri.com/visits')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('visitor-count').innerText = data.value;
+            });
+    </script>
 </body>
 </html>
