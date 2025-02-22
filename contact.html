@@ -48,50 +48,25 @@
             padding: 20px;
         }
 
-        .form-button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
+        .form-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
         }
 
-        .form-button:hover {
-            background-color: #45a049;
+        iframe {
+            border: none;
         }
     </style>
 </head>
 <body>
-    <!-- Contact Section -->
-    <h1>Sid Suri</h1>
-    <p>Connect With Me</p>
-
-    <!-- Contact Form Button -->
-    <button class="form-button" id="formButton">Contact Me</button>
-
     <!-- Google Form Embed -->
-    <div id="contactForm" style="display:none; margin-top: 20px;">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSen2jaw3rakVqufihqwSHCNk6FaYanmVruTSXqVzeVBwYXNhg/viewform?embedded=true" 
-                width="640" 
-                height="824" 
-                frameborder="0" 
-                marginheight="0" 
-                marginwidth="0">Loading…</iframe>
+    <div class="form-container">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSen2jaw3rakVqufihqwSHCNk6FaYanmVruTSXqVzeVBwYXNhg/viewform?embedded=true">
+            Loading…
+        </iframe>
     </div>
-
-    <script>
-        // Get the button that opens the form
-        var btn = document.getElementById("formButton");
-
-        // When the user clicks the button, show the form
-        btn.onclick = function() {
-            var form = document.getElementById("contactForm");
-            form.style.display = "block";
-            btn.style.display = "none"; // Hide the button after form appears
-        }
-    </script>
-
 </body>
 </html>
