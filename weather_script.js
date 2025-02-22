@@ -14,11 +14,15 @@ function fetchWeather(lat, lon) {
             const temp = Math.round(data.main.temp);
             const desc = data.weather[0].description;
             document.getElementById("weather-info").textContent = `${temp}°C | ${desc}`;
+             // Optionally, you can add a class or style to hide the spinner if needed
+            document.getElementById('weather-info').classList.remove('loading-spinner');
             // Change the background color of the weather tile
         changeBackgroundColor(desc); 
         })
         .catch(error => {
             document.getElementById("weather-info").textContent = "Weather unavailable";
+            document.getElementById('weather-info').classList.remove('loading-spinner'); // Remove spinner on error
+
         });
 }
 
