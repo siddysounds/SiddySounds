@@ -148,34 +148,55 @@
             transition: 0.3s;
         }
 
-        /* Ensure mobile-friendly design */
+        /* Media query for mobile-friendly design */
         @media (max-width: 600px) {
             .stats-container {
-                flex-direction: column;
+                flex-direction: column;  /* Stack them vertically */
                 align-items: center;
-                gap: 20px;
+                gap: 20px; /* Add gap between stats sections */
             }
+
             .stats {
-                width: 100%;
-                max-width: 460px;
-                margin-bottom: 20px;
+                width: 100%;  /* Make each section take up the full width */
+                max-width: 460px;  /* Set max-width to 460px */
+                margin-bottom: 20px;  /* Space between stats sections */
             }
+
+            /* Weather Tile */
             .weather-container {
-                width: 100%;
-                padding: 0 10px;
+                width: 100%;  /* Ensure weather tile takes full width */
+                padding: 0 10px;  /* Add horizontal padding */
             }
+
             #weather-tile {
-                width: 100%;
-                max-width: 460px;
+                width: 100%;  /* Make the weather tile full-width */
+                max-width: 460px;  /* Set max-width to 460px */
                 padding: 20px;
                 text-align: center;
-                font-size: 16px;
+                font-size: 16px;  /* Adjust font size for mobile */
             }
+
             #weather-info {
-                font-size: 16px;
-                font-weight: bold;
+                font-size: 16px;  /* Ensure proper font size for weather info */
+                font-weight: bold;  /* Make weather info bold */
+                transition: 0.3s; /* Smooth transition effect */
             }
         }
+        /* Social media tile background colors */
+        .tile:nth-child(1) { background: #3b5998; }
+        .tile:nth-child(2) { background: #E1306C; }
+        .tile:nth-child(3) { background: #1DA1F2; }
+        .tile:nth-child(4) { background: #0077B5; }
+        .tile:nth-child(5) { background: #FF0000; }
+        .tile:nth-child(6) { background: #FF0050; }
+        .tile:nth-child(7) { background: #FFFC00; } /* Snapchat - Yellow background */
+        .tile:nth-child(7) p { color: #020202; } /* Snapchat - Black text */
+        .tile:nth-child(8) { background: #000000; color: white; }
+        .tile:nth-child(9) { background: #6441A5; }
+        .tile:nth-child(10) { background: #606060; }
+        .tile:nth-child(11) { background: #12100E; } /* Medium */
+        .tile:nth-child(12) { background: #1DB954; } /* Spotify */
+        .stats:hover span { transform: scale(1.2); }
     </style>
 </head>
 <body>
@@ -204,13 +225,13 @@
 
     <!-- Stats Section -->
     <div class="stats-container" style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
-        <div class="stats">
+        <div class="stats" style="padding: 20px; background: rgba(255, 255, 255, 0.2); border-radius: 10px; font-size: 18px; width: 220px; text-align: center; transition: 0.3s;">
             <p><i class="fas fa-user"></i> Unique Visitors</p>
-            <p><span id="unique-visitors">Loading...</span></p>
+            <p><span id="unique-visitors" style="font-size: 18px; font-weight: bold; transition: 0.3s; display: inline-block;">Loading...</span></p>
         </div>
-        <div class="stats">
+        <div class="stats" style="padding: 20px; background: rgba(255, 255, 255, 0.2); border-radius: 10px; font-size: 18px; width: 220px; text-align: center; transition: 0.3s;">
             <p><i class="fas fa-chart-line"></i> Total Visits</p>
-            <p><span id="total-visits">Loading...</span></p>
+            <p><span id="total-visits" style="font-size: 18px; font-weight: bold; transition: 0.3s; display: inline-block;">Loading...</span></p>
         </div>
     </div>
 
