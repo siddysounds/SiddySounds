@@ -6,13 +6,13 @@
     <title>SidxSuri - Connect With Me</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Google Analytics -->
+    <!-- Google Analytics Tag -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFMLHSXTWF"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-HFMLHSXTWF');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HFMLHSXTWF');
     </script>
     
     <style>
@@ -28,9 +28,29 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            overflow: hidden;
+        }
+        .banner {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .banner button {
+            background: #ffd700;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-left: 10px;
         }
         .container {
+            margin-bottom: 60px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -39,18 +59,8 @@
             padding: 50px;
             border-radius: 20px;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-            animation: fadeIn 1.5s ease-in-out;
             width: 90%;
             max-width: 400px;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-            animation: slideDown 1.2s ease-in-out;
         }
         .social-links {
             display: flex;
@@ -69,7 +79,6 @@
         }
         p {
             font-size: 16px;
-            animation: fadeIn 2s ease-in-out;
         }
         footer {
             margin-top: 20px;
@@ -97,5 +106,20 @@
     <footer>
         <p>&copy; 2025 SidxSuri | All Rights Reserved</p>
     </footer>
+    <div class="banner" id="consent-banner">
+        This website uses cookies to enhance the user experience. By continuing, you agree to our <a href="#">Privacy Policy</a>.
+        <button onclick="acceptConsent()">Accept</button>
+    </div>
+    <script>
+        function acceptConsent() {
+            document.getElementById('consent-banner').style.display = 'none';
+            localStorage.setItem('cookieConsent', 'true');
+        }
+        window.onload = function() {
+            if (localStorage.getItem('cookieConsent')) {
+                document.getElementById('consent-banner').style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
