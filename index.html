@@ -3,146 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Sidx Suri's Blog</title>
-    <!-- Font Awesome for social media icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>SidxSuri - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* CSS Reset */
-        body, h1, h2, h3, p, ul {
+        body {
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
         }
         header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
+            padding: 30px;
+            font-size: 28px;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.7);
         }
-        header .logo {
-            float: left;
-            width: 50px;
+        nav {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
         }
-        header nav {
-            float: right;
-        }
-        header nav ul {
-            list-style: none;
-        }
-        header nav ul li {
-            display: inline;
-            margin-left: 20px;
-        }
-        header nav ul li a {
-            color: #fff;
+        nav a {
+            color: white;
             text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: 0.3s;
         }
-        section#home {
-            padding: 2rem 0;
-            background: #fff;
-            text-align: center;
+        nav a:hover {
+            color: #ffd700;
         }
-        section#blog {
-            padding: 2rem 0;
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
-        .post {
-            background: #fff;
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .about, .experience, .skills, .contact {
+            margin-top: 30px;
+        }
+        h1, h2 {
+            margin-bottom: 10px;
+        }
+        .social-links a {
+            display: inline-block;
+            margin: 10px;
+            color: white;
+            font-size: 24px;
+            transition: 0.3s;
+        }
+        .social-links a:hover {
+            transform: scale(1.2);
+            color: #ffd700;
         }
         footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
-            margin-top: 2rem;
-        }
-        footer .social-media a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        footer .social-media a:hover {
-            text-decoration: underline;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            margin-top: 20px;
+            border-top: 2px solid white;
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <img src="logo.png" alt="Sidx Suri Logo" class="logo">
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+        <h1>SIDXSURI</h1>
+        <p>Innovator | Technologist | Leader</p>
     </header>
-
-    <section id="home">
-        <div class="container">
-            <h1>Welcome to My Personal Blog</h1>
-            <p>Sharing insights and stories from my journey.</p>
-        </div>
-    </section>
-
-    <section id="blog">
-        <div class="container">
-            <h2>Latest Posts</h2>
-            <!-- Blog posts will go here -->
-            <article class="post">
-                <h3>Post Title 1</h3>
-                <p>Summary of the first post...</p>
-                <a href="#">Read more</a>
-            </article>
-            <article class="post">
-                <h3>Post Title 2</h3>
-                <p>Summary of the second post...</p>
-                <a href="#">Read more</a>
-            </article>
-            <!-- Add more posts as needed -->
-        </div>
-    </section>
-
-    <section id="instagram-feed">
-        <div class="container">
-            <h2>My Instagram Feed</h2>
-            <!-- Instagram feed will be embedded here -->
-            <div id="elfsight-app"></div>
-            <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-            <script>
-                (function() {
-                    const elfsightApp = document.getElementById('elfsight-app');
-                    if (elfsightApp) {
-                        elfsightApp.classList.add('elfsight-app-XXXXXXX');
-                    }
-                })();
-            </script>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="social-media">
-                <a href="https://www.instagram.com/sidxsuri" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-                <a href="https://www.twitter.com/sidxsuri" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
-                <a href="https://www.linkedin.com/in/sidxsuri" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <!-- Add more social links as needed -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="container">
+        <section id="about" class="about">
+            <h2>About Me</h2>
+            <p>Passionate about technology, SaaS, AI, and Low-Code/No-Code development. Over 12 years of experience leading impactful projects and delivering innovative solutions.</p>
+        </section>
+        
+        <section id="experience" class="experience">
+            <h2>Experience</h2>
+            <p><b>Manager at KPMG US</b> - Leading digital transformation and SaaS development.</p>
+            <p><b>Senior Associate at KPMG</b> - Unqork lead configuration specialist, project management.</p>
+        </section>
+        
+        <section id="skills" class="skills">
+            <h2>Skills</h2>
+            <p>SaaS Development, AI, API Integration, SharePoint, MS-SQL, C#.NET, JavaScript, HTML, CSS, Cloud Technologies.</p>
+        </section>
+        
+        <section id="contact" class="contact">
+            <h2>Contact Me</h2>
+            <p>Email: <a href="mailto:mail@sidxsuri.com">mail@sidxsuri.com</a></p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/sidxsuri" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/sidxsuri" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.twitter.com/sidxsuri" target="_blank"><i class="fab fa-twitter"></i></a>
             </div>
-            <p>&copy; 2025 Sidx Suri. All rights reserved.</p>
-        </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 SidxSuri | Innovation & Excellence</p>
     </footer>
 </body>
 </html>
