@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>\>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,17 +8,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     
     <!-- Google Analytics & Consent Mode -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HFMLHSXTWF"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKWXVL5930"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-HFMLHSXTWF', {
+        gtag('config', 'G-TKWXVL5930', {
             'anonymize_ip': true
         });
     </script>
     
-   <!-- Firebase SDK -->
+    <!-- Firebase SDK -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
@@ -41,8 +41,11 @@
 
         async function trackVisitors() {
             try {
-                const response = await fetch("http://ip-api.com/json/");
+                const response = await fetch("https://ip-api.com/json/?fields=status,country,regionName,query");
                 const data = await response.json();
+                if (data.status !== "success") {
+                    throw new Error("Failed to fetch IP data");
+                }
                 const userIP = data.query;
                 const country = data.country;
                 const state = data.regionName;
@@ -59,14 +62,10 @@
                     await setDoc(visitorRef, { visitedAt: new Date(), country: country, state: state });
                     uniqueVisitors++;
                 }
-
                 totalVisits++;
-
                 await setDoc(countRef, { unique: uniqueVisitors, total: totalVisits }, { merge: true });
-
                 document.getElementById("unique-visitors").innerText = uniqueVisitors;
                 document.getElementById("total-visits").innerText = totalVisits;
-
                 updateLocationList();
             } catch (error) {
                 console.error("Error tracking visitors:", error);
@@ -103,27 +102,11 @@
             margin: auto;
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
             text-align: center;
-            animation: fadeIn 1.5s ease-in-out;
         }
         .social-links a {
             color: white;
             font-size: 30px;
             margin: 10px;
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-        .social-links a:hover {
-            transform: scale(1.2);
-            color: #f1c40f;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        footer {
-            margin-top: 20px;
-            font-size: 14px;
-            text-align: center;
-            opacity: 0.8;
         }
     </style>
 </head>
@@ -136,16 +119,12 @@
             <a href="https://www.twitter.com/sidxsuri" target="_blank"><i class="fab fa-twitter"></i></a>
             <a href="https://www.linkedin.com/in/sidxsuri" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="https://www.youtube.com/@sidxsuri" target="_blank"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.tiktok.com/@sidxsuri" target="_blank"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.snapchat.com/add/sidxsuri" target="_blank"><i class="fab fa-snapchat"></i></a>
-            <a href="https://www.threads.net/@sidxsuri" target="_blank"><i class="fab fa-threads"></i></a>
-            <a href="https://www.twitch.tv/sidxsuri" target="_blank"><i class="fab fa-twitch"></i></a>
         </div>
     </div>
     <footer>
         <p>Unique Visitors: <span id="unique-visitors">Loading...</span> | Total Visits: <span id="total-visits">Loading...</span></p>
         <p>Visitors from: <span id="visitor-locations">Loading...</span></p>
-                <p>For more information, please refer to our <a href="privacy.html">Privacy Policy</a> and <a href="cookies.html">Cookie Policy</a>.</p>
+        <p>For more information, please refer to our <a href="privacy.html">Privacy Policy</a> and <a href="cookies.html">Cookie Policy</a>.</p>
         <p>&copy; 2025 SidxSuri | All Rights Reserved</p>
     </footer>
 </body>
