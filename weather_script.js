@@ -2,8 +2,8 @@ const apiKey = "9cd21a430571e08e73f5bed41ec92ad3";
 
 // Default coordinates for Atlanta, Georgia (latitude: 33.7490, longitude: -84.3880)
 const defaultLocation = {
-    lat: 33.7490,
-    lon: -84.3880
+    lat: 33.9595626,
+    lon: -84.3529257
 };
 
 function fetchWeather(lat, lon) {
