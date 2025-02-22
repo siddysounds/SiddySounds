@@ -21,7 +21,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
-        import { getFirestore, doc, getDoc, setDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+        import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyBuzAqahAhfKEeDSq_ap_1M5GkxlkMXM3o",
@@ -42,21 +42,16 @@
             try {
                 const countRef = doc(db, "visitorCount", "counter");
                 const countSnap = await getDoc(countRef);
-
                 let uniqueVisitors = countSnap.exists() ? countSnap.data().unique || 0 : 0;
                 let totalVisits = countSnap.exists() ? countSnap.data().total || 0 : 0;
 
-                // Simulate unique visitor check (basic method)
                 const userKey = localStorage.getItem("visitorKey");
                 if (!userKey) {
                     uniqueVisitors++;
                     localStorage.setItem("visitorKey", "true");
                 }
-
                 totalVisits++;
-
                 await setDoc(countRef, { unique: uniqueVisitors, total: totalVisits }, { merge: true });
-
                 document.getElementById("unique-visitors").innerText = uniqueVisitors;
                 document.getElementById("total-visits").innerText = totalVisits;
             } catch (error) {
@@ -65,7 +60,6 @@
                 document.getElementById("total-visits").innerText = "Error";
             }
         }
-
         trackVisitors();
     </script>
 
@@ -84,12 +78,32 @@
             max-width: 600px;
             margin: auto;
         }
+        .social-links a {
+            color: white;
+            font-size: 30px;
+            margin: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="container p-4">
         <h1 class="mb-4">Connect With Me</h1>
+        <div class="social-links d-flex flex-wrap justify-content-center">
+            <a href="https://www.facebook.com/sidxsuri" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/sidxsuri" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.twitter.com/sidxsuri" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/sidxsuri" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/@sidxsuri" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.tiktok.com/@sidxsuri" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.snapchat.com/add/sidxsuri" target="_blank"><i class="fab fa-snapchat"></i></a>
+            <a href="https://www.threads.net/@sidxsuri" target="_blank"><i class="fab fa-threads"></i></a>
+            <a href="https://www.twitch.tv/sidxsuri" target="_blank"><i class="fab fa-twitch"></i></a>
+        </div>
         <p>Unique Visitors: <span id="unique-visitors">Loading...</span> | Total Visits: <span id="total-visits">Loading...</span></p>
     </div>
+    <footer class="mt-4">
+        <p>For more information, please refer to our <a href="privacy.html" style="color:white;">Privacy Policy</a> and <a href="cookies.html" style="color:white;">Cookie Policy</a>.</p>
+        <p>&copy; 2025 SidxSuri | All Rights Reserved</p>
+    </footer>
 </body>
 </html>
