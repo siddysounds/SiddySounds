@@ -32,35 +32,40 @@
             text-align: center;
         }
         .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        .social-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 15px;
-            margin-top: 20px;
+            padding: 20px;
+            max-width: 800px;
         }
-        .social-links a {
+        .tile {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .tile:hover {
+            transform: scale(1.1);
+        }
+        .tile a {
             color: white;
-            font-size: 30px;
+            font-size: 24px;
             text-decoration: none;
-            transition: transform 0.3s ease;
+            display: block;
+            margin-top: 10px;
         }
-        .social-links a:hover {
-            transform: scale(1.2);
+        .tile p {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
         }
         .stats {
             margin-top: 20px;
             font-size: 18px;
         }
         footer {
-            position: absolute;
-            bottom: 10px;
+            margin-top: 20px;
             font-size: 14px;
             text-align: center;
         }
@@ -74,28 +79,24 @@
     </style>
 </head>
 <body>
+    <h1>Connect With Me</h1>
     <div class="container">
-        <h1>Connect With Me</h1>
-        <div class="social-links">
-            <a href="https://www.facebook.com/sidxsuri" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/sidxsuri" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.twitter.com/sidxsuri" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.linkedin.com/in/sidxsuri" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.youtube.com/@sidxsuri" target="_blank"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.tiktok.com/@sidxsuri" target="_blank"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.snapchat.com/add/sidxsuri" target="_blank"><i class="fab fa-snapchat"></i></a>
-            <a href="https://www.threads.net/@sidxsuri" target="_blank"><i class="fab fa-threads"></i></a>
-            <a href="https://www.twitch.tv/sidxsuri" target="_blank"><i class="fab fa-twitch"></i></a>
-        </div>
-        <div class="stats">
-            <p>Unique Visitors: <span id="unique-visitors">Loading...</span></p>
-            <p>Total Visits: <span id="total-visits">Loading...</span></p>
-        </div>
+        <div class="tile"><i class="fab fa-facebook"></i><p>Facebook</p><a href="https://www.facebook.com/sidxsuri" target="_blank">Visit</a></div>
+        <div class="tile"><i class="fab fa-instagram"></i><p>Instagram</p><a href="https://www.instagram.com/sidxsuri" target="_blank">Visit</a></div>
+        <div class="tile"><i class="fab fa-twitter"></i><p>Twitter</p><a href="https://www.twitter.com/sidxsuri" target="_blank">Visit</a></div>
+        <div class="tile"><i class="fab fa-linkedin"></i><p>LinkedIn</p><a href="https://www.linkedin.com/in/sidxsuri" target="_blank">Visit</a></div>
+        <div class="tile"><i class="fab fa-youtube"></i><p>YouTube</p><a href="https://www.youtube.com/@sidxsuri" target="_blank">Visit</a></div>
+        <div class="tile"><i class="fab fa-tiktok"></i><p>TikTok</p><a href="https://www.tiktok.com/@sidxsuri" target="_blank">Visit</a></div>
+        <div class="tile"><i class="fab fa-snapchat"></i><p>Snapchat</p><a href="https://www.snapchat.com/add/sidxsuri" target="_blank">Visit</a></div>
+        <div class="tile"><i class="fab fa-threads"></i><p>Threads</p><a href="https://www.threads.net/@sidxsuri" target="_blank">Visit</a></div>
+        <div class="tile"><i class="fab fa-twitch"></i><p>Twitch</p><a href="https://www.twitch.tv/sidxsuri" target="_blank">Visit</a></div>
+    </div>
+    <div class="stats">
+        <p>Unique Visitors: <span id="unique-visitors">Loading...</span></p>
+        <p>Total Visits: <span id="total-visits">Loading...</span></p>
     </div>
     <footer>
         <p>For more information, please refer to <a href="privacy.html">Privacy Policy</a> and <a href="cookies.html">Cookie Policy</a>, or contact me at <a href="mailto:mail@sidxsuri.com">mail@sidxsuri.com</a></p>
-        <p>For more information, please contact me at <a href="mailto:mail@sidxsuri.com">mail@sidxsuri.com</a></p>
-        <p><a href="privacy.html">Privacy Policy</a> | <a href="cookies.html">Cookie Policy</a></p>
         <p>&copy; 2025 SidxSuri | All Rights Reserved</p>
     </footer>
 </body>
