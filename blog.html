@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest Blog Posts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .blog-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .blog-post {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        .blog-post a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 18px;
+        }
+        .blog-post a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Latest Blog Posts</h1>
+    
+    <div class="blog-container" id="blog-posts">
+        <p>Loading blog posts...</p>
+    </div>
+
+    <script>
+        async function fetchBlogPosts() {
+            const url = "https://sidxsuri.blogspot.com/feeds/posts/default?alt=json";
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                let postsHtml = "";
+                const posts = data.feed.entry.slice(0, 5); // Get the latest 5 posts
+
+                posts.forEach(post => {
+                    const title = post.title.$t;
+                    const link = post.link.find(l => l.rel === "alternate").href;
+                    postsHtml += `<div class="blog-post"><a href="${link}" target="_blank">${title}</a></div>`;
+                });
+
+                document.getElementById("blog-posts").innerHTML = postsHtml;
+            } catch (error) {
+                document.getElementById("blog-posts").innerHTML = "<p>Failed to load posts.</p>";
+                console.error("Error fetching blog posts:", error);
+            }
+        }
+
+        fetchBlogPosts();
+    </script>
+
+</body>
+</html>
