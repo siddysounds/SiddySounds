@@ -1,4 +1,4 @@
-const apiKey = "9cd21a430571e08e73f5bed41ec92ad";
+const apiKey = "9cd21a430571e08e73f5bed41ec92ad3";
 
 // Default coordinates for Atlanta, Georgia (latitude: 33.7490, longitude: -84.3880)
 const defaultLocation = {
