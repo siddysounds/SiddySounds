@@ -3,101 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sid's Blog</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link rel="icon" type="image/x-icon" href="icon.png">
+    <title>SidxSuri - My Blog's</title>
     <style>
         body {
-            background-color: black;
-            color: white;
             font-family: Arial, sans-serif;
             text-align: center;
-            padding: 20px;
+            margin: 20px;
+            background-color: black;
+            color: white;
         }
-        .swiper {
-            width: 90%;
-            height: auto;
-            padding: 20px 0;
-        }
-        .swiper-slide {
-            background: #222;
-            padding: 20px;
-            border-radius: 10px;
+        .top-nav {
             text-align: left;
+            margin-bottom: 20px;
         }
-        h2 {
+        .top-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .blog-container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #444;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.2);
+            background: #222;
+        }
+        .blog-post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .blog-post {
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #333;
+            border-radius: 5px;
+            text-align: left;
+            box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.1);
+        }
+        .blog-post h2 {
             font-size: 22px;
-            margin-bottom: 10px;
-            color: #4CAF50;
+            margin: 0;
+            color: #ffffff;
+            flex-grow: 1;
         }
-        p {
+        .blog-post p {
             font-size: 16px;
+            color: #ddd;
         }
-        .date {
+        .blog-date {
             font-size: 14px;
             color: #bbb;
+            margin-left: 15px;
+            white-space: nowrap;
+        }
+        .pagination {
+            margin-top: 20px;
+        }
+        .pagination button {
+            background: #555;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .pagination button:disabled {
+            background: #888;
+            cursor: not-allowed;
         }
     </style>
 </head>
 <body>
 
-    <h1>Sid's Latest Blog Posts</h1>
-
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper" id="blog-posts">
-            <!-- Blog posts will be inserted here -->
-        </div>
-        <!-- Navigation Buttons -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <!-- Pagination -->
-        <div class="swiper-pagination"></div>
+    <div class="top-nav">
+        <a href="index.html">🏠 Home</a>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <h1>Sid's Latest Blog Posts</h1>
+    
+    <div class="blog-container" id="blog-posts">
+        <p>Loading blog posts...</p>
+    </div>
+
+    <div class="pagination">
+        <button id="prevBtn" onclick="changePage(-1)" disabled>Previous</button>
+        <button id="nextBtn" onclick="changePage(1)">Next</button>
+    </div>
+
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const blogUrl = "https://sidxsuri.blogspot.com/feeds/posts/default?alt=json";
+        let allPosts = [];
+        let currentPage = 0;
+        const postsPerPage = 5;
 
-            fetch(blogUrl)
-                .then(response => response.json())
-                .then(data => {
-                    const posts = data.feed.entry || [];
-                    const postContainer = document.getElementById("blog-posts");
+        function fetchBlogPosts(data) {
+            if (!data.feed || !data.feed.entry) {
+                document.getElementById("blog-posts").innerHTML = "<p>No posts found.</p>";
+                return;
+            }
 
-                    posts.forEach(post => {
-                        let title = post.title.$t;
-                        let content = post.content ? post.content.$t : "No content available.";
-                        let publishedDate = new Date(post.published.$t).toDateString();
+            allPosts = data.feed.entry.map(post => ({
+                title: post.title.$t,
+                content: post.content ? post.content.$t : "No content available.",
+                publishedDate: new Date(post.published.$t).toDateString()
+            }));
 
-                        // Create a div for the blog post
-                        let slide = document.createElement("div");
-                        slide.classList.add("swiper-slide");
-                        slide.innerHTML = `
-                            <h2>${title}</h2>
-                            <p class="date">Published on: ${publishedDate}</p>
-                            <p>${content}</p>
-                        `;
+            displayPosts();
+        }
 
-                        postContainer.appendChild(slide);
-                    });
+        function displayPosts() {
+            let start = currentPage * postsPerPage;
+            let end = start + postsPerPage;
+            let postsHtml = "";
 
-                    // Initialize Swiper
-                    new Swiper(".mySwiper", {
-                        loop: true,
-                        spaceBetween: 20,
-                        navigation: {
-                            nextEl: ".swiper-button-next",
-                            prevEl: ".swiper-button-prev",
-                        },
-                        pagination: {
-                            el: ".swiper-pagination",
-                            clickable: true,
-                        },
-                    });
-                })
-                .catch(error => console.log("Error fetching posts: ", error));
-        });
+            allPosts.slice(start, end).forEach(post => {
+                postsHtml += `
+                    <div class="blog-post">
+                        <div class="blog-post-header">
+                            <h2>${post.title}</h2>
+                            <span class="blog-date">${post.publishedDate}</span>
+                        </div>
+                        <p>${post.content}</p>
+                    </div>
+                `;
+            });
+
+            document.getElementById("blog-posts").innerHTML = postsHtml;
+            document.getElementById("prevBtn").disabled = currentPage === 0;
+            document.getElementById("nextBtn").disabled = end >= allPosts.length;
+        }
+
+        function changePage(direction) {
+            currentPage += direction;
+            displayPosts();
+        }
     </script>
+
+    <script src="https://sidxsuri.blogspot.com/feeds/posts/default?alt=json-in-script&callback=fetchBlogPosts"></script>
 
 </body>
 </html>
