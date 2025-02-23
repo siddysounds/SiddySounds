@@ -10,21 +10,18 @@
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 20px;
-            background-color: black; /* Set background to black */
-            color: white; /* Set text color to white */
+            background-color: black;
+            color: white;
         }
         .top-nav {
             text-align: left;
             margin-bottom: 20px;
         }
         .top-nav a {
-            color: #ffffff; /* Goldish color */
+            color: #ffffff;
             text-decoration: none;
             font-size: 18px;
             font-weight: bold;
-        }
-        .top-nav a:hover {
-            text-decoration: none;
         }
         .blog-container {
             max-width: 900px;
@@ -36,10 +33,10 @@
             background: #222;
         }
         .blog-post-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
         .blog-post {
             margin-bottom: 30px;
             padding: 15px;
@@ -50,9 +47,9 @@
         }
         .blog-post h2 {
             font-size: 22px;
-        margin: 0;
-        color: #ffffff;
-        flex-grow: 1;
+            margin: 0;
+            color: #ffffff;
+            flex-grow: 1;
         }
         .blog-post p {
             font-size: 16px;
@@ -60,9 +57,25 @@
         }
         .blog-date {
             font-size: 14px;
-        color: #bbb;
-        margin-left: 15px;
-        white-space: nowrap;
+            color: #bbb;
+            margin-left: 15px;
+            white-space: nowrap;
+        }
+        .pagination {
+            margin-top: 20px;
+        }
+        .pagination button {
+            background: #555;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .pagination button:disabled {
+            background: #888;
+            cursor: not-allowed;
         }
     </style>
 </head>
@@ -78,33 +91,56 @@
         <p>Loading blog posts...</p>
     </div>
 
+    <div class="pagination">
+        <button id="prevBtn" onclick="changePage(-1)" disabled>Previous</button>
+        <button id="nextBtn" onclick="changePage(1)">Next</button>
+    </div>
+
     <script>
+        let allPosts = [];
+        let currentPage = 0;
+        const postsPerPage = 5;
+
         function fetchBlogPosts(data) {
             if (!data.feed || !data.feed.entry) {
                 document.getElementById("blog-posts").innerHTML = "<p>No posts found.</p>";
                 return;
             }
 
+            allPosts = data.feed.entry.map(post => ({
+                title: post.title.$t,
+                content: post.content ? post.content.$t : "No content available.",
+                publishedDate: new Date(post.published.$t).toDateString()
+            }));
+
+            displayPosts();
+        }
+
+        function displayPosts() {
+            let start = currentPage * postsPerPage;
+            let end = start + postsPerPage;
             let postsHtml = "";
-            const posts = data.feed.entry;
 
-            posts.forEach(post => {
-                const title = post.title.$t;
-                const content = post.content ? post.content.$t : "No content available.";
-                const publishedDate = new Date(post.published.$t).toDateString();
-
+            allPosts.slice(start, end).forEach(post => {
                 postsHtml += `
                     <div class="blog-post">
-                    <div class="blog-post-header">
-                        <h2>${title}</h2>
-                        <span class="blog-date">${publishedDate}</span>
-                         </div>
-                        <p>${content}</p>
+                        <div class="blog-post-header">
+                            <h2>${post.title}</h2>
+                            <span class="blog-date">${post.publishedDate}</span>
+                        </div>
+                        <p>${post.content}</p>
                     </div>
                 `;
             });
 
             document.getElementById("blog-posts").innerHTML = postsHtml;
+            document.getElementById("prevBtn").disabled = currentPage === 0;
+            document.getElementById("nextBtn").disabled = end >= allPosts.length;
+        }
+
+        function changePage(direction) {
+            currentPage += direction;
+            displayPosts();
         }
     </script>
 
