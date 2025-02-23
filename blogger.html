@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Windows-Style Social Media Tiles</title>
+    <title>Futuristic Social Dashboard</title>
     <style>
         * {
             margin: 0;
@@ -11,46 +11,53 @@
             box-sizing: border-box;
         }
         body {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             height: 100vh;
-            background-color: #1a1a1a;
+            background: linear-gradient(to right, #141e30, #243b55);
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+            width: 90vw;
+            height: 90vh;
             padding: 20px;
         }
         .tile {
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            text-decoration: none;
-            padding: 20px;
-            border-radius: 8px;
-            transition: transform 0.2s;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, background 0.3s ease;
+            cursor: pointer;
         }
         .tile:hover {
             transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
         }
-        .facebook { background: #1877f2; }
-        .twitter { background: #1da1f2; }
-        .instagram { background: #c13584; }
-        .linkedin { background: #0077b5; }
-        .youtube { background: #ff0000; }
-        .snapchat { background: #fffc00; color: black; }
-        .tiktok { background: #010101; }
-        .pinterest { background: #bd081c; }
+        .tile img {
+            width: 50px;
+            height: 50px;
+        }
     </style>
 </head>
 <body>
-    <a href="https://www.facebook.com" class="tile facebook">Facebook</a>
-    <a href="https://www.twitter.com" class="tile twitter">Twitter</a>
-    <a href="https://www.instagram.com" class="tile instagram">Instagram</a>
-    <a href="https://www.linkedin.com" class="tile linkedin">LinkedIn</a>
-    <a href="https://www.youtube.com" class="tile youtube">YouTube</a>
-    <a href="https://www.snapchat.com" class="tile snapchat">Snapchat</a>
-    <a href="https://www.tiktok.com" class="tile tiktok">TikTok</a>
-    <a href="https://www.pinterest.com" class="tile pinterest">Pinterest</a>
+    <div class="dashboard">
+        <div class="tile"><img src="facebook.png" alt="Facebook"></div>
+        <div class="tile"><img src="twitter.png" alt="Twitter"></div>
+        <div class="tile"><img src="instagram.png" alt="Instagram"></div>
+        <div class="tile"><img src="linkedin.png" alt="LinkedIn"></div>
+        <div class="tile"><img src="youtube.png" alt="YouTube"></div>
+        <div class="tile"><img src="snapchat.png" alt="Snapchat"></div>
+        <div class="tile"><img src="tiktok.png" alt="TikTok"></div>
+        <div class="tile"><img src="reddit.png" alt="Reddit"></div>
+    </div>
 </body>
 </html>
