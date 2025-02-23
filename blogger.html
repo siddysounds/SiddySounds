@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futuristic Social Dashboard</title>
+    <title>Next-Gen Social Dashboard</title>
     <style>
         * {
             margin: 0;
@@ -15,36 +15,48 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background: linear-gradient(to right, #141e30, #243b55);
+            background: radial-gradient(circle at center, #0f2027, #203a43, #2c5364);
             overflow: hidden;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
         .dashboard {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 20px;
             width: 90vw;
             height: 90vh;
             padding: 20px;
+            perspective: 1000px;
         }
         .tile {
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, background 0.3s ease;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease, background 0.5s ease;
             cursor: pointer;
+            transform-style: preserve-3d;
+            position: relative;
         }
         .tile:hover {
-            transform: scale(1.1);
-            background: rgba(255, 255, 255, 0.2);
+            transform: rotateY(20deg) scale(1.1);
+            background: rgba(255, 255, 255, 0.25);
         }
         .tile img {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
+        }
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.9); }
+            100% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+        }
+        .tile:hover {
+            animation: glow 1.5s infinite alternate;
         }
     </style>
 </head>
