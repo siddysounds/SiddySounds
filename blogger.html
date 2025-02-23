@@ -3,58 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Media Tiles</title>
+    <title>Windows-Style Social Media Tiles</title>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #333;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .grid {
+        body {
             display: grid;
-            grid-template-columns: repeat(3, 100px);
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             gap: 10px;
+            height: 100vh;
+            background-color: #1a1a1a;
+            padding: 20px;
         }
         .tile {
-            width: 100px;
-            height: 100px;
             display: flex;
-            justify-content: center;
             align-items: center;
-            font-size: 24px;
+            justify-content: center;
             color: white;
-            font-family: Arial, sans-serif;
-            border-radius: 5px;
-            transition: transform 0.2s ease-in-out;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.2s;
         }
         .tile:hover {
             transform: scale(1.1);
         }
-        .facebook { background-color: #1877f2; }
-        .twitter { background-color: #1da1f2; }
-        .instagram { background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5); }
-        .linkedin { background-color: #0077b5; }
-        .youtube { background-color: #ff0000; }
-        .snapchat { background-color: #fffc00; color: #000; }
-        .tiktok { background-color: #000; color: #fff; }
-        .reddit { background-color: #ff4500; }
-        .pinterest { background-color: #bd081c; }
+        .facebook { background: #1877f2; }
+        .twitter { background: #1da1f2; }
+        .instagram { background: #c13584; }
+        .linkedin { background: #0077b5; }
+        .youtube { background: #ff0000; }
+        .snapchat { background: #fffc00; color: black; }
+        .tiktok { background: #010101; }
+        .pinterest { background: #bd081c; }
     </style>
 </head>
 <body>
-    <div class="grid">
-        <div class="tile facebook">F</div>
-        <div class="tile twitter">T</div>
-        <div class="tile instagram">I</div>
-        <div class="tile linkedin">L</div>
-        <div class="tile youtube">Y</div>
-        <div class="tile snapchat">S</div>
-        <div class="tile tiktok">T</div>
-        <div class="tile reddit">R</div>
-        <div class="tile pinterest">P</div>
-    </div>
+    <a href="https://www.facebook.com" class="tile facebook">Facebook</a>
+    <a href="https://www.twitter.com" class="tile twitter">Twitter</a>
+    <a href="https://www.instagram.com" class="tile instagram">Instagram</a>
+    <a href="https://www.linkedin.com" class="tile linkedin">LinkedIn</a>
+    <a href="https://www.youtube.com" class="tile youtube">YouTube</a>
+    <a href="https://www.snapchat.com" class="tile snapchat">Snapchat</a>
+    <a href="https://www.tiktok.com" class="tile tiktok">TikTok</a>
+    <a href="https://www.pinterest.com" class="tile pinterest">Pinterest</a>
 </body>
 </html>
