@@ -26,15 +26,16 @@
 </head>
 <body>
 
-    <iframe id="video" src="https://www.youtube.com/embed/kiPCEWfPmG4?autoplay=1" 
-            title="YouTube video player" allow="autoplay; fullscreen">
+    <iframe id="video" 
+        src="https://www.youtube.com/embed/kiPCEWfPmG4?autoplay=1&mute=1&loop=1&playlist=kiPCEWfPmG4" 
+        title="YouTube video player" allow="autoplay; fullscreen">
     </iframe>
 
     <script>
-        // Try playing with sound after user interaction
         document.addEventListener('click', function() {
-            const video = document.getElementById('video');
-            video.src += "&mute=0"; // Append mute=0 to unmute the video
+            const iframe = document.getElementById('video');
+            const url = iframe.src.replace("mute=1", "mute=0"); // Change mute=1 to mute=0
+            iframe.src = url; // Reload iframe with sound enabled
         }, { once: true }); // Run only once on first click
     </script>
 
