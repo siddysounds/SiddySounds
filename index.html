@@ -17,46 +17,54 @@
             height: 100vh;
             background-color: black;
         }
-        iframe {
+        #player {
             width: 100vw;
             height: 100vh;
             border: none;
         }
-        .pip-button {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 10px 20px;
-            font-size: 18px;
-            background: #ffcc00;
-            border: none;
-            cursor: pointer;
-        }
     </style>
-</head>
-<body>
-
-    <iframe id="video" 
-        src="https://www.youtube.com/embed/kiPCEWfPmG4?autoplay=1&mute=0&loop=1&playlist=kiPCEWfPmG4" 
-        allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen>
-    </iframe>
-
-    <button class="pip-button" onclick="enablePiP()">Enable PiP Mode</button>
-
     <script>
-        function enablePiP() {
-            let video = document.querySelector("iframe");
+        var player;
 
-            if (document.pictureInPictureEnabled) {
-                video.requestPictureInPicture().catch(error => {
-                    console.log("PiP not allowed: ", error);
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                videoId: 'kiPCEWfPmG4',
+                playerVars: {
+                    autoplay: 1, // Try autoplay
+                    mute: 0, // Attempt to play with sound
+                    loop: 1,
+                    playlist: 'kiPCEWfPmG4'
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            let playPromise = event.target.playVideo();
+
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    event.target.unMute(); // Try to unmute
+                    event.target.setVolume(100);
+                }).catch(error => {
+                    console.log("Autoplay with sound blocked, playing muted instead.");
+                    event.target.mute(); // Keep it muted if blocked
                 });
-            } else {
-                alert("Your browser does not support Picture-in-Picture mode.");
+            }
+        }
+
+        function onPlayerStateChange(event) {
+            if (event.data === YT.PlayerState.ENDED) {
+                player.playVideo(); // Force replay
             }
         }
     </script>
-
+    <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+<body>
+    <div id="player"></div>
 </body>
 </html>
