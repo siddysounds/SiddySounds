@@ -26,9 +26,17 @@
 </head>
 <body>
 
-    <iframe src="https://www.youtube.com/embed/kiPCEWfPmG4?autoplay=1&mute=1&loop=1&playlist=kiPCEWfPmG4" 
+    <iframe id="video" src="https://www.youtube.com/embed/kiPCEWfPmG4?autoplay=1" 
             title="YouTube video player" allow="autoplay; fullscreen">
     </iframe>
+
+    <script>
+        // Try playing with sound after user interaction
+        document.addEventListener('click', function() {
+            const video = document.getElementById('video');
+            video.src += "&mute=0"; // Append mute=0 to unmute the video
+        }, { once: true }); // Run only once on first click
+    </script>
 
 </body>
 </html>
