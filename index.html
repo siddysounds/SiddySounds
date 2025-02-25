@@ -28,15 +28,19 @@
 
     <iframe id="video" 
         src="https://www.youtube.com/embed/kiPCEWfPmG4?autoplay=1&mute=1&loop=1&playlist=kiPCEWfPmG4" 
-        title="YouTube video player" allow="autoplay; fullscreen">
+        title="YouTube video player" allow="autoplay; encrypted-media" allowfullscreen>
     </iframe>
 
     <script>
         document.addEventListener('click', function() {
-            const iframe = document.getElementById('video');
-            const url = iframe.src.replace("mute=1", "mute=0"); // Change mute=1 to mute=0
-            iframe.src = url; // Reload iframe with sound enabled
-        }, { once: true }); // Run only once on first click
+            let iframe = document.getElementById('video');
+            let src = iframe.src;
+            
+            // Check if it's still muted and unmute it
+            if (src.includes("mute=1")) {
+                iframe.src = src.replace("mute=1", "mute=0");
+            }
+        }, { once: true }); // Ensures it runs only once
     </script>
 
 </body>
