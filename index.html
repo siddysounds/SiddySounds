@@ -5,21 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shri Radhe Radhe</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
         }
         iframe {
-            max-width: 100%;
-            border-radius: 10px;
+            width: 100vw;
+            height: 100vh;
+            border: none;
         }
     </style>
 </head>
 <body>
-    
-    <iframe src="https://www.youtube.com/embed/kiPCEWfPmG4" 
-            title="YouTube video player" frameborder="0" allowfullscreen>
+
+    <iframe src="https://www.youtube.com/embed/kiPCEWfPmG4?autoplay=1&mute=1&loop=1&playlist=kiPCEWfPmG4" 
+            title="YouTube video player" allow="autoplay; fullscreen">
     </iframe>
 
 </body>
