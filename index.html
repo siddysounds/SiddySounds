@@ -96,8 +96,8 @@
             width: 100%;
         }
 
-        /* For large screens, set 5 columns */
-        @media (min-width: 1024px) {
+         /* For large screens, set 5 columns */
+        @media (min-width: 768px) {
         .container {
             grid-template-columns: repeat(6, 1fr); /* 5 tiles per row */
             }
@@ -106,7 +106,7 @@
         /* For mobile screens, set 3 columns */
         @media (max-width: 600px) {
         .container {
-            grid-template-columns: repeat(4, 1fr); /* 3 tiles per row */
+            grid-template-columns: repeat(3, 1fr); /* 3 tiles per row */
             }
         }
 
