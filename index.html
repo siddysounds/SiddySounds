@@ -377,7 +377,7 @@
         <p>&copy; 2025 SidxSuri | All Rights Reserved</p>
     </footer>
 
-<script>
+    <script>
         let allPosts = [];
         let currentPage = 0;
         const postsPerPage = 5;
@@ -403,7 +403,7 @@
             let postsHtml = "";
 
             allPosts.slice(start, end).forEach(post => {
-                postsHtml += 
+                postsHtml += `
                     <div class="blog-post">
                         <div class="blog-post-header">
                             <h2>${post.title}</h2>
@@ -411,7 +411,7 @@
                         </div>
                         <p>${post.content}</p>
                     </div>
-                ;
+                `;
             });
 
             document.getElementById("blog-posts").innerHTML = postsHtml;
@@ -426,6 +426,8 @@
     </script>
 
     <script src="https://sidxsuri.blogspot.com/feeds/posts/default?alt=json-in-script&callback=fetchBlogPosts"></script>
+
+
 
 </body>
 </html>
