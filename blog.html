@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="icon.png">
-    <title>SidxSuri - My Blog's</title>
+    <title>SidxSuri - My Blog</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -122,9 +122,9 @@
 
             allPosts = data.feed.entry.map(post => ({
                 title: post.title.$t,
-                content: post.content ? post.content.$t.substring(0, 200) + "..." : "No content available.",
+                content: post.content ? post.content.$t : "No content available.",
                 publishedDate: new Date(post.published.$t).toDateString(),
-                link: post.link.find(l => l.rel === "alternate").href // Get blog post link
+                link: post.link.find(l => l.rel === "alternate").href // Get blog post link for commenting
             }));
 
             displayPosts();
@@ -143,7 +143,7 @@
                             <span class="blog-date">${post.publishedDate}</span>
                         </div>
                         <p>${post.content}</p>
-                        <a class="read-more" href="${post.link}" target="_blank">Read More</a>
+                        <a class="read-more" href="${post.link}" target="_blank">Comment on Blogger</a>
                     </div>
                 `;
             });
