@@ -377,55 +377,107 @@
         <p>&copy; 2025 SidxSuri | All Rights Reserved</p>
     </footer>
 
-    <script>
-        let allPosts = [];
-        let currentPage = 0;
-        const postsPerPage = 5;
+   <script>
+    let allPosts = [];
+    let currentPage = 0;
+    const postsPerPage = 5;
 
-        function fetchBlogPosts(data) {
-            if (!data.feed || !data.feed.entry) {
-                document.getElementById("blog-posts").innerHTML = "<p>No posts found.</p>";
-                return;
-            }
-
-            allPosts = data.feed.entry.map(post => ({
-                title: post.title.$t,
-                content: post.content ? post.content.$t : "No content available.",
-                publishedDate: new Date(post.published.$t).toDateString()
-            }));
-
-            displayPosts();
+    function fetchBlogPosts(data) {
+        if (!data.feed || !data.feed.entry) {
+            document.getElementById("blog-posts").innerHTML = "<p>No posts found.</p>";
+            return;
         }
 
-        function displayPosts() {
-            let start = currentPage * postsPerPage;
-            let end = start + postsPerPage;
-            let postsHtml = "";
+        allPosts = data.feed.entry.map((post, index) => ({
+            id: `post${index}`,  // Unique ID for each post
+            title: post.title.$t,
+            content: post.content ? post.content.$t : "No content available.",
+            publishedDate: new Date(post.published.$t).toDateString(),
+            likes: localStorage.getItem(`likes-${index}`) || 0,  // Store likes in localStorage
+            comments: JSON.parse(localStorage.getItem(`comments-${index}`)) || []  // Store comments in localStorage
+        }));
 
-            allPosts.slice(start, end).forEach(post => {
-                postsHtml += `
-                    <div class="blog-post">
-                        <div class="blog-post-header">
-                            <h2>${post.title}</h2>
-                            <span class="blog-date">${post.publishedDate}</span>
-                        </div>
-                        <p>${post.content}</p>
+        displayPosts();
+    }
+
+    function displayPosts() {
+        let start = currentPage * postsPerPage;
+        let end = start + postsPerPage;
+        let postsHtml = "";
+
+        allPosts.slice(start, end).forEach((post, index) => {
+            postsHtml += `
+                <div class="blog-post" id="${post.id}">
+                    <div class="blog-post-header">
+                        <h2>${post.title}</h2>
+                        <span class="blog-date">${post.publishedDate}</span>
                     </div>
-                `;
+                    <p>${post.content}</p>
+                    <div class="blog-post-footer">
+                        <button class="like-btn" data-post-id="${post.id}">
+                            <i class="fas fa-thumbs-up"></i> <span class="like-count">${post.likes}</span> Likes
+                        </button>
+                        <button class="comment-btn" data-post-id="${post.id}">Comment</button>
+                    </div>
+                    <div class="comments-section">
+                        <input type="text" class="comment-input" placeholder="Write a comment..." data-post-id="${post.id}">
+                        <button class="submit-comment" data-post-id="${post.id}">Post</button>
+                        <div class="comments-list" id="comments-${post.id}">
+                            ${post.comments.map(comment => `<p>${comment}</p>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        document.getElementById("blog-posts").innerHTML = postsHtml;
+        document.getElementById("prevBtn").disabled = currentPage === 0;
+        document.getElementById("nextBtn").disabled = end >= allPosts.length;
+
+        addEventListeners();
+    }
+
+    function addEventListeners() {
+        document.querySelectorAll(".like-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const postId = btn.getAttribute("data-post-id");
+                handleLike(postId);
             });
+        });
 
-            document.getElementById("blog-posts").innerHTML = postsHtml;
-            document.getElementById("prevBtn").disabled = currentPage === 0;
-            document.getElementById("nextBtn").disabled = end >= allPosts.length;
-        }
+        document.querySelectorAll(".submit-comment").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const postId = btn.getAttribute("data-post-id");
+                const commentInput = document.querySelector(`[data-post-id="${postId}"].comment-input`);
+                handleComment(postId, commentInput.value);
+                commentInput.value = "";  // Clear input after posting
+            });
+        });
+    }
 
-        function changePage(direction) {
-            currentPage += direction;
-            displayPosts();
-        }
-    </script>
+    function handleLike(postId) {
+        let post = allPosts.find(p => p.id === postId);
+        post.likes++;
+        localStorage.setItem(`likes-${postId}`, post.likes);
+        displayPosts();
+    }
 
-    <script src="https://sidxsuri.blogspot.com/feeds/posts/default?alt=json-in-script&callback=fetchBlogPosts"></script>
+    function handleComment(postId, comment) {
+        if (!comment.trim()) return;
+
+        let post = allPosts.find(p => p.id === postId);
+        post.comments.push(comment);
+        localStorage.setItem(`comments-${postId}`, JSON.stringify(post.comments));
+        displayPosts();
+    }
+
+    function changePage(direction) {
+        currentPage += direction;
+        displayPosts();
+    }
+</script>
+
+<script src="https://sidxsuri.blogspot.com/feeds/posts/default?alt=json-in-script&callback=fetchBlogPosts"></script>
 
 </body>
 </html>
