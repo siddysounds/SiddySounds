@@ -268,31 +268,7 @@
         <div class="tile"><a href="blog.html"><i class="fas fa-rss"></i><p>Blog</p></a></div>
     </div>
 
-    <!-- Stats Section -->
-    <div class="stats-container" style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
-        <div class="stats" style="padding: 20px; background: rgba(255, 255, 255, 0.2); border-radius: 10px; font-size: 18px; width: 220px; text-align: center; transition: 0.3s;">
-            <p><i class="fas fa-user"></i> Unique Visitors</p>
-            <p><span id="unique-visitors" style="font-size: 18px; font-weight: bold; transition: 0.3s; display: inline-block;">Loading...</span></p>
-        </div>
-        <div class="stats" style="padding: 20px; background: rgba(255, 255, 255, 0.2); border-radius: 10px; font-size: 18px; width: 220px; text-align: center; transition: 0.3s;">
-            <p><i class="fas fa-chart-line"></i> Total Visits</p>
-            <p><span id="total-visits" style="font-size: 18px; font-weight: bold; transition: 0.3s; display: inline-block;">Loading...</span></p>
-        </div>
-    </div>
-
-    <!-- Weather Section -->
-    <div class="weather-container">
-        <div id="weather-tile" class="stats">
-            <p><i class="fas fa-cloud-sun"></i> Weather at my location</p>
-            <p><span id="weather-info" class="loading-spinner">Loading...</span></p>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>For more information, please refer to <a href="privacy.html" class="underline-link">Privacy Policy</a> and <a href="cookies.html" class="underline-link">Cookie Policy</a></p>
-        <p>&copy; 2025 SidxSuri | All Rights Reserved</p>
-    </footer>
+    
 
     <style>
         .blog-container {
@@ -360,6 +336,32 @@
         <button id="prevBtn" onclick="changePage(-1)" disabled>Previous</button>
         <button id="nextBtn" onclick="changePage(1)">Next</button>
     </div>
+
+    <!-- Stats Section -->
+    <div class="stats-container" style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
+        <div class="stats" style="padding: 20px; background: rgba(255, 255, 255, 0.2); border-radius: 10px; font-size: 18px; width: 220px; text-align: center; transition: 0.3s;">
+            <p><i class="fas fa-user"></i> Unique Visitors</p>
+            <p><span id="unique-visitors" style="font-size: 18px; font-weight: bold; transition: 0.3s; display: inline-block;">Loading...</span></p>
+        </div>
+        <div class="stats" style="padding: 20px; background: rgba(255, 255, 255, 0.2); border-radius: 10px; font-size: 18px; width: 220px; text-align: center; transition: 0.3s;">
+            <p><i class="fas fa-chart-line"></i> Total Visits</p>
+            <p><span id="total-visits" style="font-size: 18px; font-weight: bold; transition: 0.3s; display: inline-block;">Loading...</span></p>
+        </div>
+    </div>
+
+    <!-- Weather Section -->
+    <div class="weather-container">
+        <div id="weather-tile" class="stats">
+            <p><i class="fas fa-cloud-sun"></i> Weather at my location</p>
+            <p><span id="weather-info" class="loading-spinner">Loading...</span></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>For more information, please refer to <a href="privacy.html" class="underline-link">Privacy Policy</a> and <a href="cookies.html" class="underline-link">Cookie Policy</a></p>
+        <p>&copy; 2025 SidxSuri | All Rights Reserved</p>
+    </footer>
 
     <script>
         let allPosts = [];
