@@ -61,6 +61,19 @@
             margin-left: 15px;
             white-space: nowrap;
         }
+        .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .read-more:hover {
+            background: #0056b3;
+        }
         .pagination {
             margin-top: 20px;
         }
@@ -109,8 +122,9 @@
 
             allPosts = data.feed.entry.map(post => ({
                 title: post.title.$t,
-                content: post.content ? post.content.$t : "No content available.",
-                publishedDate: new Date(post.published.$t).toDateString()
+                content: post.content ? post.content.$t.substring(0, 200) + "..." : "No content available.",
+                publishedDate: new Date(post.published.$t).toDateString(),
+                link: post.link.find(l => l.rel === "alternate").href // Get blog post link
             }));
 
             displayPosts();
@@ -129,6 +143,7 @@
                             <span class="blog-date">${post.publishedDate}</span>
                         </div>
                         <p>${post.content}</p>
+                        <a class="read-more" href="${post.link}" target="_blank">Read More</a>
                     </div>
                 `;
             });
