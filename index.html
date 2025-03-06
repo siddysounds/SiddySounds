@@ -391,7 +391,8 @@
             allPosts = data.feed.entry.map(post => ({
                 title: post.title.$t,
                 content: post.content ? post.content.$t : "No content available.",
-                publishedDate: new Date(post.published.$t).toDateString()
+                publishedDate: new Date(post.published.$t).toDateString(),
+                link: post.link.find(l => l.rel === "alternate").href // Get blog post link for commenting
             }));
 
             displayPosts();
@@ -410,6 +411,7 @@
                             <span class="blog-date">${post.publishedDate}</span>
                         </div>
                         <p>${post.content}</p>
+                        <a class="read-more" href="${post.link}" target="_blank">Comment on Blogger</a>
                     </div>
                 `;
             });
@@ -426,8 +428,6 @@
     </script>
 
     <script src="https://sidxsuri.blogspot.com/feeds/posts/default?alt=json-in-script&callback=fetchBlogPosts"></script>
-
-
 
 </body>
 </html>
