@@ -1,461 +1,583 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Siddy Sounds">
+    <meta name="keywords" content="SiddySounds Siddy">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Follow Sid Suri on social media and stay updated with his latest content, blog posts, and insights on technology and life.">    <meta name="keywords" content="Sid Suri, connect with Sid, social media, Instagram, Facebook, LinkedIn, Twitter, YouTube, TikTok, social platforms">
-    <meta name="author" content="Sid Suri">
-    <meta property="og:title" content="SiddySounds - Connect With Me">
-    <meta property="og:description" content="Connect with Sid Suri across multiple platforms including Facebook, Instagram, LinkedIn, Twitter, and more.">
-    <meta property="og:image" content="your-profile-image.jpg">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.siddysounds.com">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SidxSuri - Connect With Me">
-    <meta name="twitter:description" content="Connect with Sid Suri across multiple platforms including Facebook, Instagram, LinkedIn, Twitter, and more.">
-    <meta name="twitter:image" content="your-profile-image.jpg">
-    <meta name="robots" content="index, follow">
-    <title>Connect with Sid Suri - Social Media, Blog, and More</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!--<script src="https://kit.fontawesome.com/6c78c99a78.js" crossorigin="anonymous"></script> -->
-    <link rel="icon" type="image/x-icon" href="icon.png">
-    <link rel="canonical" href="https://www.sidxsuri.com">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Sid Suri",
-      "url": "https://www.siddysounds.com",
-      "sameAs": [
-        "https://www.facebook.com/siddysounds",
-        "https://www.instagram.com/siddysounds",
-        "https://www.twitter.com/siddysounds",
-        "https://www.linkedin.com/in/siddysounds",
-        "https://www.youtube.com/@siddysounds"
-          ]
-    }
-    </script>
-    
-    <!-- Google Analytics -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4419115928988096"
-     crossorigin="anonymous"></script>
-<!-- SidxSuri 
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-4419115928988096"
-     data-ad-slot="2939028689"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>-->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-25HPYYD2GT"></script>
-    <script type="module" src="google_analytics.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Siddy Sounds</title>
 
-    <script src="weather_script.js"></script>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Firebase Script -->
-    <script type="module" src="firebase_script.js"></script>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            background: black;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            text-align: center;
-            padding: 20px;
-        }
-
-        /* Profile Section */
-        .profile-section {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 3px solid #fff;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-            margin-bottom: 10px;
-            transition: transform 0.3s;
-        }
-        .profile-pic:hover {
-            transform: scale(1.1);
-        }
-        .profile-section h1 {
-            font-size: 24px;
-            margin-bottom: 5px;
-        }
-        .profile-section p {
-            font-size: 16px;
-            color: #ccc;
-        }
-
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 10px;
-            padding: 20px;
-            max-width: 720px;
-            width: 100%;
-        }
-
-         /* For large screens, set 5 columns */
-        @media (min-width: 768px) {
-        .container {
-            grid-template-columns: repeat(6, 1fr); /* 5 tiles per row */
-            }
-        }
-
-        /* For mobile screens, set 3 columns */
-        @media (max-width: 600px) {
-        .container {
-            grid-template-columns: repeat(3, 1fr); /* 3 tiles per row */
-            }
-        }
-
-        
-        .tile {
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .tile:hover {
-            transform: scale(1.1);
-            background: rgba(0, 0, 0, 0.6); /* Dark overlay effect */
-        }
-        .tile:hover p {
-            display: none;
-        }
-        .tile i {
-            font-size: 40px;
-            margin-bottom: 5px;
-        }
-        .tile p {
-            margin-top: 5px;
-            font-size: 14px;
-            font-weight: bold;
-        }
-        .stats {
-            margin-top: 15px;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            font-size: 14px;
-            width: 100%;
-            max-width: 300px;
-        }
-
-        .blog-container {
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #444;
-            border-radius: 10px;
-            box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.2);
-            background: #222;
-        }
-        .blog-post-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .blog-post {
-            margin-bottom: 30px;
-            padding: 15px;
-            background: #333;
-            border-radius: 5px;
-            text-align: left;
-            box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.1);
-        }
-        .blog-post h2 {
-            font-size: 22px;
-            margin: 0;
-            color: #ffffff;
-            flex-grow: 1;
-        }
-        .blog-post p {
-            font-size: 16px;
-            color: #ddd;
-        }
-        .blog-date {
-            font-size: 14px;
-            color: #bbb;
-            margin-left: 15px;
-            white-space: nowrap;
-        }
-        .read-more {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 12px;
-            background: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-        .read-more:hover {
-            background: #0056b3;
-        }
-        .pagination {
-            margin-top: 20px;
-        }
-        .pagination button {
-            background: #555;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            margin: 5px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .pagination button:disabled {
-            background: #888;
-            cursor: not-allowed;
-        }
-        footer {
-            margin-top: 15px;
-            font-size: 12px;
-            text-align: center;
-            padding: 10px;
-            width: 100%;
-        }
-        a {
-            color: white;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: none;
-        }
-
-        .weather-container {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            padding: 0 10px;
-        }
-
-        #weather-tile {
-            width: 100%;
-            max-width: 460px;
-            padding: 20px;
-            border-radius: 10px;
-            font-size: 20px;
-            text-align: center;
-            transition: 0.3s;
-        }
-
-        header {
-            position: sticky;
-            top: 0;
-            background: #000;
-            z-index: 100;
-        }
-
-        .underline-link {
-    text-decoration: underline;
-    color: inherit; /* Ensure the link uses the inherited text color */
-}
-
-.underline-link:active,
-.underline-link:focus {
-    color: inherit; /* Prevent color change on click/focus */
-    text-decoration: underline; /* Keep the underline */
-        }
-.loading-spinner {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    border: 4px solid #fff;
-    border-top: 4px solid transparent;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-        /* Media query for mobile-friendly design */
-        @media (max-width: 600px) {
-            .stats-container {
-                flex-direction: column;  /* Stack them vertically */
-                align-items: center;
-                gap: 20px; /* Add gap between stats sections */
-            }
-
-            .stats {
-                width: 100%;  /* Make each section take up the full width */
-                max-width: 460px;  /* Set max-width to 460px */
-                margin-bottom: 20px;  /* Space between stats sections */
-            }
-
-            /* Weather Tile */
-            .weather-container {
-                width: 100%;  /* Ensure weather tile takes full width */
-                padding: 0 10px;  /* Add horizontal padding */
-            }
-
-            #weather-tile {
-                width: 100%;  /* Make the weather tile full-width */
-                max-width: 460px;  /* Set max-width to 460px */
-                padding: 20px;
-                text-align: center;
-                font-size: 16px;  /* Adjust font size for mobile */
-            }
-
-            #weather-info {
-                font-size: 16px;  /* Ensure proper font size for weather info */
-                font-weight: bold;  /* Make weather info bold */
-                transition: 0.3s; /* Smooth transition effect */
-            }
-        }
-        /* Social media tile background colors */
-        .tile:nth-child(1) { background: #3b5998; }
-        .tile:nth-child(2) { background: #E1306C; }
-        .tile:nth-child(3) { background: #1DA1F2; }
-        .tile:nth-child(4) { background: #0077B5; }
-        .tile:nth-child(5) { background: #FF0000; }
-        .tile:nth-child(6) { background: #FF0050; }
-        .tile:nth-child(7) { background: #FFFC00; } /* Snapchat - Yellow background */
-        .tile:nth-child(7) p { color: #020202; } /* Snapchat - Black text */
-        .tile:nth-child(8) { background: #000000; color: white; border: 0.5px solid rgba(255, 255, 255, 0.2); /* White border added */}
-        .tile:nth-child(9) { background: #6441A5; }
-        .tile:nth-child(10) { background: #606060; }
-        .tile:nth-child(11) { background: #12100E; border: 0.5px solid rgba(255, 255, 255, 0.2); /* White border added */} /* Medium */
-        .tile:nth-child(12) { background: #FFA500; } /* blog */
-        .stats:hover span { transform: scale(1.2); }
-    </style>
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/barfiller.css" type="text/css">
+    <link rel="stylesheet" href="css/nowfont.css" type="text/css">
+    <link rel="stylesheet" href="css/rockville.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
+
 <body>
-    <!-- Profile Section -->
-    <div class="profile-section">
-        <img src="your-profile-image.webp" alt="Sid Suri" class="profile-pic" loading="lazy">
-        <h1>Sid Suri</h1>
-        <p>Connect With Me</p>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
     </div>
 
-    <!-- Social Media Tiles -->
-    <div class="container">
-        <div class="tile"><a href="https://www.facebook.com/siddysounds" target="_blank"><i class="fab fa-facebook"></i><p>Facebook</p></a></div>
-        <div class="tile"><a href="https://www.instagram.com/sidxsuri" target="_blank"><i class="fab fa-instagram"></i><p>Instagram</p></a></div>
-        <div class="tile"><a href="https://www.twitter.com/siddysounds" target="_blank"><i class="fab fa-twitter"></i><p>Twitter</p></a></div>
-        <div class="tile"><a href="https://www.linkedin.com/in/siddysounds" target="_blank"><i class="fab fa-linkedin"></i><p>LinkedIn</p></a></div>
-        <div class="tile"><a href="https://www.youtube.com/@siddysounds" target="_blank"><i class="fab fa-youtube"></i><p>YouTube</p></a></div>
-        <div class="tile"><a href="https://www.tiktok.com/@siddy.sounds" target="_blank"><i class="fab fa-tiktok"></i><p>TikTok</p></a></div>
-        <div class="tile"><a href="https://www.snapchat.com/add/siddysounds" target="_blank"><i class="fab fa-snapchat"></i><p>Snapchat</p></a></div>
-        <div class="tile"><a href="https://www.threads.net/@siddysounds" target="_blank"><i class="fab fa-instagram"></i><p>Threads</p></a></div>
-        <div class="tile"><a href="https://www.twitch.tv/siddy_sounds" target="_blank"><i class="fab fa-twitch"></i><p>Twitch</p></a></div>
-        <div class="tile"><a href="mailto:mail@sidxsuri.com"><i class="fas fa-envelope"></i><p>Email</p></a></div>
-        <div class="tile"><a href="https://medium.com/@siddysounds" target="_blank"><i class="fab fa-medium"></i><p>Medium</p></a></div>
-        <div class="tile"><a href="blog.html"><i class="fas fa-rss"></i><p>Blog</p></a></div>
-    </div>
-</br>
-    <h3>My Stories & Thoughts</h3>
-</br>
-
-    <div class="blog-container" id="blog-posts">
-        <p>Loading blog posts...</p>
-    </div>
-
-    <div class="pagination">
-        <button id="prevBtn" onclick="changePage(-1)" disabled>Previous</button>
-        <button id="nextBtn" onclick="changePage(1)">Next</button>
-    </div>
-
-    <!-- Stats Section -->
-    <div class="stats-container" style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
-        <div class="stats" style="padding: 20px; background: rgba(255, 255, 255, 0.2); border-radius: 10px; font-size: 18px; width: 220px; text-align: center; transition: 0.3s;">
-            <p><i class="fas fa-user"></i> Unique Visitors</p>
-            <p><span id="unique-visitors" style="font-size: 18px; font-weight: bold; transition: 0.3s; display: inline-block;">Loading...</span></p>
-        </div>
-        <div class="stats" style="padding: 20px; background: rgba(255, 255, 255, 0.2); border-radius: 10px; font-size: 18px; width: 220px; text-align: center; transition: 0.3s;">
-            <p><i class="fas fa-chart-line"></i> Total Visits</p>
-            <p><span id="total-visits" style="font-size: 18px; font-weight: bold; transition: 0.3s; display: inline-block;">Loading...</span></p>
-        </div>
-    </div>
-
-    <!-- Weather Section -->
-    <div class="weather-container">
-        <div id="weather-tile" class="stats">
-            <p><i class="fas fa-cloud-sun"></i> Weather at my location</p>
-            <p><span id="weather-info" class="loading-spinner">Loading...</span></p>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>For more information, please refer to <a href="privacy.html" class="underline-link">Privacy Policy</a> and <a href="cookies.html" class="underline-link">Cookie Policy</a></p>
-        <p>&copy; 2025 SiddySounds | All Rights Reserved</p>
-    </footer>
-
-    <script>
-        let allPosts = [];
-        let currentPage = 0;
-        const postsPerPage = 5;
-
-        function fetchBlogPosts(data) {
-            if (!data.feed || !data.feed.entry) {
-                document.getElementById("blog-posts").innerHTML = "<p>No posts found.</p>";
-                return;
-            }
-
-            allPosts = data.feed.entry.map(post => ({
-                title: post.title.$t,
-                content: post.content ? post.content.$t : "No content available.",
-                publishedDate: new Date(post.published.$t).toDateString(),
-                link: post.link.find(l => l.rel === "alternate").href // Get blog post link for commenting
-            }));
-
-            displayPosts();
-        }
-
-        function displayPosts() {
-            let start = currentPage * postsPerPage;
-            let end = start + postsPerPage;
-            let postsHtml = "";
-
-            allPosts.slice(start, end).forEach(post => {
-                postsHtml += `
-                    <div class="blog-post">
-                        <div class="blog-post-header">
-                            <h2>${post.title}</h2>
-                            <span class="blog-date">${post.publishedDate}</span>
-                        </div>
-                        <p>${post.content}</p>
-                        <a class="read-more" href="${post.link}" target="_blank">Comment on Blogger</a>
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2">
+                    <div class="header__logo">
+                        <a href="./index.html"><div class="headlogo">Siddy Sounds</div></a>
                     </div>
-                `;
-            });
+                </div>
+                <div class="col-lg-10 col-md-10">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li class="active"><a href="./index.html">Home</a></li>
+                                <li><a href="./about.html">About</a></li>
+                                <li><a href="./videos.html">Videos</a></li>
+                                <li><a href="./blog.html">Blog</a></li>
+                                <li><a href="./contact.html">Contact</a></li>
+                            </ul>
+                        </nav>
+                        <div class="header__right__social">
+                            <a target="_blank" href="https://www.facebook.com/siddysounds"><i class="fa fa-facebook"></i></a>
+                            <a target="_blank" href="https://www.instagram.com/sidxsuri"><i class="fa fa-instagram"></i></a>
+                            <a target="_blank" href="https://www.twitter.com/siddysounds"><i class="fa fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <!-- Header Section End -->
 
-            document.getElementById("blog-posts").innerHTML = postsHtml;
-            document.getElementById("prevBtn").disabled = currentPage === 0;
-            document.getElementById("nextBtn").disabled = end >= allPosts.length;
-        }
+    <!-- Hero Section Begin -->
+    <section class="hero spad set-bg" data-setbg="home.png">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hero__text">
+                        <span>New Song</span>
+                        <h1>Feel the heart beats</h1>
+                        <p>“Har Saans Mein Tera Pyaar” is a soulful melody expressing unconditional love and unwavering devotion. It beautifully conveys a promise to stay true, no matter the circumstances.</p>
+                        <a href="https://www.youtube.com/watch?v=rJ1LwOE1uno" class="play-btn video-popup"><i class="fa fa-play"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="linear__icon">
+            <i class="fa fa-angle-double-down"></i>
+        </div>
+    </section>
+    <!-- Hero Section End -->
 
-        function changePage(direction) {
-            currentPage += direction;
-            displayPosts();
-        }
-    </script>
+    <!-- Track Section Begin -->
+    <section class="track spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="section-title">
+                        <h2>Latest tracks</h2>
+                        <h1>Music podcast</h1>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="track__all">
+                        <a href="https://www.youtube.com/@SiddySounds" class="primary-btn border-btn">Subscribe on YouTube</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-7 p-0">
+                    <div class="track__content nice-scroll">
+                        <div class="single_player_container">
+                            <h4>Talli Pyaar</h4>
+                            <div class="jp-jplayer jplayer" data-ancestor=".jp_container_1"
+                                data-url="Talli Pyaar.mp3"></div>
+                            <div class="jp-audio jp_container_1" role="application" aria-label="media player">
+                                <div class="jp-gui jp-interface">
+                                    <!-- Player Controls -->
+                                    <div class="player_controls_box">
+                                        <button class="jp-play player_button" tabindex="0"></button>
+                                    </div>
+                                    <!-- Progress Bar -->
+                                    <div class="player_bars">
+                                        <div class="jp-progress">
+                                            <div class="jp-seek-bar">
+                                                <div>
+                                                    <div class="jp-play-bar">
+                                                        <div class="jp-current-time" role="timer" aria-label="time">0:00
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="jp-duration ml-auto" role="timer" aria-label="duration">00:00</div>
+                                    </div>
+                                    <!-- Volume Controls -->
+                                    <div class="jp-volume-controls">
+                                        <button class="jp-mute" tabindex="0"><i
+                                                class="fa fa-volume-down"></i></button>
+                                        <div class="jp-volume-bar">
+                                            <div class="jp-volume-bar-value" style="width: 0%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single_player_container">
+                            <h4>Har Saans Mein Tera Pyaar | Tere Pyaar Ka Asar</h4>
+                            <div class="jp-jplayer jplayer" data-ancestor=".jp_container_2"
+                                data-url="Har Saas.mp3"></div>
+                            <div class="jp-audio jp_container_2" role="application" aria-label="media player">
+                                <div class="jp-gui jp-interface">
+                                    <!-- Player Controls -->
+                                    <div class="player_controls_box">
+                                        <button class="jp-play player_button" tabindex="0"></button>
+                                    </div>
+                                    <!-- Progress Bar -->
+                                    <div class="player_bars">
+                                        <div class="jp-progress">
+                                            <div class="jp-seek-bar">
+                                                <div>
+                                                    <div class="jp-play-bar">
+                                                        <div class="jp-current-time" role="timer" aria-label="time">0:00
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="jp-duration ml-auto" role="timer" aria-label="duration">00:00</div>
+                                    </div>
+                                    <!-- Volume Controls -->
+                                    <div class="jp-volume-controls">
+                                        <button class="jp-mute" tabindex="0"><i
+                                                class="fa fa-volume-down"></i></button>
+                                        <div class="jp-volume-bar">
+                                            <div class="jp-volume-bar-value" style="width: 0%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single_player_container">
+                            <h4>Pehla Pyaar (Official Rap)</h4>
+                            <div class="jp-jplayer jplayer" data-ancestor=".jp_container_3"
+                                data-url="Pyar.mp3"></div>
+                            <div class="jp-audio jp_container_3" role="application" aria-label="media player">
+                                <div class="jp-gui jp-interface">
+                                    <!-- Player Controls -->
+                                    <div class="player_controls_box">
+                                        <button class="jp-play player_button" tabindex="0"></button>
+                                    </div>
+                                    <!-- Progress Bar -->
+                                    <div class="player_bars">
+                                        <div class="jp-progress">
+                                            <div class="jp-seek-bar">
+                                                <div>
+                                                    <div class="jp-play-bar">
+                                                        <div class="jp-current-time" role="timer" aria-label="time">0:00
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="jp-duration ml-auto" role="timer" aria-label="duration">00:00</div>
+                                    </div>
+                                    <!-- Volume Controls -->
+                                    <div class="jp-volume-controls">
+                                        <button class="jp-mute" tabindex="0"><i
+                                                class="fa fa-volume-down"></i></button>
+                                        <div class="jp-volume-bar">
+                                            <div class="jp-volume-bar-value" style="width: 0%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single_player_container">
+                            <h4>She Was Disturbed (But Why Disturb Me Too?) </h4>
+                            <div class="jp-jplayer jplayer" data-ancestor=".jp_container_4"
+                                data-url="She was disturbed.mp3"></div>
+                            <div class="jp-audio jp_container_4" role="application" aria-label="media player">
+                                <div class="jp-gui jp-interface">
+                                    <!-- Player Controls -->
+                                    <div class="player_controls_box">
+                                        <button class="jp-play player_button" tabindex="0"></button>
+                                    </div>
+                                    <!-- Progress Bar -->
+                                    <div class="player_bars">
+                                        <div class="jp-progress">
+                                            <div class="jp-seek-bar">
+                                                <div>
+                                                    <div class="jp-play-bar">
+                                                        <div class="jp-current-time" role="timer" aria-label="time">0:00
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="jp-duration ml-auto" role="timer" aria-label="duration">00:00</div>
+                                    </div>
+                                    <!-- Volume Controls -->
+                                    <div class="jp-volume-controls">
+                                        <button class="jp-mute" tabindex="0"><i
+                                                class="fa fa-volume-down"></i></button>
+                                        <div class="jp-volume-bar">
+                                            <div class="jp-volume-bar-value" style="width: 0%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single_player_container">
+                            <h4>Mera Khwab | Motivational Rap</h4>
+                            <div class="jp-jplayer jplayer" data-ancestor=".jp_container_5"
+                                data-url="Khawab.mp3"></div>
+                            <div class="jp-audio jp_container_5" role="application" aria-label="media player">
+                                <div class="jp-gui jp-interface">
+                                    <!-- Player Controls -->
+                                    <div class="player_controls_box">
+                                        <button class="jp-play player_button" tabindex="0"></button>
+                                    </div>
+                                    <!-- Progress Bar -->
+                                    <div class="player_bars">
+                                        <div class="jp-progress">
+                                            <div class="jp-seek-bar">
+                                                <div>
+                                                    <div class="jp-play-bar">
+                                                        <div class="jp-current-time" role="timer" aria-label="time">0:00
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="jp-duration ml-auto" role="timer" aria-label="duration">00:00</div>
+                                    </div>
+                                    <!-- Volume Controls -->
+                                    <div class="jp-volume-controls">
+                                        <button class="jp-mute" tabindex="0"><i
+                                                class="fa fa-volume-down"></i></button>
+                                        <div class="jp-volume-bar">
+                                            <div class="jp-volume-bar-value" style="width: 0%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single_player_container">
+                            <h4>Chaddi Rap - The Ultimate Chill Anthem</h4>
+                            <div class="jp-jplayer jplayer" data-ancestor=".jp_container_6"
+                                data-url="Chaddi.mp3"></div>
+                            <div class="jp-audio jp_container_6" role="application" aria-label="media player">
+                                <div class="jp-gui jp-interface">
+                                    <!-- Player Controls -->
+                                    <div class="player_controls_box">
+                                        <button class="jp-play player_button" tabindex="0"></button>
+                                    </div>
+                                    <!-- Progress Bar -->
+                                    <div class="player_bars">
+                                        <div class="jp-progress">
+                                            <div class="jp-seek-bar">
+                                                <div>
+                                                    <div class="jp-play-bar">
+                                                        <div class="jp-current-time" role="timer" aria-label="time">0:00
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="jp-duration ml-auto" role="timer" aria-label="duration">00:00</div>
+                                    </div>
+                                    <!-- Volume Controls -->
+                                    <div class="jp-volume-controls">
+                                        <button class="jp-mute" tabindex="0"><i
+                                                class="fa fa-volume-down"></i></button>
+                                        <div class="jp-volume-bar">
+                                            <div class="jp-volume-bar-value" style="width: 0%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single_player_container">
+                            <h4>Jatt Flow (Official Audio) | Desi Street Anthem</h4>
+                            <div class="jp-jplayer jplayer" data-ancestor=".jp_container_7"
+                                data-url="Punjabi-3.mp3"></div>
+                            <div class="jp-audio jp_container_7" role="application" aria-label="media player">
+                                <div class="jp-gui jp-interface">
+                                    <!-- Player Controls -->
+                                    <div class="player_controls_box">
+                                        <button class="jp-play player_button" tabindex="0"></button>
+                                    </div>
+                                    <!-- Progress Bar -->
+                                    <div class="player_bars">
+                                        <div class="jp-progress">
+                                            <div class="jp-seek-bar">
+                                                <div>
+                                                    <div class="jp-play-bar">
+                                                        <div class="jp-current-time" role="timer" aria-label="time">0:00
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="jp-duration ml-auto" role="timer" aria-label="duration">00:00</div>
+                                    </div>
+                                    <!-- Volume Controls -->
+                                    <div class="jp-volume-controls">
+                                        <button class="jp-mute" tabindex="0"><i
+                                                class="fa fa-volume-down"></i></button>
+                                        <div class="jp-volume-bar">
+                                            <div class="jp-volume-bar-value" style="width: 0%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single_player_container">
+                            <h4>Dard Se Sher Tak | The Rise of a Beast </h4>
+                            <div class="jp-jplayer jplayer" data-ancestor=".jp_container_8"
+                                data-url="Jammu.mp3"></div>
+                            <div class="jp-audio jp_container_8" role="application" aria-label="media player">
+                                <div class="jp-gui jp-interface">
+                                    <!-- Player Controls -->
+                                    <div class="player_controls_box">
+                                        <button class="jp-play player_button" tabindex="0"></button>
+                                    </div>
+                                    <!-- Progress Bar -->
+                                    <div class="player_bars">
+                                        <div class="jp-progress">
+                                            <div class="jp-seek-bar">
+                                                <div>
+                                                    <div class="jp-play-bar">
+                                                        <div class="jp-current-time" role="timer" aria-label="time">0:00
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="jp-duration ml-auto" role="timer" aria-label="duration">00:00</div>
+                                    </div>
+                                    <!-- Volume Controls -->
+                                    <div class="jp-volume-controls">
+                                        <button class="jp-mute" tabindex="0"><i
+                                                class="fa fa-volume-down"></i></button>
+                                        <div class="jp-volume-bar">
+                                            <div class="jp-volume-bar-value" style="width: 0%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 p-0">
+                    <div class="track__pic">
+                        <img src="music.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Track Section End -->
+    
+    <!-- Video Section Begin -->
+    <section class="videos spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title center-title">
+                        <h2>YOutube feed</h2>
+                        <h1>Latest videos</h1>
+                    </div>
+                        <iframe width="1140" height="585" src="https://www.youtube.com/embed/kalbqkV2S48?si=nB8_JN4MG9uIv3Hx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="row">
+                        <div class="videos__slider owl-carousel">
+                            <div class="col-lg-3">
+                               <iframe width="250" height="160" src="https://www.youtube.com/embed/fn8Tx1WkAuE?si=qPmrOw2jZM4B-I5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            <div class="col-lg-3">
+                                <iframe width="250" height="160" src="https://www.youtube.com/embed/ucKb7rdDGCA?si=hJcy4NKko0qgWVwQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            <div class="col-lg-3">
+                                <iframe width="250" height="160" src="https://www.youtube.com/embed/NmQERCVp2wc?si=SJUUPi4evIax4gh-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            <div class="col-lg-3">
+                                <iframe width="250" height="160" src="https://www.youtube.com/embed/i3_Wfq7Hjzg?si=vTerUC1RGJXWH9be" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            <div class="col-lg-3">
+                               <iframe width="250" height="160" src="https://www.youtube.com/embed/-46eYxDpiDo?si=-KfNAF2MgbhRfT0p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            <div class="col-lg-3">
+                               <iframe width="250" height="160" src="https://www.youtube.com/embed/rJ1LwOE1uno?si=svUDoHZUwC8WdHWD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            <div class="col-lg-3">
+                               <iframe width="250" height="160" src="https://www.youtube.com/embed/ehQYRweZeVY?si=X3gxK_xMnEDBnLUP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            <div class="col-lg-3">
+                               <iframe width="250" height="160" src="https://www.youtube.com/embed/fZ4TNmRsqCc?si=XTYi1vaZ0NSo-m8F" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Video Section End -->
 
-    <script src="https://sidxsuri.blogspot.com/feeds/posts/default?alt=json-in-script&callback=fetchBlogPosts"></script>
+   
+    
+    <!-- About Section Begin -->
+    <section class="about spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about__pic" style="padding-top: 110px;">
+                        <img src="siddy.png" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about__text">
+                        <div class="section-title">
+                            <h2>Sid Suri</h2>
+                            <h1>About me</h1>
+                        </div>
+                        <p>Sid Suri is a passionate creator dedicated to exploring the realms of music and technology. Through his journey, he aims to inspire and connect with people by sharing his music, thoughts, and personal experiences.</p>
+                        <a href="#" class="primary-btn">CONTACT ME</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section End -->
 
+
+
+   
+    <!-- Countdown Section Begin -->
+    <section class="countdown spad set-bg" data-setbg="homefooter.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="countdown__text">
+                        <h1>Stay Connected</h1>
+                        <h4>Next Tracks Release in </h4>
+                    </div>
+                    <div class="countdown__timer" id="countdown-time">
+                        <div class="countdown__item">
+                            <span>20</span>
+                            <p>days</p>
+                        </div>
+                        <div class="countdown__item">
+                            <span>45</span>
+                            <p>hours</p>
+                        </div>
+                        <div class="countdown__item">
+                            <span>18</span>
+                            <p>minutes</p>
+                        </div>
+                        <div class="countdown__item">
+                            <span>09</span>
+                            <p>seconds</p>
+                        </div>
+                    </div>
+                    <div class="buy__tickets">
+                        <a href="https://www.youtube.com/@SiddySounds" class="primary-btn">Subscribe on YouTube</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Countdown Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer spad set-bg" data-setbg="footer-bg.png">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer__address">
+                        <ul>
+                            <li>
+                                <i class="fa fa-youtube"></i>
+                                <p>Instagram</p>
+                                <h6><a target="_blank" style="text-decoration: none !important; color: #fff !important;" href="https://www.youtube.com/@siddysounds">Siddy Sounds</a></h6>
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope"></i>
+                                <p>Email</p>
+                                <h6>mail@siddysounds.com</h6>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 offset-lg-1 col-md-6">
+                    <div class="footer__social">
+                        <h2>Siddy Sounds</h2>
+                        <div class="footer__social__links">
+                            <a target="_blank" href="https://www.facebook.com/siddysounds"><i class="fa fa-facebook"></i></a>
+                            <a target="_blank" href="https://www.instagram.com/sidxsuri"><i class="fa fa-instagram"></i></a>
+                            <a target="_blank" href="https://www.twitter.com/siddysounds"><i class="fa fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1 col-md-6">
+                    <div class="footer__newslatter">
+    <h4>Stay With me</h4>
+    <form id="emailForm">
+        <input type="text" id="emailInput" placeholder="Email">
+        <button type="submit"><i class="fa fa-send-o"></i></button>
+    </form>
+</div>
+
+<script>
+    document.getElementById("emailForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        
+        const emailContent = document.getElementById("emailInput").value;
+        const emailTo = "mail@siddysounds.com";
+        const subject = "Stay With Me - New Subscriber";
+        const body = encodeURIComponent(emailContent);
+        
+        // Open the default email client
+        window.location.href = `mailto:${emailTo}?subject=${subject}&body=${body}`;
+    });
+</script>
+                </div>
+            </div>
+			<div class="footer__copyright__text">
+				<p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | Siddy Sounds</p>
+			</div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/jquery.barfiller.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Music Plugin -->
+    <script src="js/jquery.jplayer.min.js"></script>
+    <script src="js/jplayerInit.js"></script>
 </body>
+
 </html>
