@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /privacy.html
 Disallow: /cookies.html
-Sitemap: https://www.sidxsuri.com/sitemap.xml
+Sitemap: https://www.siddysounds.com/sitemap.xml
