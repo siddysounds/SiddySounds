@@ -23,21 +23,8 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
-<style>
-        
-        .read-more {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 12px;
-            background: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-        .read-more:hover {
-            background: #0056b3;
-        }
+ <style>
+       
         .pagination {
             margin-top: 20px;
         }
@@ -109,33 +96,54 @@
     </div>
     <!-- Breadcrumb End -->
 
-    <!-- Blog Section Begin -->
-    <section class="blog spad">
+    <!-- Blog Details Section Begin -->
+    <section class="blog-details spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
+                <div class="col-lg-8">
+                 <div class="section-title">
                         <h2>Latest posts</h2>
                         <h1>Music blog</h1>
                     </div>
-                    <div class="blog__large">
-                        <div class="blog__large__text" id="blog-posts">
-                             <p>Loading blog posts...</p>
+                    <div class="blog__details__content">
+                        <div class="blog__details__item">
+                            
+                            <div class="blog__details__item__text" id="blog-posts">
+                                    <p>Loading blog posts...</p>
+                            </div>
                         </div>
+                      
+                      <div class="pagination">
+        <button id="prevBtn" onclick="changePage(-1)" disabled>Previous</button>
+        <button id="nextBtn" onclick="changePage(1)">Next</button>
+    </div>  
+                      
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="blog__sidebar">
+                        <div class="blog__sidebar__item">
+                            <div class="about__pic" style="padding-top: 110px;">
+                        <img src="Siddy.jpg" alt="">
+                    </div>                           
+                        </div>
+                        <div class="blog__sidebar__item">
+                            <div class="blog__sidebar__title">
+                                <h4>Social media</h4>
+                            </div>
+                            <div class="blog__sidebar__social">
+                                <a target="_blank" href="https://www.facebook.com/siddysounds"><i class="fa fa-facebook"></i></a>
+                            <a target="_blank" href="https://www.instagram.com/sidxsuri"><i class="fa fa-instagram"></i></a>
+                            <a target="_blank" href="https://www.twitter.com/siddysounds"><i class="fa fa-twitter"></i></a>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
-    <div class="pagination">
-        <button id="prevBtn" onclick="changePage(-1)" disabled>Previous</button>
-        <button id="nextBtn" onclick="changePage(1)">Next</button>
-    </div>
         </div>
-
     </section>
-
-
-   
-
+    <!-- Blog Details Section End -->
     <script>
         let allPosts = [];
         let currentPage = 0;
@@ -164,14 +172,14 @@
 
             allPosts.slice(start, end).forEach(post => {
                 postsHtml += `
-                    <div class="blog-post">
-                        <div class="blog-post-header">
+                    <div>
+                        <div>
                             <h2>${post.title}</h2>
-                            <span class="blog-date">${post.publishedDate}</span>
+                            <span>${post.publishedDate}</span>
                         </div>
                         <p>${post.content}</p>
-                        <a class="read-more" href="${post.link}" target="_blank">Comment on Blogger</a>
-                    </div>
+                    </hr>
+                        </div>
                 `;
             });
 
