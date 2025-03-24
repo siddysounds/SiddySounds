@@ -1,0 +1,20 @@
+name: IndexNow Submission
+
+on:
+  push:
+    branches:
+      - main  # Change if you're using a different branch
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit URLs to IndexNow
+        run: |
+          curl "https://www.bing.com/indexnow?url=https://www.siddysounds.com/&key=831ae50989424636a08a895c19b3a876"
+          curl "https://www.bing.com/indexnow?url=https://www.siddysounds.com/about.html&key=831ae50989424636a08a895c19b3a876"
+          curl "https://www.bing.com/indexnow?url=https://www.siddysounds.com/videos.html&key=831ae50989424636a08a895c19b3a876"
+          curl "https://www.bing.com/indexnow?url=https://www.siddysounds.com/blog.html&key=831ae50989424636a08a895c19b3a876"
+          curl "https://www.bing.com/indexnow?url=https://www.siddysounds.com/contact.html&key=831ae50989424636a08a895c19b3a876"
+          curl "https://www.bing.com/indexnow?url=https://www.siddysounds.com/privacy.html&key=831ae50989424636a08a895c19b3a876"
+          curl "https://www.bing.com/indexnow?url=https://www.siddysounds.com/cookies.html&key=831ae50989424636a08a895c19b3a876"
