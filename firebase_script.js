@@ -1,8 +1,4 @@
-// Import Firebase SDK (if using ES6 modules)
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-
-// Your Firebase Config
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCxEbW9TRG4SrjPyoOmsgezjvq0HkADj04",
   authDomain: "siddy-sounds.firebaseapp.com",
@@ -14,7 +10,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 
-console.log("Firebase initialized successfully!");
+console.log(firebase.apps.length ? "Loaded" : "Not loaded");
