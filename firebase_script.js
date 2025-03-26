@@ -1,8 +1,8 @@
-// Import Firebase modules
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+// Importing Firebase SDK modules
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
 
-// Your Firebase configuration
+// Firebase configuration object
 const firebaseConfig = {
   apiKey: "AIzaSyCxEbW9TRG4SrjPyoOmsgezjvq0HkADj04",
   authDomain: "siddy-sounds.firebaseapp.com",
@@ -17,20 +17,20 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Function to get launch time from Firestore
+// Fetch the launch time from Firestore
 async function getLaunchTime() {
   const docRef = doc(db, "launch", "countdown");
   const docSnap = await getDoc(docRef);
-
   if (docSnap.exists()) {
-    return new Date(docSnap.data().launchTime);
+    const launchTime = docSnap.data().launchTime.toDate(); // Convert Firestore timestamp to JavaScript Date
+    return launchTime;
   } else {
-    console.log("No launch time found!");
+    console.error("No such document!");
     return null;
   }
 }
 
-// Function to start the countdown
+// Start the countdown
 async function startCountdown() {
   const launchTime = await getLaunchTime();
   if (!launchTime) return;
@@ -50,9 +50,11 @@ async function startCountdown() {
     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
+    // Display the countdown in the HTML element with id "timer"
     document.getElementById("timer").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s left`;
   }
 
+  // Update the timer every second
   updateTimer();
   const interval = setInterval(updateTimer, 1000);
 }
