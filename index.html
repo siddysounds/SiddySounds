@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="icon.png">
     <link rel="canonical" href="https://www.siddysounds.com">
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js"></script>
+<script type="module" src="https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js"></script>
 
     <script type="application/ld+json">
     {
@@ -702,7 +704,7 @@
 				<p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | Siddy Sounds
                 </br>
                 For more information, please refer to <a href="privacy.html" class="underline-link">Privacy Policy</a> and <a href="cookies.html" class="underline-link">Cookie Policy</a></p>
-                
+                <div id="timer">Loading...</div>
 			</div>
         </div>
     </footer>
@@ -715,6 +717,7 @@
     <script src="js/jquery.nicescroll.min.js"></script>
     <script src="js/jquery.barfiller.js"></script>
     <script src="js/jquery.countdown.min.js"></script>
+    <script type="module" src="firebase_script.js"></script>
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
