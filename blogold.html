@@ -3,17 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Siddy Sounds Countdown</title>
+  <title>Countdown Timer</title>
+
+  <!-- Include Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #timer {
+      font-size: 36px;
+      color: #2c3e50;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-  <div id="timer">Loading...</div>
+  <h1>Countdown Timer</h1>
+  <div id="timer">Loading countdown...</div>
 
-  <!-- Firebase SDKs (Modules) -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-    // Your Firebase configuration
+  <script>
+    // Firebase configuration
     const firebaseConfig = {
       apiKey: "AIzaSyCxEbW9TRG4SrjPyoOmsgezjvq0HkADj04",
       authDomain: "siddy-sounds.firebaseapp.com",
@@ -25,16 +39,25 @@
     };
 
     // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+    const app = firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore(app);
 
     // Function to get launch time from Firestore
     async function getLaunchTime() {
-      const docRef = doc(db, "launch", "countdown");
-      const docSnap = await getDoc(docRef);
+      const docRef = db.collection("launch").doc("countdown");
+      const docSnap = await docRef.get();
 
-      if (docSnap.exists()) {
-        return new Date(docSnap.data().launchTime);
+      if (docSnap.exists) {
+        // Firestore timestamp
+        const launchTime = docSnap.data().launchTime;
+
+        // Ensure it's a valid timestamp
+        if (launchTime instanceof firebase.firestore.Timestamp) {
+          return launchTime.toDate(); // Convert to JavaScript Date object
+        } else {
+          console.error("Launch time is not a valid Firestore timestamp");
+          return null;
+        }
       } else {
         console.log("No launch time found!");
         return null;
@@ -61,9 +84,11 @@
         const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
+        // Display the countdown in the HTML element with id "timer"
         document.getElementById("timer").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s left`;
       }
 
+      // Update the timer every second
       updateTimer();
       const interval = setInterval(updateTimer, 1000);
     }
@@ -71,6 +96,5 @@
     // Start the countdown when the page loads
     startCountdown();
   </script>
-
 </body>
 </html>
