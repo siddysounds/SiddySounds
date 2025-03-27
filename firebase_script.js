@@ -52,6 +52,10 @@ async function startCountdown() {
 
     // Display the countdown in the HTML element with id "timer"
     document.getElementById("timer").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s left`;
+    document.querySelector("#countdown-time .countdown__item:nth-child(1) span").innerText = days;
+    document.querySelector("#countdown-time .countdown__item:nth-child(2) span").innerText = hours;
+    document.querySelector("#countdown-time .countdown__item:nth-child(3) span").innerText = minutes;
+    document.querySelector("#countdown-time .countdown__item:nth-child(4) span").innerText = seconds;
   }
 
   // Update the timer every second
