@@ -43,11 +43,12 @@ async function startCountdown() {
       // Stop the countdown but keep the timer visible
       clearInterval(interval);
 
-      // Set the timer to 0 in case it went negative
+      // Set the timer to 00 if time is over, without hiding the countdown
       document.querySelector("#countdown-time .countdown__item:nth-child(1) span").innerText = "00";
       document.querySelector("#countdown-time .countdown__item:nth-child(2) span").innerText = "00";
       document.querySelector("#countdown-time .countdown__item:nth-child(3) span").innerText = "00";
       document.querySelector("#countdown-time .countdown__item:nth-child(4) span").innerText = "00";
+      
       return;
     }
 
