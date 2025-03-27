@@ -40,10 +40,14 @@ async function startCountdown() {
     const timeLeft = launchTime - now;
 
     if (timeLeft < 0) {
-      // Hide the timer and show "Launched!"
-      document.querySelector("#countdown-time").style.display = "none"; // Hide the countdown
-      document.querySelector("#launched-message").style.display = "block"; // Show "Launched!" message
+      // Stop the countdown but keep the timer visible
       clearInterval(interval);
+
+      // Set the timer to 0 in case it went negative
+      document.querySelector("#countdown-time .countdown__item:nth-child(1) span").innerText = "00";
+      document.querySelector("#countdown-time .countdown__item:nth-child(2) span").innerText = "00";
+      document.querySelector("#countdown-time .countdown__item:nth-child(3) span").innerText = "00";
+      document.querySelector("#countdown-time .countdown__item:nth-child(4) span").innerText = "00";
       return;
     }
 
