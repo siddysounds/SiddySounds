@@ -40,7 +40,7 @@ async function startCountdown() {
     const timeLeft = launchTime - now;
 
     if (timeLeft < 0) {
-      document.getElementById("countdown__item").innerHTML = "Launched!";
+      document.getElementById("countdown-time").innerHTML = "Launched!";
       clearInterval(interval);
       return;
     }
