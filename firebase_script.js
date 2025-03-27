@@ -40,7 +40,12 @@ async function startCountdown() {
     const timeLeft = launchTime - now;
 
     if (timeLeft < 0) {
-      document.getElementById("timer").innerHTML = "Launched!";
+      // Instead of setting the entire div to "Launched!", update each countdown item
+      document.querySelector("#countdown-time .countdown__item:nth-child(1) span").innerText = "00";
+      document.querySelector("#countdown-time .countdown__item:nth-child(2) span").innerText = "00";
+      document.querySelector("#countdown-time .countdown__item:nth-child(3) span").innerText = "00";
+      document.querySelector("#countdown-time .countdown__item:nth-child(4) span").innerText = "00";
+      document.getElementById("countdown-time").innerHTML += "<p>Launched!</p>";
       clearInterval(interval);
       return;
     }
@@ -51,10 +56,10 @@ async function startCountdown() {
     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
     // Display the countdown in the HTML element with id "timer"
-    document.querySelector("#countdown-time .countdown__item:nth-child(1) span").innerText = days;
-    document.querySelector("#countdown-time .countdown__item:nth-child(2) span").innerText = hours;
-    document.querySelector("#countdown-time .countdown__item:nth-child(3) span").innerText = minutes;
-    document.querySelector("#countdown-time .countdown__item:nth-child(4) span").innerText = seconds;
+    document.querySelector("#countdown-time .countdown__item:nth-child(1) span").innerText = days < 10 ? "0" + days : days;
+    document.querySelector("#countdown-time .countdown__item:nth-child(2) span").innerText = hours < 10 ? "0" + hours : hours;
+    document.querySelector("#countdown-time .countdown__item:nth-child(3) span").innerText = minutes < 10 ? "0" + minutes : minutes;
+    document.querySelector("#countdown-time .countdown__item:nth-child(4) span").innerText = seconds < 10 ? "0" + seconds : seconds;
   }
 
   // Update the timer every second
