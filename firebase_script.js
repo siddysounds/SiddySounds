@@ -40,16 +40,16 @@ async function startCountdown() {
     const timeLeft = launchTime - now;
 
     if (timeLeft < 0) {
-      // Stop the countdown but keep the timer visible
+      // Stop the countdown but don't hide the timer
       clearInterval(interval);
 
-      // Set the timer to 00 if time is over, without hiding the countdown
+      // Set the timer to 00 if time is over, and keep the elements visible
       document.querySelector("#countdown-time .countdown__item:nth-child(1) span").innerText = "00";
       document.querySelector("#countdown-time .countdown__item:nth-child(2) span").innerText = "00";
       document.querySelector("#countdown-time .countdown__item:nth-child(3) span").innerText = "00";
       document.querySelector("#countdown-time .countdown__item:nth-child(4) span").innerText = "00";
       
-      return;
+      return; // Stop updating the timer
     }
 
     const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
@@ -57,7 +57,7 @@ async function startCountdown() {
     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-    // Display the countdown in the HTML element
+    // Display the countdown in the HTML element, ensuring it remains visible
     document.querySelector("#countdown-time .countdown__item:nth-child(1) span").innerText = days < 10 ? "0" + days : days;
     document.querySelector("#countdown-time .countdown__item:nth-child(2) span").innerText = hours < 10 ? "0" + hours : hours;
     document.querySelector("#countdown-time .countdown__item:nth-child(3) span").innerText = minutes < 10 ? "0" + minutes : minutes;
