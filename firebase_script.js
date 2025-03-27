@@ -40,9 +40,10 @@ async function startCountdown() {
     const timeLeft = launchTime - now;
 
     if (timeLeft < 0) {
-      // Stop the countdown and display "Launched!"
+      // Hide the timer and show "Launched!"
+      document.querySelector("#countdown-time").style.display = "none"; // Hide the countdown
+      document.querySelector("#launched-message").style.display = "block"; // Show "Launched!" message
       clearInterval(interval);
-      document.querySelector("#countdown-time").innerHTML = "<div class='countdown__item'>Launched!</div>";
       return;
     }
 
