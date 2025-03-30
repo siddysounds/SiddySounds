@@ -41,7 +41,7 @@ a:hover {
     text-decoration: none;
     transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
     z-index: 10; /* Lower than nav/images */
-    border: 2px solid white; /* Ensures visibility */
+    border: 1px solid white; /* Ensures visibility */
     opacity: 1; /* Default visible */
 }
 
@@ -54,5 +54,3 @@ a:hover {
 img:hover + .floating-youtube {
     opacity: 0;
 }
-
-/* Hide when scrolling down (handled in JS) */
