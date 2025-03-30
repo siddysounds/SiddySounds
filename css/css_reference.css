@@ -33,13 +33,26 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #ff0000;
+    background: #ff0000 !important; /* Always red */
     color: white;
     border-radius: 50%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Makes it stand out */
     font-size: 24px;
     text-decoration: none;
     transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
-    z-index: 10; /* Ensures it’s not above nav or images */
-    mix-blend-mode: difference; /* Blends with background when overlapping */
+    z-index: 10; /* Lower than nav/images */
+    border: 2px solid white; /* Ensures visibility */
+    opacity: 1; /* Default visible */
 }
+
+.floating-youtube:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Hide when overlapping with images */
+img:hover + .floating-youtube {
+    opacity: 0;
+}
+
+/* Hide when scrolling down (handled in JS) */
