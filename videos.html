@@ -1,61 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Stay tuned with SiddySounds for the latest beats, rap, and music journey. Follow on social media for exclusive content and updates.">    
+    <meta name="description" content="Stay tuned with SiddySounds for the latest beats, rap, and music journey. Follow on social media for exclusive content and updates.">
     <meta name="keywords" content="SiddySounds, Siddy, Music, Rap, Hip-Hop, Desi Beats, Punjabi Rap, Follow SiddySounds, YouTube, Instagram, Twitter, Facebook">
     <meta name="author" content="SiddySounds">
-    
     <meta property="og:title" content="SiddySounds - Experience the Vibe">
     <meta property="og:description" content="Follow SiddySounds for the freshest beats, rap tracks, and musical vibes. Connect on all major platforms!">
-    <meta property="og:image" content="Siddy.jpg">
+    <meta property="og:image" content="images/Siddy.jpg">
     <meta property="og:type" content="music.musician">
     <meta property="og:url" content="https://www.siddysounds.com">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SiddySounds - Experience the Vibe">
     <meta name="twitter:description" content="Stay updated with SiddySounds for new music, rap tracks, and beats. Follow on social media for exclusive content.">
-    <meta name="twitter:image" content="your-music-cover.jpg">
-    
+    <meta name="twitter:image" content="images/your-music-cover.jpg">
     <meta name="robots" content="index, follow">
-    <title>SiddySounds - Music, Beats & Vibes</title>
+    <title>
+        SiddySounds - Music, Beats & Vibes
+    </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="icon.png">
+    <link rel="icon" type="image/x-icon" href="images/icon.png">
     <link rel="canonical" href="https://www.siddysounds.com">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "MusicGroup",
-      "name": "SiddySounds",
-      "url": "https://www.siddysounds.com",
-      "sameAs": [
-        "https://www.facebook.com/siddysounds",
-        "https://www.instagram.com/siddysounds",
-        "https://www.twitter.com/siddysounds",
-        "https://www.youtube.com/@siddysounds",
-        "https://open.spotify.com/artist/siddysounds"
-      ]
-    }
+    <!-- Link to Firebase script (make sure the path is correct) -->
+    <script type="module" src="firebase_script.js">
     </script>
-    <!-- Clarity tracking code for https://siddysounds.com/ --> 
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "qtg8lvylx4");
-</script>
-
-<!-- make sure the config gets loaded before Klaro -->
-<script defer type="text/javascript" src="config.js"></script>
-<script defer type="text/javascript" src="https://cdn.kiprotect.com/klaro/v0.7.22/klaro.js"></script>
-<link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7.22/klaro.min.css" />
-
+    <script type="application/ld+json">
+        { "@context": "https://schema.org", "@type": "MusicGroup", "name": "SiddySounds", "url": "https://www.siddysounds.com", "sameAs": ["https://www.facebook.com/siddysounds", "https://www.instagram.com/siddysounds", "https://www.twitter.com/siddysounds",
+        "https://www.youtube.com/@siddysounds", "https://open.spotify.com/artist/siddysounds"] }
+    </script>
+    <!-- Clarity tracking code for https://siddysounds.com/ -->
+    <script type="text/javascript">
+        (function(c, l, a, r, i, t, y) {
+        				c[a] = c[a] ||
+        				function() { (c[a].q = c[a].q || []).push(arguments)
+        				};
+        				t = l.createElement(r);
+        				t.async = 1;
+        				t.src = "https://www.clarity.ms/tag/" + i;
+        				y = l.getElementsByTagName(r)[0];
+        				y.parentNode.insertBefore(t, y);
+        			})(window, document, "clarity", "script", "qtg8lvylx4");
+    </script>
+    <!-- make sure the config gets loaded before Klaro -->
+    <script defer type="text/javascript" src="config.js">
+    </script>
+    <script defer type="text/javascript" src="https://cdn.kiprotect.com/klaro/v0.7.22/klaro.js">
+    </script>
+    <link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7.22/klaro.min.css" />
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
-
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -123,23 +118,35 @@
     </div>
     <!-- Breadcrumb End -->
 
-        <!-- Video Section Begin -->
+    <!-- Video Section Begin -->
     <section class="videos spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title center-title">
-                        <h2>Youtube feed</h2>
-                        <h1>Latest videos</h1>
+                        <h2>
+								Youtube feed
+							</h2>
+                        <h1>
+								Latest videos
+							</h1>
                     </div>
-                    <div class="videos__large__item set-bg" data-setbg="11.jpeg">
-                        <a href="https://www.youtube.com/watch?v=rJ1LwOE1uno?autoplay=1" class="play-btn video-popup"><i class="fa fa-play"></i></a>
+                    <div class="videos__large__item set-bg" data-setbg="images/11.jpeg">
+                        <a href="https://www.youtube.com/watch?v=rJ1LwOE1uno?autoplay=1" class="play-btn video-popup">
+                            <i class="fa fa-play">
+								</i>
+                        </a>
                         <div class="videos__large__item__text">
-                            <h4>Har Saans Mein Tera Pyaar | Tere Pyaar Ka Asar
-                            </h4>
+                            <h4>
+									Har Saans Mein Tera Pyaar | Tere Pyaar Ka Asar
+								</h4>
                             <ul>
-                                <li>03:37</li>
-                                <li>Mar 17, 2025</li>
+                                <li>
+                                    03:37
+                                </li>
+                                <li>
+                                    Mar 17, 2025
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -147,112 +154,184 @@
                         <div class="videos__slider owl-carousel">
                             <div class="col-lg-3">
                                 <div class="videos__item">
-                                    <div class="videos__item__pic set-bg" data-setbg="2.jpeg">
-                                        <a href="https://www.youtube.com/watch?v=fZ4TNmRsqCc?autoplay=1" class="play-btn video-popup"><i class="fa fa-play"></i></a>
+                                    <div class="videos__item__pic set-bg" data-setbg="images/2.jpeg">
+                                        <a href="https://www.youtube.com/watch?v=fZ4TNmRsqCc?autoplay=1" class="play-btn video-popup">
+                                            <i class="fa fa-play">
+												</i>
+                                        </a>
                                     </div>
                                     <div class="videos__item__text">
-                                        <h5>Jatt Flow (Official Audio) | Desi Street Anthem</h5>
+                                        <h5>
+												Jatt Flow (Official Audio) | Desi Street Anthem
+											</h5>
                                         <ul>
-                                            <li>02:37</li>
-                                            <li>Mar 17, 2025</li>
+                                            <li>
+                                                02:37
+                                            </li>
+                                            <li>
+                                                Mar 17, 2025
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="videos__item">
-                                    <div class="videos__item__pic set-bg" data-setbg="3.jpeg">
-                                        <a href="https://www.youtube.com/watch?v=ehQYRweZeVY?autoplay=1" class="play-btn video-popup"><i class="fa fa-play"></i></a>
+                                    <div class="videos__item__pic set-bg" data-setbg="images/3.jpeg">
+                                        <a href="https://www.youtube.com/watch?v=ehQYRweZeVY?autoplay=1" class="play-btn video-popup">
+                                            <i class="fa fa-play">
+												</i>
+                                        </a>
                                     </div>
                                     <div class="videos__item__text">
-                                        <h5>Chaddi Rap - The Ultimate Chill Anthem</h5>
+                                        <h5>
+												Chaddi Rap - The Ultimate Chill Anthem
+											</h5>
                                         <ul>
-                                            <li>02:35</li>
-                                            <li>Mar 18, 2025</li>
+                                            <li>
+                                                02:35
+                                            </li>
+                                            <li>
+                                                Mar 18, 2025
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="videos__item">
-                                    <div class="videos__item__pic set-bg" data-setbg="4.png">
-                                        <a href="https://www.youtube.com/watch?v=kalbqkV2S48?autoplay=1" class="play-btn video-popup"><i class="fa fa-play"></i></a>
+                                    <div class="videos__item__pic set-bg" data-setbg="images/4.png">
+                                        <a href="https://www.youtube.com/watch?v=kalbqkV2S48?autoplay=1" class="play-btn video-popup">
+                                            <i class="fa fa-play">
+												</i>
+                                        </a>
                                     </div>
                                     <div class="videos__item__text">
-                                        <h5>Talli Pyaar | Punjabi Rap Son</h5>
+                                        <h5>
+												Talli Pyaar | Punjabi Rap Son
+											</h5>
                                         <ul>
-                                            <li>03:09</li>
-                                            <li>Mar 19, 2025</li>
+                                            <li>
+                                                03:09
+                                            </li>
+                                            <li>
+                                                Mar 19, 2025
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="videos__item">
-                                    <div class="videos__item__pic set-bg" data-setbg="5.png">
-                                        <a href="https://www.youtube.com/watch?v=-46eYxDpiDo?autoplay=1" class="play-btn video-popup"><i class="fa fa-play"></i></a>
+                                    <div class="videos__item__pic set-bg" data-setbg="images/5.png">
+                                        <a href="https://www.youtube.com/watch?v=-46eYxDpiDo?autoplay=1" class="play-btn video-popup">
+                                            <i class="fa fa-play">
+												</i>
+                                        </a>
                                     </div>
                                     <div class="videos__item__text">
-                                        <h5>Pehla Pyaar (Official Rap)</h5>
+                                        <h5>
+												Pehla Pyaar (Official Rap)
+											</h5>
                                         <ul>
-                                            <li>04:02</li>
-                                            <li>Mar 20, 2025</li>
+                                            <li>
+                                                04:02
+                                            </li>
+                                            <li>
+                                                Mar 20, 2025
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="videos__item">
-                                    <div class="videos__item__pic set-bg" data-setbg="6.jpeg">
-                                        <a href="https://www.youtube.com/watch?v=NmQERCVp2wc?autoplay=1" class="play-btn video-popup"><i class="fa fa-play"></i></a>
+                                    <div class="videos__item__pic set-bg" data-setbg="images/6.jpeg">
+                                        <a href="https://www.youtube.com/watch?v=NmQERCVp2wc?autoplay=1" class="play-btn video-popup">
+                                            <i class="fa fa-play">
+												</i>
+                                        </a>
                                     </div>
                                     <div class="videos__item__text">
-                                        <h5>Dard Se Sher Tak | The Rise of a Beast</h5>
+                                        <h5>
+												Dard Se Sher Tak | The Rise of a Beast
+											</h5>
                                         <ul>
-                                            <li>03:24</li>
-                                            <li>Mar 22, 2025</li>
+                                            <li>
+                                                03:24
+                                            </li>
+                                            <li>
+                                                Mar 22, 2025
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="videos__item">
-                                    <div class="videos__item__pic set-bg" data-setbg="7.jpeg">
-                                        <a href="https://www.youtube.com/watch?v=ucKb7rdDGCA?autoplay=1" class="play-btn video-popup"><i class="fa fa-play"></i></a>
+                                    <div class="videos__item__pic set-bg" data-setbg="images/7.jpeg">
+                                        <a href="https://www.youtube.com/watch?v=ucKb7rdDGCA?autoplay=1" class="play-btn video-popup">
+                                            <i class="fa fa-play">
+												</i>
+                                        </a>
                                     </div>
                                     <div class="videos__item__text">
-                                        <h5>Mera Khwab | Motivational Rap</h5>
+                                        <h5>
+												Mera Khwab | Motivational Rap
+											</h5>
                                         <ul>
-                                            <li>03:24</li>
-                                            <li>Mar 23, 2025</li>
+                                            <li>
+                                                03:24
+                                            </li>
+                                            <li>
+                                                Mar 23, 2025
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="videos__item">
-                                    <div class="videos__item__pic set-bg" data-setbg="8.png">
-                                        <a href="https://www.youtube.com/watch?v=fn8Tx1WkAuE?autoplay=1" class="play-btn video-popup"><i class="fa fa-play"></i></a>
+                                    <div class="videos__item__pic set-bg" data-setbg="images/8.png">
+                                        <a href="https://www.youtube.com/watch?v=fn8Tx1WkAuE?autoplay=1" class="play-btn video-popup">
+                                            <i class="fa fa-play">
+												</i>
+                                        </a>
                                     </div>
                                     <div class="videos__item__text">
-                                        <h5>She Was Disturbed (But Why Disturb Me Too?) </h5>
+                                        <h5>
+												She Was Disturbed (But Why Disturb Me Too?)
+											</h5>
                                         <ul>
-                                            <li>03:24</li>
-                                            <li>Mar 24, 2025</li>
+                                            <li>
+                                                03:24
+                                            </li>
+                                            <li>
+                                                Mar 24, 2025
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="videos__item">
-                                    <div class="videos__item__pic set-bg" data-setbg="9.jpeg">
-                                        <a href="https://www.youtube.com/watch?v=i3_Wfq7Hjzg?autoplay=1" class="play-btn video-popup"><i class="fa fa-play"></i></a>
+                                    <div class="videos__item__pic set-bg" data-setbg="images/9.jpeg">
+                                        <a href="https://www.youtube.com/watch?v=i3_Wfq7Hjzg?autoplay=1" class="play-btn video-popup">
+                                            <i class="fa fa-play">
+												</i>
+                                        </a>
                                     </div>
                                     <div class="videos__item__text">
-                                        <h5>Love & Journey - Pyar Aur Safar</h5>
+                                        <h5>
+												Love & Journey - Pyar Aur Safar
+											</h5>
                                         <ul>
-                                            <li>02:37</li>
-                                            <li>Mar 25, 2025</li>
+                                            <li>
+                                                02:37
+                                            </li>
+                                            <li>
+                                                Mar 25, 2025
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -266,8 +345,9 @@
     <!-- Video Section End -->
    
 
-        <!-- Footer Section Begin -->
-    <footer class="footer footer--normal spad set-bg" data-setbg="footer-bg.png">
+
+    <!-- Footer Section Begin -->
+    <footer class="footer footer--normal spad set-bg" data-setbg="images/footer-bg.png">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
