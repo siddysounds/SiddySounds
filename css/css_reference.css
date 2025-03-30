@@ -15,3 +15,12 @@
 @import url('owl.theme.default.min.css');
 @import url('slicknav.min.css');
 @import url('font-awesome.min.css');
+
+a {
+    text-decoration: none !important;
+}
+
+a:hover {
+    text-decoration: none !important;
+    color: white !important; /* Prevents hover color change */
+}
