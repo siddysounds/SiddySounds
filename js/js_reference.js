@@ -1,7 +1,7 @@
 // Function to get the current page filename
-function getCurrentPage() {
-  return window.location.pathname.split("/").pop();
-}
+//function getCurrentPage() {
+//  return window.location.pathname.split("/").pop();
+//}
 
 // Load external scripts dynamically
 function loadScript(src, type = "text/javascript", async = false, defer = false) {
@@ -21,9 +21,9 @@ loadScript("js/jquery.nicescroll.min.js");
 loadScript("js/jquery.barfiller.js");
 
 // Exclude countdown script from index.html
-if (getCurrentPage() !== "index.html") {
-  loadScript("js/jquery.countdown.min.js");
-}
+//if (getCurrentPage() !== "index.html") {
+//  loadScript("js/jquery.countdown.min.js");
+//}
 
 loadScript("js/jquery.slicknav.js");
 loadScript("js/owl.carousel.min.js");
