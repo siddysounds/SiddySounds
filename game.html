@@ -162,8 +162,6 @@
     <button id="exitBtn" onclick="exitGame()">Exit Game</button>
   </div>
 
-  <!-- Background music 
-  <audio id="bgMusic" src="music/Tere-Pyaar-Da-Sukoon.mp3" autoplay loop></audio>-->
   <!-- Catch sound -->
   <audio id="hitSound" src="music/Tere-Pyaar-Da-Sukoon.mp3"></audio>
 
@@ -186,7 +184,7 @@
       player.style.left = `${playerX}px`;
     });
 
-    // Touch controls for mobile devices
+    // Mobile touch controls for swiping left or right
     let touchStartX = 0;
     document.addEventListener('touchstart', e => {
       touchStartX = e.touches[0].clientX;
@@ -197,15 +195,25 @@
       const touchEndX = e.touches[0].clientX;
       const diffX = touchEndX - touchStartX;
 
-      if (diffX > 30) {
-        playerX += 30;
-        touchStartX = touchEndX;
-      } else if (diffX < -30) {
-        playerX -= 30;
+      // Move the player based on the swipe distance
+      if (Math.abs(diffX) > 30) {
+        if (diffX > 0) {
+          // Swipe Right
+          playerX += 30;
+        } else {
+          // Swipe Left
+          playerX -= 30;
+        }
+
+        // Ensure player doesn't go out of bounds
+        if (playerX < 0) playerX = 0;
+        if (playerX > window.innerWidth - player.offsetWidth) playerX = window.innerWidth - player.offsetWidth;
+
+        player.style.left = `${playerX}px`;
+
+        // Reset touch start position after move
         touchStartX = touchEndX;
       }
-
-      player.style.left = `${playerX}px`;
     });
 
     function spawnItem() {
