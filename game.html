@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Siddy's Lyric Run</title>
   <style>
     body {
@@ -86,6 +87,30 @@
     #exitBtn:hover {
       background-color: #e00073;
     }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      .player {
+        font-size: 30px;
+      }
+
+      .item {
+        font-size: 25px;
+      }
+
+      #score {
+        font-size: 18px;
+      }
+
+      #gameTitle {
+        font-size: 16px;
+      }
+
+      #exitBtn {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -121,10 +146,33 @@
 
     let playerX = window.innerWidth / 2;
 
+    // Keyboard controls for desktops
     document.addEventListener('keydown', e => {
       if (!gameRunning) return;
       if (e.key === 'ArrowLeft') playerX -= 30;
       if (e.key === 'ArrowRight') playerX += 30;
+      player.style.left = `${playerX}px`;
+    });
+
+    // Touch controls for mobile devices
+    let touchStartX = 0;
+    document.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+    });
+
+    document.addEventListener('touchmove', e => {
+      if (!gameRunning) return;
+      const touchEndX = e.touches[0].clientX;
+      const diffX = touchEndX - touchStartX;
+
+      if (diffX > 30) {
+        playerX += 30;
+        touchStartX = touchEndX;
+      } else if (diffX < -30) {
+        playerX -= 30;
+        touchStartX = touchEndX;
+      }
+
       player.style.left = `${playerX}px`;
     });
 
@@ -174,7 +222,6 @@
               game.appendChild(perfMsg);
               setTimeout(() => game.removeChild(perfMsg), 2000);
             }
-
           } else {
             gameOverEl.style.display = 'block';
             gameRunning = false;
