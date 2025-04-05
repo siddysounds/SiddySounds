@@ -67,15 +67,15 @@
     }
     #branding {
       position: absolute;
-      bottom: 5px;
+      bottom: 10px;
       right: 10px;
       font-size: 16px;
       color: #666;
     }
     #exitBtn {
       position: absolute;
-      bottom: 30px;
-      right: 20px;
+      bottom: 5vh; /* Adjusted to use viewport height */
+      right: 5vw; /* Adjusted for responsive right position */
       background-color: #ff4081;
       color: white;
       padding: 12px 25px;
@@ -87,58 +87,60 @@
     #exitBtn:hover {
       background-color: #e00073;
     }
-
+  
     /* Mobile adjustments */
     @media (max-width: 768px) {
       .player {
         font-size: 50px;
       }
-
+  
       .item {
         font-size: 50px;
       }
-
+  
       #score {
         font-size: 30px;
       }
-
+  
       #gameTitle {
         font-size: 22px;
       }
-
+  
       #exitBtn {
         font-size: 18px;
         padding: 15px 30px;
       }
-
+  
       #gameOver {
         font-size: 24px;
       }
     }
-
+  
     /* For very small screens (portrait mobile) */
     @media (max-width: 480px) {
       .player {
         font-size: 40px;
       }
-
+  
       .item {
         font-size: 40px;
       }
-
+  
       #score {
         font-size: 25px;
       }
-
+  
       #gameTitle {
         font-size: 18px;
       }
-
+  
       #exitBtn {
         font-size: 16px;
         padding: 12px 25px;
+        bottom: 2vh; /* Adjusted to fit in small screens */
+        right: 3vw; /* Adjusted for better placement */
       }
-
+  
       #gameOver {
         font-size: 20px;
       }
