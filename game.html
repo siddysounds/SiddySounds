@@ -27,12 +27,12 @@
       text-align: center;
     }
     .player div {
-      font-size: 12px;
+      font-size: 16px;
       color: #00ffee;
     }
     .item {
       position: absolute;
-      font-size: 30px;
+      font-size: 40px;
       animation: fall 3s linear infinite;
       filter: drop-shadow(0 0 5px #00f9ff);
     }
@@ -44,14 +44,14 @@
       position: absolute;
       top: 10px;
       left: 10px;
-      font-size: 20px;
+      font-size: 30px;
       font-weight: bold;
     }
     #gameTitle {
       position: absolute;
       top: 10px;
       right: 10px;
-      font-size: 18px;
+      font-size: 24px;
       color: #00ffee;
       font-weight: bold;
       letter-spacing: 1px;
@@ -69,7 +69,7 @@
       position: absolute;
       bottom: 5px;
       right: 10px;
-      font-size: 12px;
+      font-size: 16px;
       color: #666;
     }
     #exitBtn {
@@ -78,8 +78,8 @@
       right: 20px;
       background-color: #ff4081;
       color: white;
-      padding: 10px 20px;
-      font-size: 16px;
+      padding: 12px 25px;
+      font-size: 20px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
@@ -91,24 +91,56 @@
     /* Mobile adjustments */
     @media (max-width: 768px) {
       .player {
-        font-size: 30px;
+        font-size: 50px;
       }
 
       .item {
-        font-size: 25px;
+        font-size: 50px;
       }
 
       #score {
-        font-size: 18px;
+        font-size: 30px;
       }
 
       #gameTitle {
-        font-size: 16px;
+        font-size: 22px;
       }
 
       #exitBtn {
-        font-size: 14px;
-        padding: 8px 16px;
+        font-size: 18px;
+        padding: 15px 30px;
+      }
+
+      #gameOver {
+        font-size: 24px;
+      }
+    }
+
+    /* For very small screens (portrait mobile) */
+    @media (max-width: 480px) {
+      .player {
+        font-size: 40px;
+      }
+
+      .item {
+        font-size: 40px;
+      }
+
+      #score {
+        font-size: 25px;
+      }
+
+      #gameTitle {
+        font-size: 18px;
+      }
+
+      #exitBtn {
+        font-size: 16px;
+        padding: 12px 25px;
+      }
+
+      #gameOver {
+        font-size: 20px;
       }
     }
   </style>
