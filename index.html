@@ -361,14 +361,6 @@
         <div class="tile"><a href="mailto:mail@siddysounds.com"><i class="fas fa-envelope"></i><p>Email</p></a></div>
         <div class="tile"><a href="https://siddysounds.blogspot.com"><i class="fas fa-rss"></i><p>Blog</p></a></div>
     </div>
-
-
-   
-
-  
-
-    
-
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 SiddySounds</p>
@@ -395,28 +387,7 @@
             displayPosts();
         }
 
-        function displayPosts() {
-            let start = currentPage * postsPerPage;
-            let end = start + postsPerPage;
-            let postsHtml = "";
-
-            allPosts.slice(start, end).forEach(post => {
-                postsHtml += `
-                    <div class="blog-post">
-                        <div class="blog-post-header">
-                            <h2>${post.title}</h2>
-                            <span class="blog-date">${post.publishedDate}</span>
-                        </div>
-                        <p>${post.content}</p>
-                        <a class="read-more" href="${post.link}" target="_blank">Comment on Blogger</a>
-                    </div>
-                `;
-            });
-
-            document.getElementById("blog-posts").innerHTML = postsHtml;
-            document.getElementById("prevBtn").disabled = currentPage === 0;
-            document.getElementById("nextBtn").disabled = end >= allPosts.length;
-        }
+        
 
         function changePage(direction) {
             currentPage += direction;
@@ -424,7 +395,6 @@
         }
     </script>
 
-    <script src="https://sidxsuri.blogspot.com/feeds/posts/default?alt=json-in-script&callback=fetchBlogPosts"></script>
 
 </body>
 </html>
