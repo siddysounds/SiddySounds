@@ -1,0 +1,16 @@
+.privacy-banner, .privacy-dialog, .privacy-settings { box-sizing: border-box; font: 16px/1.5 system-ui, sans-serif; color: #172033; background: #fff; text-align: left; letter-spacing: normal; }
+.privacy-banner[hidden], .privacy-dialog [hidden] { display: none !important; }
+.privacy-banner { position: fixed; z-index: 99999; bottom: 20px; right: 20px; width: min(540px, calc(100vw - 40px)); padding: 24px; border: 1px solid #bbb; border-radius: 12px; box-shadow: 0 8px 40px #0004; max-height: 80vh; overflow: auto; }
+.privacy-banner h2, .privacy-dialog h2 { font: 700 22px/1.3 system-ui, sans-serif; color: #172033; margin: 0 0 12px; }
+.privacy-banner p, .privacy-dialog p { font: 16px/1.5 system-ui, sans-serif; color: #172033; margin: 12px 0; }
+.privacy-banner a, .privacy-dialog a { color: #45218a !important; text-decoration: underline !important; }
+.privacy-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.privacy-actions button, .privacy-settings { font: 600 14px/1.4 system-ui, sans-serif; color: #172033; background: #fff; border: 2px solid #45218a; border-radius: 6px; padding: 10px 14px; cursor: pointer; }
+.privacy-actions button:hover, .privacy-settings:hover { background: #f0eaff; }
+.privacy-actions button:focus-visible, .privacy-settings:focus-visible, .privacy-dialog input:focus-visible { outline: 3px solid #007ea7; outline-offset: 3px; }
+.privacy-settings { position: fixed; bottom: 12px; left: 12px; z-index: 9990; padding: 6px 10px; }
+.privacy-dialog { padding: 28px; width: min(540px, calc(100vw - 32px)); border: 1px solid #aaa; border-radius: 12px; max-height: 85vh; overflow: auto; }
+.privacy-dialog::backdrop { background: #0008; }
+.privacy-dialog:not([open]) { display: none !important; }
+.privacy-dialog label { display: flex; align-items: flex-start; gap: 10px; }
+.privacy-dialog input { width: 20px; height: 20px; margin-top: 3px; flex: 0 0 auto; }

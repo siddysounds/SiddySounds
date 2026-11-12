@@ -87,3 +87,6 @@ body {
   height: 420px;
   padding: 10px;
 }
+
+/* Fit the actual game instead of clipping overflow. */
+@media(max-width:600px){body{overflow:auto;margin:8px}#tetris{box-sizing:border-box;width:min(100%,400px);padding:12px}#info{box-sizing:border-box;width:110px;padding:8px}}

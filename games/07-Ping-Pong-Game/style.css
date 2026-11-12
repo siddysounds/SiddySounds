@@ -36,3 +36,6 @@
 canvas {
   background: #000;
 }
+
+/* Fit the actual game instead of clipping overflow. */
+@media(max-width:600px){canvas{max-width:100%;height:auto}.container{width:100%;padding:12px;box-sizing:border-box}.btn{padding:8px;margin:6px}.control{overflow-wrap:anywhere}}

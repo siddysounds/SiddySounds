@@ -112,6 +112,8 @@ function checkAnswer(currentLevel) {
   } else {
     document.getElementById("status").textContent = `Game Over!`;
 
+    const missedColor = gamePattern[currentLevel];
+    disableUserInput();
     setTimeout(() => {
       flashButton(missedColor);
     }, 1000);
@@ -194,3 +196,9 @@ function hideMyTexts() {
     texts[i].style.display = "none";
   }
 }
+
+colors.forEach(color => {
+  document.getElementById(color).addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); event.currentTarget.click(); }
+  });
+});

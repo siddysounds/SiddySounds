@@ -1,59 +1,55 @@
-// Function to get the current page filename
-//function getCurrentPage() {
-//  return window.location.pathname.split("/").pop();
-//}
+'use strict';
 
-// Load external scripts dynamically
-function loadScript(src, type = "text/javascript", async = false, defer = false) {
-  let script = document.createElement("script");
+// Scripts start downloading together and execute in dependency order.
+function loadScript(src, type = 'text/javascript', ordered = false) {
+  const script = document.createElement('script');
   script.src = src;
   script.type = type;
-  script.async = async;
-  script.defer = defer;
+  script.async = !ordered;
   document.head.appendChild(script);
 }
 
-// JS Plugins
-loadScript("https://code.jquery.com/jquery-3.6.0.min.js");
-loadScript("https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js");
-loadScript("js/jquery.magnific-popup.min.js");
-loadScript("js/jquery.nicescroll.min.js");
-loadScript("js/jquery.barfiller.js");
+// Discover critical backgrounds before waiting for any JavaScript libraries.
+const backgroundObserver = 'IntersectionObserver' in window
+  ? new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          applyBackground(entry.target);
+          backgroundObserver.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '300px' })
+  : null;
+function applyBackground(element) {
+  element.style.backgroundImage = 'url("' + element.dataset.setbg + '")';
+}
+document.querySelectorAll('.set-bg').forEach(element => {
+  // Carousel clones must inherit their backgrounds.
+  if (!backgroundObserver || element.closest('.owl-carousel') ||
+      element.getBoundingClientRect().top < window.innerHeight) {
+    applyBackground(element);
+  } else {
+    backgroundObserver.observe(element);
+  }
+});
 
-// Exclude countdown script from index.html
-//if (getCurrentPage() !== "index.html") {
-//  loadScript("js/jquery.countdown.min.js");
-//}
 
-loadScript("js/jquery.slicknav.js");
-loadScript("js/owl.carousel.min.js");
-loadScript("js/main.js");
-
-// Music Plugin
-loadScript("js/jquery.jplayer.min.js");
-loadScript("js/jplayerInit.js");
-
-// Firebase Script
-loadScript("js/firebase_script.js", "module");
-
-// Clarity tracking
-(function (c, l, a, r, i, t, y) {
-  c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
-  t = l.createElement(r);
-  t.async = 1;
-  t.src = "https://www.clarity.ms/tag/" + i;
-  y = l.getElementsByTagName(r)[0];
-  y.parentNode.insertBefore(t, y);
-})(window, document, "clarity", "script", "qtg8lvylx4");
-
-// Klaro Consent Manager
-loadScript("js/config.js", "text/javascript", false, true);
-loadScript("https://cdn.kiprotect.com/klaro/v0.7.22/klaro.js", "text/javascript", false, true);
-
-// Google Tag Manager
-loadScript("https://www.googletagmanager.com/gtag/js?id=G-25HPYYD2GT", "text/javascript", true);
-window.dataLayer = window.dataLayer || [];
-function gtag() { dataLayer.push(arguments); }
-gtag('js', new Date());
-gtag('config', 'G-25HPYYD2GT');
-
+if (document.querySelector('.owl-carousel, #bar1, #bar2, #bar3')) {
+  loadScript('js/jquery-3.7.1.min.js', 'text/javascript', true);
+  if (document.querySelector('.owl-carousel')) loadScript('js/owl.carousel.min.js', 'text/javascript', true);
+  if (document.querySelector('#bar1, #bar2, #bar3')) loadScript('js/jquery.barfiller.js', 'text/javascript', true);
+  loadScript('js/main.js', 'text/javascript', true);
+}
+const countdown = document.querySelector('#countdown-time');
+if (countdown) {
+  let requested = false;
+  const loadCountdown = () => {
+    if (!requested) { requested = true; loadScript('js/firebase_script.js', 'module'); }
+  };
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) { observer.disconnect(); loadCountdown(); }
+    }, { rootMargin: '300px' });
+    observer.observe(countdown);
+  } else loadCountdown();
+}

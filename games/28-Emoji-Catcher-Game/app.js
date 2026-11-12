@@ -12,14 +12,14 @@ function randomSquare() {
     square.classList.remove("emoji");
   });
 
-  let randomSqaure = squares[Math.floor(Math.random() * 9) + 1];
+  let randomSqaure = squares[Math.floor(Math.random() * squares.length)];
   randomSqaure.classList.add("emoji");
   hitPosition = randomSqaure.id;
 }
 
 squares.forEach((square) => {
   square.addEventListener("mousedown", () => {
-    if (square.id == hitPosition) {
+    if (currentTime > 0 && square.id == hitPosition) {
       result++;
       score.textContent = result;
       hitPosition = null;

@@ -1,66 +1,34 @@
-// Importing Firebase SDK modules
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
-
-// Firebase configuration object
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
+import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 const firebaseConfig = {
-  apiKey: "AIzaSyCxEbW9TRG4SrjPyoOmsgezjvq0HkADj04",
-  authDomain: "siddy-sounds.firebaseapp.com",
-  projectId: "siddy-sounds",
-  storageBucket: "siddy-sounds.firebasestorage.app",
-  messagingSenderId: "710437474568",
-  appId: "1:710437474568:web:35d3af84205338b933dcbd",
-  measurementId: "G-NSP8CP2Q7Y"
+  apiKey: 'AIzaSyCxEbW9TRG4SrjPyoOmsgezjvq0HkADj04',
+  authDomain: 'siddy-sounds.firebaseapp.com',
+  projectId: 'siddy-sounds',
+  appId: '1:710437474568:web:35d3af84205338b933dcbd'
 };
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-// Fetch the launch time from Firestore
-async function getLaunchTime() {
-  const docRef = doc(db, "launch", "countdown");
-  const docSnap = await getDoc(docRef);
-  if (docSnap.exists()) {
-    const launchTime = docSnap.data().launchTime.toDate(); // Convert Firestore timestamp to JavaScript Date
-    return launchTime;
-  } else {
-    console.error("No such document!");
-    return null;
-  }
+const container = document.getElementById('countdown-time');
+let interval;
+function unavailable() {
+  if (interval) clearInterval(interval);
+  container.textContent = 'Follow YouTube for the latest releases.';
 }
-
-// Start the countdown
 async function startCountdown() {
-  const launchTime = await getLaunchTime();
-  if (!launchTime) return;
-
-  function updateTimer() {
-    const now = new Date().getTime();
-    const timeLeft = launchTime - now;
-
-    if (timeLeft < 0) {
-      // Hide the countdown timer when the time is up
-      clearInterval(interval);
-      return;
-    }
-
-    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-    // Display the countdown in the HTML element
-    document.querySelector("#countdown-time .countdown__item:nth-child(1) span").innerText = days < 10 ? "0" + days : days;
-    document.querySelector("#countdown-time .countdown__item:nth-child(2) span").innerText = hours < 10 ? "0" + hours : hours;
-    document.querySelector("#countdown-time .countdown__item:nth-child(3) span").innerText = minutes < 10 ? "0" + minutes : minutes;
-    document.querySelector("#countdown-time .countdown__item:nth-child(4) span").innerText = seconds < 10 ? "0" + seconds : seconds;
+  const db = getFirestore(initializeApp(firebaseConfig));
+  const snapshot = await Promise.race([
+    getDoc(doc(db, 'launch', 'countdown')),
+    new Promise((_, reject) => setTimeout(() => reject(new Error('Countdown timeout')), 10000))
+  ]);
+  const value = snapshot.exists() && snapshot.data().launchTime;
+  const date = value && typeof value.toDate === 'function' ? value.toDate() : null;
+  if (!date || !Number.isFinite(date.getTime()) || date.getTime() <= Date.now()) { unavailable(); return; }
+  const spans = container.querySelectorAll('.countdown__item span');
+  function update() {
+    const left = date.getTime() - Date.now();
+    if (left <= 0) { unavailable(); return; }
+    const values = [Math.floor(left / 86400000), Math.floor(left / 3600000) % 24, Math.floor(left / 60000) % 60, Math.floor(left / 1000) % 60];
+    spans.forEach((span, index) => { span.textContent = String(values[index]).padStart(2, '0'); });
   }
-
-  // Update the timer every second
-  updateTimer();
-  const interval = setInterval(updateTimer, 1000);
+  update(); interval = setInterval(update, 1000);
+  window.addEventListener('pagehide', () => clearInterval(interval), {once:true});
 }
-
-// Start the countdown when the page loads
-startCountdown();
+if (container) startCountdown().catch(unavailable);

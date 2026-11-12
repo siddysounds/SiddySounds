@@ -3,27 +3,13 @@
 'use strict';
 
 (function ($) {
-
-    /*------------------
-        Preloader
-    --------------------*/
-    $(window).on('load', function () {
-        $(".loader").fadeOut();
-        $("#preloder").delay(200).fadeOut("slow");
-    });
-
-    /*------------------
-        Background Set
-    --------------------*/
-    $('.set-bg').each(function () {
-        var bg = $(this).data('setbg');
-        $(this).css('background-image', 'url(' + bg + ')');
-    });
+    // Legacy pages may still include the overlay markup.
+    $('#preloder').remove();
 
     /*------------------
 		Navigation
 	--------------------*/
-    $(".mobile-menu").slicknav({
+    if ($.fn.slicknav && $(".mobile-menu").length) $(".mobile-menu").slicknav({
         prependTo: '#mobile-menu-wrap',
         allowParentLinks: true
     });
@@ -31,7 +17,7 @@
     /*--------------------------
         Event Slider
     ----------------------------*/
-    $(".event__slider").owlCarousel({
+    if ($.fn.owlCarousel && $(".event__slider").length) $(".event__slider").owlCarousel({
         loop: true,
         margin: 0,
         items: 3,
@@ -40,7 +26,7 @@
         navText: ["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
         smartSpeed: 1200,
         autoHeight: false,
-        autoplay: true,
+        autoplay: !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
         responsive: {
             992: {
                 items: 3,
@@ -57,7 +43,7 @@
     /*--------------------------
         Videos Slider
     ----------------------------*/
-    $(".videos__slider").owlCarousel({
+    if ($.fn.owlCarousel && $(".videos__slider").length) $(".videos__slider").owlCarousel({
         loop: true,
         margin: 0,
         items: 4,
@@ -66,7 +52,7 @@
         navText: ["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
         smartSpeed: 1200,
         autoHeight: false,
-        autoplay: true,
+        autoplay: !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
         responsive: {
             992: {
                 items: 4,
@@ -86,56 +72,29 @@
     /*------------------
 		Magnific
 	--------------------*/
-    $('.video-popup').magnificPopup({
+    if ($.fn.magnificPopup && $('.video-popup').length) $('.video-popup').magnificPopup({
         type: 'iframe'
-    });
-
-    /*------------------
-        CountDown
-    --------------------*/
-    // For demo preview
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = today.getFullYear();
-
-    if(mm == 12) {
-        mm = '01';
-        yyyy = yyyy + 1;
-    } else {
-        mm = parseInt(mm) + 1;
-        mm = String(mm).padStart(2, '0');
-    }
-    var timerdate = mm + '/' + dd + '/' + yyyy;
-    // For demo preview end
-    
-
-    // Use this for real timer date
-    /* var timerdate = "2020/01/01"; */
-
-	$("#countdown-time").countdown(timerdate, function(event) {
-        $(this).html(event.strftime("<div class='countdown__item'><span>%D</span> <p>Days</p> </div>" + "<div class='countdown__item'><span>%H</span> <p>Hours</p> </div>" + "<div class='countdown__item'><span>%M</span> <p>Minutes</p> </div>" + "<div class='countdown__item'><span>%S</span> <p>Seconds</p> </div>"));
     });
 
     /*------------------
 		Barfiller
 	--------------------*/
-    $('#bar1').barfiller({
+    if ($.fn.barfiller && $('#bar1').length) $('#bar1').barfiller({
         barColor: "#ffffff",
     });
 
-    $('#bar2').barfiller({
+    if ($.fn.barfiller && $('#bar2').length) $('#bar2').barfiller({
         barColor: "#ffffff",
     });
 
-    $('#bar3').barfiller({
+    if ($.fn.barfiller && $('#bar3').length) $('#bar3').barfiller({
         barColor: "#ffffff",
     });
 
     /*-------------------
 		Nice Scroll
 	--------------------- */
-    $(".nice-scroll").niceScroll({
+    if ($.fn.niceScroll && $(".nice-scroll").length) $(".nice-scroll").niceScroll({
         cursorcolor: "#111111",
         cursorwidth: "5px",
         background: "#e1e1e1",

@@ -1,0 +1,685 @@
+{
+  "checked_on": "2026-11-12",
+  "final_external_html_css": [
+    {
+      "url": "https://www.youtube.com/@siddysounds",
+      "status": 200,
+      "final": "https://www.youtube.com/@siddysounds",
+      "pages": [
+        "about.html",
+        "blog.html",
+        "contact.html",
+        "cookies.html",
+        "index.html",
+        "privacy.html",
+        "tracks.html",
+        "videos.html"
+      ]
+    },
+    {
+      "url": "https://www.youtube.com/@SiddySounds",
+      "status": 200,
+      "final": "https://www.youtube.com/@SiddySounds",
+      "pages": [
+        "about.html",
+        "blog.html",
+        "contact.html",
+        "cookies.html",
+        "index.html",
+        "privacy.html",
+        "tracks.html",
+        "videos.html"
+      ]
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=rJ1LwOE1uno&autoplay=1",
+      "status": 200,
+      "final": "https://www.youtube.com/watch?v=rJ1LwOE1uno&autoplay=1",
+      "pages": [
+        "index.html",
+        "videos.html"
+      ]
+    },
+    {
+      "url": "https://www.instagram.com/imsidsuri",
+      "status": 200,
+      "final": "https://www.instagram.com/imsidsuri",
+      "pages": [
+        "about.html",
+        "blog.html",
+        "contact.html",
+        "cookies.html",
+        "index.html",
+        "privacy.html",
+        "tracks.html",
+        "videos.html"
+      ]
+    },
+    {
+      "url": "https://x.com/imsidsuri",
+      "status": 200,
+      "final": "https://x.com/imsidsuri",
+      "pages": [
+        "about.html",
+        "blog.html",
+        "contact.html",
+        "cookies.html",
+        "index.html",
+        "privacy.html",
+        "tracks.html",
+        "videos.html"
+      ]
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=fZ4TNmRsqCc&autoplay=1",
+      "status": 200,
+      "final": "https://www.youtube.com/watch?v=fZ4TNmRsqCc&autoplay=1",
+      "pages": [
+        "index.html",
+        "videos.html"
+      ]
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ehQYRweZeVY&autoplay=1",
+      "status": 200,
+      "final": "https://www.youtube.com/watch?v=ehQYRweZeVY&autoplay=1",
+      "pages": [
+        "index.html",
+        "videos.html"
+      ]
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=kalbqkV2S48&autoplay=1",
+      "status": 200,
+      "final": "https://www.youtube.com/watch?v=kalbqkV2S48&autoplay=1",
+      "pages": [
+        "index.html",
+        "videos.html"
+      ]
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=-46eYxDpiDo&autoplay=1",
+      "status": 200,
+      "final": "https://www.youtube.com/watch?v=-46eYxDpiDo&autoplay=1",
+      "pages": [
+        "index.html",
+        "videos.html"
+      ]
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=NmQERCVp2wc&autoplay=1",
+      "status": 200,
+      "final": "https://www.youtube.com/watch?v=NmQERCVp2wc&autoplay=1",
+      "pages": [
+        "index.html",
+        "videos.html"
+      ]
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=fn8Tx1WkAuE&autoplay=1",
+      "status": 200,
+      "final": "https://www.youtube.com/watch?v=fn8Tx1WkAuE&autoplay=1",
+      "pages": [
+        "index.html",
+        "videos.html"
+      ]
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ucKb7rdDGCA&autoplay=1",
+      "status": 200,
+      "final": "https://www.youtube.com/watch?v=ucKb7rdDGCA&autoplay=1",
+      "pages": [
+        "index.html",
+        "videos.html"
+      ]
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=i3_Wfq7Hjzg&autoplay=1",
+      "status": 200,
+      "final": "https://www.youtube.com/watch?v=i3_Wfq7Hjzg&autoplay=1",
+      "pages": [
+        "about.html",
+        "index.html",
+        "videos.html"
+      ]
+    },
+    {
+      "url": "https://www.snapchat.com/add/imsidsuri",
+      "status": 200,
+      "final": "https://www.snapchat.com/@imsidsuri",
+      "pages": [
+        "about.html",
+        "blog.html",
+        "contact.html",
+        "cookies.html",
+        "index.html",
+        "privacy.html",
+        "tracks.html",
+        "videos.html"
+      ]
+    },
+    {
+      "url": "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement",
+      "status": 200,
+      "final": "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement",
+      "pages": [
+        "privacy.html"
+      ]
+    },
+    {
+      "url": "https://www.facebook.com/imsidsuri",
+      "status": 200,
+      "final": "https://www.facebook.com/ImSidSuri/",
+      "pages": [
+        "about.html",
+        "blog.html",
+        "contact.html",
+        "cookies.html",
+        "index.html",
+        "privacy.html",
+        "tracks.html",
+        "videos.html"
+      ]
+    },
+    {
+      "url": "https://siddysounds.blogspot.com/",
+      "status": 200,
+      "final": "https://siddysounds.blogspot.com/",
+      "pages": [
+        "blog.html"
+      ]
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css",
+      "status": 200,
+      "final": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css",
+      "pages": [
+        "games/14-Snake-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/three.js/99/three.min.js",
+      "status": 200,
+      "final": "https://cdnjs.cloudflare.com/ajax/libs/three.js/99/three.min.js",
+      "pages": [
+        "games/20-Crossy-Road-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=rJ1LwOE1uno",
+      "status": 200,
+      "final": "https://www.youtube.com/watch?v=rJ1LwOE1uno",
+      "pages": [
+        "index.html"
+      ]
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Mq_HaJOKjaU&autoplay=1",
+      "status": 200,
+      "final": "https://www.youtube.com/watch?v=Mq_HaJOKjaU&autoplay=1",
+      "pages": [
+        "index.html",
+        "videos.html"
+      ]
+    },
+    {
+      "url": "https://pngimg.com/uploads/roach/roach_PNG12163.png",
+      "status": 200,
+      "final": "https://pngimg.com/uploads/roach/roach_PNG12163.png",
+      "pages": [
+        "games/16-Insect-Catch-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://pngimg.com/uploads/spider/spider_PNG12.png",
+      "status": 200,
+      "final": "https://pngimg.com/uploads/spider/spider_PNG12.png",
+      "pages": [
+        "games/16-Insect-Catch-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=kiPCEWfPmG4",
+      "status": 200,
+      "final": "https://www.youtube.com/watch?v=kiPCEWfPmG4",
+      "pages": [
+        "home.html"
+      ]
+    },
+    {
+      "url": "https://code.jquery.com/jquery-3.6.0.min.js",
+      "status": 200,
+      "final": "https://code.jquery.com/jquery-3.6.0.min.js",
+      "pages": [
+        "games/07-Ping-Pong-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
+      "status": 200,
+      "final": "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
+      "pages": [
+        "games/07-Ping-Pong-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
+      "status": 200,
+      "final": "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
+      "pages": [
+        "games/07-Ping-Pong-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://fonts.googleapis.com/css?family=Pacifico",
+      "status": 200,
+      "final": "https://fonts.googleapis.com/css?family=Pacifico",
+      "pages": [
+        "games/19-Flappy-Bird-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap",
+      "status": 200,
+      "final": "https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap",
+      "pages": [
+        "games/01-Candy-Crush-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js",
+      "status": 200,
+      "final": "https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js",
+      "pages": [
+        "games/02-Archery-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://open-meteo.com/",
+      "status": 200,
+      "final": "https://open-meteo.com/",
+      "pages": [
+        "weather.html"
+      ]
+    },
+    {
+      "url": "https://pngimg.com/uploads/fly/fly_PNG3946.png",
+      "status": 200,
+      "final": "https://pngimg.com/uploads/fly/fly_PNG3946.png",
+      "pages": [
+        "games/16-Insect-Catch-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://pngimg.com/uploads/mosquito/mosquito_PNG18175.png",
+      "status": 200,
+      "final": "https://pngimg.com/uploads/mosquito/mosquito_PNG18175.png",
+      "pages": [
+        "games/16-Insect-Catch-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://policies.google.com/privacy",
+      "status": 200,
+      "final": "https://policies.google.com/privacy",
+      "pages": [
+        "privacy.html"
+      ]
+    },
+    {
+      "url": "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css",
+      "status": 200,
+      "final": "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css",
+      "pages": [
+        "games/26-Fruit-Slicer-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Saumya-07/Fruit-Slicer/master/images/splash.png",
+      "status": 200,
+      "final": "https://raw.githubusercontent.com/Saumya-07/Fruit-Slicer/master/images/splash.png",
+      "pages": [
+        "games/26-Fruit-Slicer-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Saumya-07/Fruit-Slicer/master/images/1.png",
+      "status": 200,
+      "final": "https://raw.githubusercontent.com/Saumya-07/Fruit-Slicer/master/images/1.png",
+      "pages": [
+        "games/26-Fruit-Slicer-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://open-meteo.com/en/terms",
+      "status": 200,
+      "final": "https://open-meteo.com/en/terms",
+      "pages": [
+        "privacy.html"
+      ]
+    },
+    {
+      "url": "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",
+      "status": 200,
+      "final": "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",
+      "pages": [
+        "games/26-Fruit-Slicer-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js",
+      "status": 200,
+      "final": "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js",
+      "pages": [
+        "games/26-Fruit-Slicer-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.min.js",
+      "status": 200,
+      "final": "https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.min.js",
+      "pages": [
+        "games/06-Tower-Blocks/index.html"
+      ]
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js",
+      "status": 200,
+      "final": "https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js",
+      "pages": [
+        "games/06-Tower-Blocks/index.html"
+      ]
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap",
+      "status": 200,
+      "final": "https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap",
+      "pages": [
+        "games/15-Connect-Four-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css",
+      "status": 200,
+      "final": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css",
+      "pages": [
+        "games/17-Typing-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap",
+      "status": 200,
+      "final": "https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap",
+      "pages": [
+        "css/css_reference.css"
+      ]
+    },
+    {
+      "url": "https://i.ibb.co/Kb6SkTm/8399350-mic-microphone-audio-icon.png",
+      "status": 200,
+      "final": "https://i.ibb.co/Kb6SkTm/8399350-mic-microphone-audio-icon.png",
+      "pages": [
+        "games/25-Speak-Number-Guessing-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Saumya-07/Fruit-Slicer/master/images/scr.png",
+      "status": 200,
+      "final": "https://raw.githubusercontent.com/Saumya-07/Fruit-Slicer/master/images/scr.png",
+      "pages": [
+        "games/26-Fruit-Slicer-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Saumya-07/Fruit-Slicer/master/audio/slicefruit.mp3",
+      "status": 200,
+      "final": "https://raw.githubusercontent.com/Saumya-07/Fruit-Slicer/master/audio/slicefruit.mp3",
+      "pages": [
+        "games/26-Fruit-Slicer-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Saumya-07/Fruit-Slicer/master/audio/slicefruit.ogg",
+      "status": 200,
+      "final": "https://raw.githubusercontent.com/Saumya-07/Fruit-Slicer/master/audio/slicefruit.ogg",
+      "pages": [
+        "games/26-Fruit-Slicer-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://fonts.googleapis.com/css?family=Press+Start+2P",
+      "status": 200,
+      "final": "https://fonts.googleapis.com/css?family=Press+Start+2P",
+      "pages": [
+        "games/20-Crossy-Road-Game/style.css"
+      ]
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap",
+      "status": 200,
+      "final": "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap",
+      "pages": [
+        "games/14-Snake-Game/style.css"
+      ]
+    },
+    {
+      "url": "https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap",
+      "status": 200,
+      "final": "https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap",
+      "pages": [
+        "games/16-Insect-Catch-Game/style.css"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Saumya-07/Fruit-Slicer/master/audio/slicefruit.wav",
+      "status": 200,
+      "final": "https://raw.githubusercontent.com/Saumya-07/Fruit-Slicer/master/audio/slicefruit.wav",
+      "pages": [
+        "games/26-Fruit-Slicer-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap",
+      "status": 200,
+      "final": "https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap",
+      "pages": [
+        "games/11-Rock-Paper-Scissors/style.css",
+        "games/12-Type-Number-Guessing-Game/style.css",
+        "games/13-Tic-Tac-Toe/style.css"
+      ]
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Recursive:wght@400;700&display=swap",
+      "status": 200,
+      "final": "https://fonts.googleapis.com/css2?family=Recursive:wght@400;700&display=swap",
+      "pages": [
+        "games/25-Speak-Number-Guessing-Game/style.css"
+      ]
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=DotGothic16&display=swap",
+      "status": 200,
+      "final": "https://fonts.googleapis.com/css2?family=DotGothic16&display=swap",
+      "pages": [
+        "games/18-Hangman-Game/style.css"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/arpit456jain/Amazing-Js-Projects/master/Candy%20Crush/utils/bg.png",
+      "status": 200,
+      "final": "https://raw.githubusercontent.com/arpit456jain/Amazing-Js-Projects/master/Candy%20Crush/utils/bg.png",
+      "pages": [
+        "games/01-Candy-Crush-Game/style.css"
+      ]
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap",
+      "status": 200,
+      "final": "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap",
+      "pages": [
+        "games/10-Memory-Card-Game/style.css"
+      ]
+    },
+    {
+      "url": "https://fonts.googleapis.com/css?family=Gotu",
+      "status": 200,
+      "final": "https://fonts.googleapis.com/css?family=Gotu",
+      "pages": [
+        "games/03-Speed-Typing-Game/style.css"
+      ]
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap",
+      "status": 200,
+      "final": "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap",
+      "pages": [
+        "games/27-Quiz-Game/style.css"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Saumya-07/Fruit-Slicer/master/images/bg3%20-%20Copy.jpg",
+      "status": 200,
+      "final": "https://raw.githubusercontent.com/Saumya-07/Fruit-Slicer/master/images/bg3%20-%20Copy.jpg",
+      "pages": [
+        "games/26-Fruit-Slicer-Game/style.css"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Saumya-07/Fruit-Slicer/master/images/wood-bg2.jpg",
+      "status": 200,
+      "final": "https://raw.githubusercontent.com/Saumya-07/Fruit-Slicer/master/images/wood-bg2.jpg",
+      "pages": [
+        "games/26-Fruit-Slicer-Game/style.css"
+      ]
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap",
+      "status": 200,
+      "final": "https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap",
+      "pages": [
+        "games/04-Breakout-Game/style.css"
+      ]
+    },
+    {
+      "url": "https://fonts.googleapis.com/css?family=Nunito",
+      "status": 200,
+      "final": "https://fonts.googleapis.com/css?family=Nunito",
+      "pages": [
+        "games/29-Whack-A-Mole-Game/style.css"
+      ]
+    },
+    {
+      "url": "https://i.guim.co.uk/img/media/a1b7129c950433c9919f5670c92ef83aa1c682d9/55_344_1971_1183/master/1971.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=88ba2531f114b9b58b9cb2d8e723abe1",
+      "status": 200,
+      "final": "https://i.guim.co.uk/img/media/a1b7129c950433c9919f5670c92ef83aa1c682d9/55_344_1971_1183/master/1971.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=88ba2531f114b9b58b9cb2d8e723abe1",
+      "pages": [
+        "games/28-Emoji-Catcher-Game/style.css"
+      ]
+    },
+    {
+      "url": "https://fonts.googleapis.com/css?family=Comfortaa",
+      "status": 200,
+      "final": "https://fonts.googleapis.com/css?family=Comfortaa",
+      "pages": [
+        "games/06-Tower-Blocks/style.css"
+      ]
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap",
+      "status": 200,
+      "final": "https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap",
+      "pages": [
+        "games/17-Typing-Game/style.css"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1552749412-091909ed9f82?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "status": 200,
+      "final": "https://images.unsplash.com/photo-1552749412-091909ed9f82?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "pages": [
+        "games/25-Speak-Number-Guessing-Game/style.css"
+      ]
+    },
+    {
+      "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MorphSVGPlugin.min.js",
+      "status": 200,
+      "final": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MorphSVGPlugin.min.js",
+      "pages": [
+        "games/02-Archery-Game/index.html"
+      ]
+    },
+    {
+      "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1159990/dirt.svg",
+      "status": 200,
+      "final": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1159990/dirt.svg",
+      "pages": [
+        "games/29-Whack-A-Mole-Game/style.css"
+      ]
+    },
+    {
+      "url": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1159990/mole.svg",
+      "status": 200,
+      "final": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1159990/mole.svg",
+      "pages": [
+        "games/29-Whack-A-Mole-Game/style.css"
+      ]
+    }
+  ],
+  "youtube": [
+    {
+      "id": "rJ1LwOE1uno",
+      "status": 200,
+      "detail": "{\"title\":\"Har Saans Mein Tera Pyaar | New Hindi Romantic Song 2025 | SiddySounds\",\"author_name\":\"Siddy Sounds\",\"author_u"
+    },
+    {
+      "id": "fZ4TNmRsqCc",
+      "status": 200,
+      "detail": "{\"title\":\"Jatt Flow (Official Audio) | Punjabi Drill-Trap Rap | Desi Street Anthem 2025 | SiddySounds\",\"author_name\":\"Si"
+    },
+    {
+      "id": "ehQYRweZeVY",
+      "status": 200,
+      "detail": "{\"title\":\"Chaddi Rap (Official Audio) | Funniest Indian Rap 2025 | Comedy Hip-Hop | SiddySounds\",\"author_name\":\"Siddy So"
+    },
+    {
+      "id": "kalbqkV2S48",
+      "status": 200,
+      "detail": "{\"title\":\"Talli Pyaar | Funny Punjabi Rap Song 2025 | Comedy \\u00d7 Love \\u00d7 Daaru Vibes | SiddySounds\",\"author_name\""
+    },
+    {
+      "id": "-46eYxDpiDo",
+      "status": 200,
+      "detail": "{\"title\":\"Pehla Pyaar (Official Rap) | Emotional Hindi Rap on First Love \\u0026 Heartbreak | Sid Suri | SiddySounds\",\"au"
+    },
+    {
+      "id": "NmQERCVp2wc",
+      "status": 200,
+      "detail": "{\"title\":\"Dard Se Sher Tak | The Rise of a Beast | Siddy Sounds (Official Rap)\",\"author_name\":\"Siddy Sounds\",\"author_url"
+    },
+    {
+      "id": "ucKb7rdDGCA",
+      "status": 200,
+      "detail": "{\"title\":\"Mera Khwab | Motivational Rap | Hustle, Grind \\u0026 Dreams | Siddy Sounds (Official Audio)\",\"author_name\":\"Si"
+    },
+    {
+      "id": "fn8Tx1WkAuE",
+      "status": 200,
+      "detail": "{\"title\":\"She Was Disturbed (But Why Disturb Me Too?) | Emotional Rap | Toxic Love \\u0026 Healing | Siddy Sounds\",\"autho"
+    },
+    {
+      "id": "i3_Wfq7Hjzg",
+      "status": 200,
+      "detail": "{\"title\":\"Love \\u0026 Journey \\u2013 Pyar Aur Safar | Emotional Hindi Rap on Love, Dreams \\u0026 Resilience\",\"author_nam"
+    },
+    {
+      "id": "Mq_HaJOKjaU",
+      "status": 200,
+      "detail": "{\"title\":\"Tere Pyaar Da Sukoon | Soulful Punjabi Love Song 2025 | Heartfelt Romantic Vibes | SiddySounds\",\"author_name\":"
+    },
+    {
+      "id": "kiPCEWfPmG4",
+      "status": 200,
+      "detail": "{\"title\":\"Shri Radhe Radhe Mantra | Divine Krishna Chant | Peaceful Meditation \\u0026 Bhakti Vibes\",\"author_name\":\"Siddy"
+    }
+  ]
+}

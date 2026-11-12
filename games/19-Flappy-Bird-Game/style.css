@@ -5,6 +5,9 @@ body {
 }
 
 canvas {
-  border: 1x solid #0a3cda;
+  border: 1px solid #0a3cda;
   margin: 10px;
 }
+
+/* Fit the actual game instead of clipping overflow. */
+@media(max-width:600px){body{margin:0}canvas{max-width:calc(100vw - 16px);height:auto!important;margin:8px}}

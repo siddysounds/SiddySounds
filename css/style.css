@@ -115,7 +115,7 @@ ol {
 	text-transform: uppercase;
 }
 
-.section-title h1 {
+.section-title .decorative-title {
 	font-size: 100px;
 	color: #f2f2f2;
 	font-family: "Rockville Solid Regular";
@@ -770,7 +770,7 @@ ol {
 	text-align: center;
 }
 
-.youtube .section-title h1 {
+.youtube .section-title .decorative-title {
 	font-size: 90px;
 }
 
@@ -1270,7 +1270,7 @@ ol {
 	color: #ffffff;
 }
 
-.skills__content .section-title h1 {
+.skills__content .section-title .decorative-title {
 	color: #ffffff;
 	opacity: 0.1;
 	text-align: center;
@@ -2847,7 +2847,7 @@ ol {
 /* Small Device = 320px */
 
 @media only screen and (max-width: 479px) {
-	.section-title h1 {
+	.section-title .decorative-title {
 		top: -40px;
 		font-size: 79px;
 		line-height: 0.8;

@@ -1,60 +1,58 @@
 <!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <title>Talha - Crossy Road Game Clone</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="https://i.ibb.co/M6KTWnf/pic.jpg" />
-
-    <!-- 👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻-->
-    <!-- Also uploaded the demo of this code in a gif : https://c.tenor.com/x8v1oNUOmg4AAAAd/tenor.gif-->
-    <!-- 👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻-->
-
-    <!-- 👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻-->
-    <!-- More html-css-js Games Calculators Games Cards Elements Projects on https://www.github.com/he-is-talha -->
-    <!-- 👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻-->
-  </head>
-  <body>
-    <div id="counter">0</div>
-
-    <div id="controlls">
-      <div>
-        <button id="forward">
-          <svg width="30" height="30" viewBox="0 0 10 10">
-            <g transform="rotate(0, 5,5)">
-              <path d="M5,4 L7,6 L3,6 L5,4" />
-            </g>
-          </svg>
-        </button>
-        <button id="left">
-          <svg width="30" height="30" viewBox="0 0 10 10">
-            <g transform="rotate(-90, 5,5)">
-              <path d="M5,4 L7,6 L3,6 L5,4" />
-            </g>
-          </svg>
-        </button>
-        <button id="backward">
-          <svg width="30" height="30" viewBox="0 0 10 10">
-            <g transform="rotate(180, 5,5)">
-              <path d="M5,4 L7,6 L3,6 L5,4" />
-            </g>
-          </svg>
-        </button>
-        <button id="right">
-          <svg width="30" height="30" viewBox="0 0 10 10">
-            <g transform="rotate(90, 5,5)">
-              <path d="M5,4 L7,6 L3,6 L5,4" />
-            </g>
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <div id="end">
-      <button id="retry">Retry</button>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/99/three.min.js"></script>
-    <script src="script.js"></script>
-  </body>
+<head>
+<title>Talha - Crossy Road Game Clone</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="/images/favicon.ico" rel="icon"/>
+<!-- 👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻-->
+<!-- Also uploaded the demo of this code in a gif : https://c.tenor.com/x8v1oNUOmg4AAAAd/tenor.gif-->
+<!-- 👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻-->
+<!-- 👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻-->
+<!-- More html-css-js Games Calculators Games Cards Elements Projects on https://www.github.com/he-is-talha -->
+<!-- 👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻-->
+<link href="/css/privacy.css" rel="stylesheet"/><meta content="strict-origin-when-cross-origin" name="referrer"/></head>
+<body>
+<div id="counter">0</div>
+<div id="controlls">
+<div>
+<button id="forward">
+<svg height="30" viewbox="0 0 10 10" width="30">
+<g transform="rotate(0, 5,5)">
+<path d="M5,4 L7,6 L3,6 L5,4"></path>
+</g>
+</svg>
+</button>
+<button id="left">
+<svg height="30" viewbox="0 0 10 10" width="30">
+<g transform="rotate(-90, 5,5)">
+<path d="M5,4 L7,6 L3,6 L5,4"></path>
+</g>
+</svg>
+</button>
+<button id="backward">
+<svg height="30" viewbox="0 0 10 10" width="30">
+<g transform="rotate(180, 5,5)">
+<path d="M5,4 L7,6 L3,6 L5,4"></path>
+</g>
+</svg>
+</button>
+<button id="right">
+<svg height="30" viewbox="0 0 10 10" width="30">
+<g transform="rotate(90, 5,5)">
+<path d="M5,4 L7,6 L3,6 L5,4"></path>
+</g>
+</svg>
+</button>
+</div>
+</div>
+<div id="end">
+<button id="retry">Retry</button>
+</div>
+<script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/99/three.min.js"></script>
+<script defer="" src="script.js"></script>
+<script defer="" src="/js/privacy.js"></script></body>
 </html>
+

@@ -1,21 +1,16 @@
-# Security Policy
+# Security reporting
 
-## Supported Versions
+For a security or privacy issue affecting SiddySounds, email
+[mail@siddysounds.com](mailto:mail@siddysounds.com) with the subject
+“Website security report”. Include the affected URL, a description, and
+minimal steps to reproduce. Do not include real visitor data, credentials,
+or destructive proof-of-concept activity in a public issue.
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+The deployed website is a static GitHub Pages project. Only the current
+default branch is maintained. There is no guaranteed response time or paid
+bug-bounty program.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
-
-## Reporting a Vulnerability
-
-Use this section to tell people how to report a vulnerability.
-
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+Browser-side Firebase configuration identifies the project; access must be
+restricted by Firestore rules. API/service access and provider-side data
+retention must be reviewed in the relevant service consoles. Never put
+private service-account credentials into this public repository.
