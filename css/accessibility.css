@@ -1,0 +1,39 @@
+/* Shared fixes for focus visibility, native controls and small screens. */
+.skip-link { position: fixed; left: 12px; top: -100px; z-index: 100000; padding: 12px 20px; background: #fff; color: #45218a; }
+.skip-link:focus { top: 12px; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 3px solid #007ea7 !important; outline-offset: 4px; }
+main a:hover, main a:focus { color: #45218a; text-decoration: underline; }
+.single_player_container audio { display: block; width: 100%; min-height: 54px; }
+.single_player_container h4 { font-size: 22px; }
+.track__pic img { object-fit: cover; }
+.message-form label { display: block; font-weight: 600; margin: 12px 0 8px; }
+.message-form textarea { width: 100%; min-height: 180px; padding: 12px; border: 1px solid #777; }
+.policy-content { padding-top: 50px; padding-bottom: 70px; max-width: 960px; }
+.policy-content h1 { font-size: clamp(32px, 6vw, 48px); }
+.policy-content h2 { margin: 32px 0 12px; font-size: 28px; }
+.policy-content ul { margin: 16px 0; padding-left: 24px; }
+.policy-content li { margin: 12px 0; line-height: 1.7; }
+.policy-content a { text-decoration: underline !important; color: #45218a !important; }
+.policy-table { overflow-x: auto; margin: 20px 0; }
+.policy-table table { border-collapse: collapse; width: 100%; }
+.policy-table caption { caption-side: top; font-weight: 700; }
+.policy-table td, .policy-table th { padding: 12px; border: 1px solid #aaa; text-align: left; vertical-align: top; min-width: 130px; }
+.mobile-navigation { display: none; }
+.screen-reader-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 767px) {
+  .mobile-navigation { display: block; position: relative; background: #290849; color: white; }
+  .mobile-navigation summary { padding: 12px; cursor: pointer; font-weight: 700; }
+  .mobile-navigation ul { list-style: none; padding: 8px 16px 16px; }
+  .mobile-navigation a { color: #fff; display: block; padding: 10px 0; }
+  .mobile-navigation li { display: block; }
+  .footer { margin-top: 0; padding: 70px 0; }
+  .countdown { padding-bottom: 80px; }
+  .section-title .decorative-title { font-size: clamp(42px, 13vw, 70px); }
+  .hero__text h1 { font-size: clamp(48px, 15vw, 70px); }
+  .track__pic img { height: auto; width: 100%; margin: 0; top: 0; }
+  .track__content { margin-bottom: 50px; }
+}
+@media (min-width: 768px) and (max-width: 991px) { .footer { margin-top: 0; } .countdown { padding-bottom: 80px; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}

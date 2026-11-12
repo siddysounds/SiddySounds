@@ -26,7 +26,7 @@
         navText: ["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
         smartSpeed: 1200,
         autoHeight: false,
-        autoplay: true,
+        autoplay: !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
         responsive: {
             992: {
                 items: 3,
@@ -52,7 +52,7 @@
         navText: ["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
         smartSpeed: 1200,
         autoHeight: false,
-        autoplay: true,
+        autoplay: !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
         responsive: {
             992: {
                 items: 4,

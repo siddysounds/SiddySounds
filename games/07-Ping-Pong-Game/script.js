@@ -154,7 +154,8 @@ function playerWin(player) {
   var message = "Congratulations! " + player + " win!";
   $("#message").text(message); // Set the message text
   $("#message-modal").modal("show"); // Display the message modal
-  reset();
+  gameRunning = false;
+  cancelAnimationFrame(animationId);
 }
 
 // Reset ball to center of screen
@@ -206,7 +207,7 @@ function draw() {
 function loop() {
   update();
   draw();
-  animationId = requestAnimationFrame(loop);
+  if (gameRunning) animationId = requestAnimationFrame(loop);
 }
 
 $("#message-modal-close").on("click", function () {

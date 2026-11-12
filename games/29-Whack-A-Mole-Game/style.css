@@ -106,3 +106,6 @@ h2 {
 #start:hover {
   opacity: 0.8;
 }
+
+/* Fit the actual game instead of clipping overflow. */
+@media(max-width:600px){.game{width:100%;max-width:600px;height:350px}h1{font-size:3.6rem}}

@@ -1,4 +1,5 @@
 var playing = false;
+var slicing = false;
 var score;
 var trialsleft;
 var step; //for random steps
@@ -38,12 +39,14 @@ $(function () {
     }
   });
   //slice a fruit
-  $("#fruit1").mouseover(function () {
+  $("#fruit1").on("mouseover touchstart", function () {
+    if (!playing || slicing) return;
+    slicing = true;
     score++; // increase score
     $("#scoreValue").html(score);
 
     //play sound
-    $("#slicesound")[0].play();
+    $("#slicesound")[0].play().catch(() => {});
 
     //stop fruit
     clearInterval(action);
@@ -60,7 +63,7 @@ $(function () {
   //addhearts
   function addhearts() {
     $("#trialsleft").empty();
-    for (i = 0; i < trialsleft; i++) {
+    for (var i = 0; i < trialsleft; i++) {
       $("#trialsleft").append(
         '<img src="https://raw.githubusercontent.com/Saumya-07/Fruit-Slicer/master/images/wrong.png" , class="life">'
       );
@@ -69,6 +72,7 @@ $(function () {
 
   //start action
   function startAction() {
+    slicing = false;
     //generate random fruit
     $("#fruit1").show();
 
@@ -76,7 +80,7 @@ $(function () {
     chooseRandom();
     //random position
     $("#fruit1").css({
-      left: Math.round(550 * Math.random()),
+      left: Math.round(Math.max(0, $("#fruitcontainer").width() - 80) * Math.random()),
       top: -50,
     });
     //generate random step
@@ -97,7 +101,7 @@ $(function () {
           chooseRandom();
           //random position
           $("#fruit1").css({
-            left: Math.round(550 * Math.random()),
+            left: Math.round(Math.max(0, $("#fruitcontainer").width() - 80) * Math.random()),
             top: -50,
           });
           //generate random step
@@ -111,7 +115,7 @@ $(function () {
           //game over
           playing = false; //we are ot playing any more
           $("#score").hide();
-          $("#startreset").html("Start Game");
+          $("#startReset").html("Start Game");
           $("#gameOver").show();
           $("#gameOver").html(
             "<p>Game Over!</p><p>Your score is " + score + "</p>"

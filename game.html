@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Siddy's Lyric Run</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Siddy's Lyric Run</title>
+<style>
     body {
       margin: 0;
       overflow: hidden;
@@ -33,7 +34,7 @@
     .item {
       position: absolute;
       font-size: 40px;
-      animation: fall 3s linear infinite;
+      /* Falling is driven by the game loop, not a second CSS animation. */
       filter: drop-shadow(0 0 5px #00f9ff);
     }
     @keyframes fall {
@@ -149,28 +150,23 @@
       }
     }
   </style>
-</head>
+<link href="css/privacy.css" rel="stylesheet"/></head>
 <body>
-  <div id="game">
-    <div id="score">Score: 0</div>
-    <div id="gameTitle">🎤 SIDDY SOUNDS RUN</div>
-
-    <div class="player" id="player">
+<div id="game">
+<div id="score">Score: 0</div>
+<div id="gameTitle">🎤 SIDDY SOUNDS RUN</div>
+<div class="player" id="player">
       🎧
       <div>Siddy</div>
-    </div>
-
-    <div id="gameOver">Game Over<br><small>Refresh to play again</small></div>
-    <div id="branding">🔊 Powered by Siddy Sounds</div>
-
-    <!-- Exit Button -->
-    <button id="exitBtn" onclick="exitGame()">Exit Game</button>
-  </div>
-
-  <!-- Catch sound -->
-  <audio id="hitSound" src="music/Tere-Pyaar-Da-Sukoon.mp3"></audio>
-
-  <script>
+</div>
+<div id="gameOver">Game Over<br/><small>Refresh to play again</small></div>
+<div id="branding">🔊 Powered by Siddy Sounds</div>
+<!-- Exit Button -->
+<button id="exitBtn" onclick="exitGame()">Exit Game</button>
+</div>
+<!-- Catch sound -->
+<audio id="hitSound" preload="none" src="music/Tere-Pyaar-Da-Sukoon.mp3"></audio>
+<script>
     const game = document.getElementById('game');
     const player = document.getElementById('player');
     const scoreEl = document.getElementById('score');
@@ -186,6 +182,7 @@
       if (!gameRunning) return;
       if (e.key === 'ArrowLeft') playerX -= 30;
       if (e.key === 'ArrowRight') playerX += 30;
+      playerX = Math.max(20, Math.min(window.innerWidth - 20, playerX));
       player.style.left = `${playerX}px`;
     });
 
@@ -214,7 +211,8 @@
         if (playerX < 0) playerX = 0;
         if (playerX > window.innerWidth - player.offsetWidth) playerX = window.innerWidth - player.offsetWidth;
 
-        player.style.left = `${playerX}px`;
+        playerX = Math.max(20, Math.min(window.innerWidth - 20, playerX));
+      player.style.left = `${playerX}px`;
 
         // Reset touch start position after move
         touchStartX = touchEndX;
@@ -234,6 +232,8 @@
 
       let top = 0;
       const interval = setInterval(() => {
+        if (!gameRunning) { clearInterval(interval); item.remove(); return; }
+        if (document.hidden) return;
         top += 5;
         item.style.top = `${top}px`;
 
@@ -250,7 +250,7 @@
           if (item.innerText === '🎵') {
             score++;
             scoreEl.innerText = `Score: ${score}`;
-            document.getElementById('hitSound').play();
+            document.getElementById('hitSound').play().catch(() => {});
 
             // Special Mode trigger
             if (score === 10) {
@@ -286,8 +286,8 @@
 
     // Function for Exit button
     function exitGame() {
-      window.location.href = "https://siddysounds.com"; // Change this to your desired URL.
+      window.location.href = "./index.html"; // Change this to your desired URL.
     }
   </script>
-</body>
+<script defer="" src="js/privacy.js"></script></body>
 </html>

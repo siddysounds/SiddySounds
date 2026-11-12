@@ -1,9 +1,2 @@
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-25HPYYD2GT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-25HPYYD2GT');
-</script>
+// Legacy entry point intentionally does not start tracking.
+// Optional Google Analytics is loaded only by js/privacy.js after explicit consent.

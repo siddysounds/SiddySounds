@@ -1,4 +1,4 @@
-const RANDOM_QUOTE_API_URL = "https://api.quotable.io/random";
+// Self-contained practice text: no dependency on an external quote API.
 const quoteDisplayElement = document.querySelector("#quoteDisplay");
 const quoteInputElement = document.querySelector("#quoteInput");
 const timerElement = document.querySelector("#timer");
@@ -33,7 +33,7 @@ quoteInputElement.addEventListener("input", () => {
 
   let randomNumber = Math.round(count * 60  / (getTimerTime() * 5) * 10) / 10;
 
-  if (isNaN(randomNumber)) {
+  if (!Number.isFinite(randomNumber)) {
     wordsPerMinuteElement.textContent = "0";
   } else {
     wordsPerMinuteElement.textContent = randomNumber;
@@ -43,10 +43,13 @@ quoteInputElement.addEventListener("input", () => {
 });
 
 function getRandomQuote() {
-  return fetch(RANDOM_QUOTE_API_URL) //RANDOM_QUOTE_API_URL
-    .then((response) => response.json())
-    .then((data) => data.content)
-    .catch(error => console.log(error));
+  const quotes = [
+    'Music brings people together. Keep practicing, one word at a time.',
+    'A little progress every day builds confidence for tomorrow.',
+    'Take a breath, find your rhythm, and enjoy the next challenge.',
+    'Create something you love and share it with the world.'
+  ];
+  return Promise.resolve(quotes[Math.floor(Math.random() * quotes.length)]);
 }
 
 async function getNextQuote() {
@@ -62,11 +65,13 @@ async function getNextQuote() {
 }
 
 let startTime;
+let timerInterval;
 function startTimer() {
   timerElement.textContent = 0;
   startTime = new Date();
-  setInterval(() => {
-    timer.textContent = getTimerTime();
+  clearInterval(timerInterval);
+  timerInterval = setInterval(() => {
+    timerElement.textContent = getTimerTime();
   }, 1000)
 }
 

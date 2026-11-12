@@ -70,3 +70,6 @@ body {
   background-color: lightgray;
   border: none;
 }
+
+/* Fit the actual game instead of clipping overflow. */
+@media(max-width:600px){#board{box-sizing:border-box;width:min(100%,400px);height:auto;aspect-ratio:1;display:grid;grid-template-columns:repeat(8,1fr)}#board div{box-sizing:border-box;width:auto;height:auto;min-width:0;font-size:24px}}

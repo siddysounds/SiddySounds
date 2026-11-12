@@ -5,7 +5,7 @@ a {
 
 a:hover {
     text-decoration: none !important;
-    color: white !important; /* Prevents hover color change */
+    color: #45218a;
 }
 
 .floating-youtube {

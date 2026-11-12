@@ -23,9 +23,10 @@ const addInsects = () => {
 };
 
 const catchInsect = function () {
+  if (this.classList.contains("caught")) return;
   increaseScore();
   this.classList.add("caught");
-  setTimeout(() => this.remove, 2000);
+  setTimeout(() => this.remove(), 2000);
   addInsects();
 };
 
@@ -47,7 +48,7 @@ const createInsect = () => {
   alt="${selectedInsect.alt}" 
   style="transform: rotate(${Math.random() * 360}deg)" />`;
   insect.addEventListener("click", catchInsect);
-  gameContainer.appendChild(insect);
+  if (gameContainer.querySelectorAll(".insect:not(.caught)").length < 60) gameContainer.appendChild(insect);
 };
 
 const increaseTime = () => {

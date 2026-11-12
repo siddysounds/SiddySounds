@@ -58,6 +58,7 @@ function candyCrushGame() {
     function dragStart() {
         colorBeingDragged = this.style.backgroundImage;
         squareIdBeingDragged = parseInt(this.id);
+        squareIdBeingReplaced = null;
     }
 
     function dragOver(e) {
@@ -87,11 +88,11 @@ function candyCrushGame() {
             squareIdBeingDragged + 1,
             squareIdBeingDragged + width
         ];
-        let validMove = validMoves.includes(squareIdBeingReplaced);
+        let validMove = validMoves.includes(squareIdBeingReplaced) && (Math.abs(squareIdBeingDragged - squareIdBeingReplaced) === width || Math.floor(squareIdBeingDragged / width) === Math.floor(squareIdBeingReplaced / width));
 
-        if (squareIdBeingReplaced && validMove) {
+        if (squareIdBeingReplaced !== null && validMove) {
             squareIdBeingReplaced = null; // Move is valid, keep the swap
-        } else if (squareIdBeingReplaced && !validMove) {
+        } else if (squareIdBeingReplaced !== null && !validMove) {
             // Invalid move, revert the swap
             squares[squareIdBeingReplaced].style.backgroundImage = colorBeingReplaced;
             squares[squareIdBeingDragged].style.backgroundImage = colorBeingDragged;

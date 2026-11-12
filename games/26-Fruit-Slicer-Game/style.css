@@ -126,3 +126,6 @@ html {
   left: 150px;
   z-index: 2;
 }
+
+/* Fit the actual game instead of clipping overflow. */
+@media(max-width:600px){body{margin:0}#container{box-sizing:border-box;width:100%;height:auto;padding:12px}#instructions{width:100%;font-size:26px}#fruitcontainer{box-sizing:border-box;width:100%;height:360px;padding:8px}#front{box-sizing:border-box;width:100%;height:auto;font-size:26px;padding:20px 8px}#front img{max-width:100%;width:220px}.fruit{width:80px}#trialsleft{left:auto;right:8px}#gameOver{width:100%;left:0;font-size:2em}}

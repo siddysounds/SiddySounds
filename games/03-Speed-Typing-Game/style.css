@@ -141,3 +141,5 @@ hr {
     box-shadow: -0.5px 0.5px #4fa5b5;
   }
 }
+/* Fit the actual game instead of clipping overflow. */
+@media(max-width:600px){main{padding:28px 18px;display:block}.quote-display{overflow-wrap:anywhere}.quote-display span{font-size:1.5rem}.typing{display:block;height:auto}.score{margin:20px 0;padding:10px;gap:12px}.quote-input{height:30vh;padding:12px}.quote-display::before{display:none}}

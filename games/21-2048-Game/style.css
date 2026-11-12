@@ -63,3 +63,6 @@ h1 {
 .score-title {
   font-size: 16px;
 }
+
+/* Fit the actual game instead of clipping overflow. */
+@media(max-width:600px){.container{width:100%;max-width:468px;padding:8px;box-sizing:border-box}.grid{box-sizing:border-box;width:100%;height:auto;aspect-ratio:1;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,1fr);gap:6px}.grid div{width:auto;height:auto;margin:0;display:flex;justify-content:center;align-items:center;font-size:clamp(26px,8vw,54px);line-height:1}h1{font-size:64px}}

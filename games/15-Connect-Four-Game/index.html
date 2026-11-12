@@ -1,323 +1,171 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Talha - Connect Four</title>
-	
-	<!-- 👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻-->
-	<!-- Also uploaded the demo of this code in a gif : https://c.tenor.com/x8v1oNUOmg4AAAAd/tenor.gif-->
-	<!-- 👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻-->
-
-	<!-- 👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻-->
-	<!-- More html-css-js Games Calculators Games Cards Elements Projects on https://www.github.com/he-is-talha --> 
-	<!-- 👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻-->
-
-	<link rel="icon" href="https://i.ibb.co/M6KTWnf/pic.jpg">
-
-	<!-- Google Fonts -->
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-
-	<!-- CSS -->
-	<link rel="stylesheet" href="style.css">
-
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Talha - Connect Four</title>
+<!-- 👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻-->
+<!-- Also uploaded the demo of this code in a gif : https://c.tenor.com/x8v1oNUOmg4AAAAd/tenor.gif-->
+<!-- 👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻-->
+<!-- 👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻-->
+<!-- More html-css-js Games Calculators Games Cards Elements Projects on https://www.github.com/he-is-talha -->
+<!-- 👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻👆🏻-->
+<link href="/images/favicon.ico" rel="icon"/>
+<!-- Google Fonts -->
+<link href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&amp;display=swap" rel="stylesheet"/>
+<!-- CSS -->
+<link href="style.css" rel="stylesheet"/>
+<link href="/css/privacy.css" rel="stylesheet"/><meta content="strict-origin-when-cross-origin" name="referrer"/></head>
 <body>
-
-	<div id="main-container">
-
-		<div id="player">
-
-			<h1 id="player-type">Player - 1</h1>
-
-		</div>
-
-		<div id="grid">
-
-			<div class="row">
-
-				<div class="col">
-
-					<button class="btn btn-1"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-2"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-3"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-4"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-5"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-6"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-7"></button>
-
-				</div>
-
-			</div>
-
-			<div class="row">
-
-				<div class="col">
-
-					<button class="btn btn-8"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-9"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-10"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-11"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-12"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-13"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-14"></button>
-
-				</div>
-
-			</div>
-
-			<div class="row">
-
-				<div class="col">
-
-					<button class="btn btn-15"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-16"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-17"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-18"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-19"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-20"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-21"></button>
-
-				</div>
-
-			</div>
-
-			<div class="row">
-
-				<div class="col">
-
-					<button class="btn btn-22"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-23"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-24"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-25"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-26"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-27"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-28"></button>
-
-				</div>
-
-			</div>
-
-			<div class="row">
-
-				<div class="col">
-
-					<button class="btn btn-29"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-30"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-31"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-32"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-33"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-34"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-35"></button>
-
-				</div>
-
-			</div>
-
-			<div class="row">
-
-				<div class="col">
-
-					<button class="btn btn-36"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-37"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-38"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-39"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-40"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-41"></button>
-
-				</div>
-
-				<div class="col">
-
-					<button class="btn btn-42"></button>
-
-				</div>
-
-			</div>
-
-		</div>
-
-		<button type="button" id="reset-btn">Play Again</button>
-
-	</div>
-
-	<script src="script.js"></script>
-
-</body>
+<div id="main-container">
+<div id="player">
+<h1 id="player-type">Player - 1</h1>
+</div>
+<div id="grid">
+<div class="row">
+<div class="col">
+<button class="btn btn-1"></button>
+</div>
+<div class="col">
+<button class="btn btn-2"></button>
+</div>
+<div class="col">
+<button class="btn btn-3"></button>
+</div>
+<div class="col">
+<button class="btn btn-4"></button>
+</div>
+<div class="col">
+<button class="btn btn-5"></button>
+</div>
+<div class="col">
+<button class="btn btn-6"></button>
+</div>
+<div class="col">
+<button class="btn btn-7"></button>
+</div>
+</div>
+<div class="row">
+<div class="col">
+<button class="btn btn-8"></button>
+</div>
+<div class="col">
+<button class="btn btn-9"></button>
+</div>
+<div class="col">
+<button class="btn btn-10"></button>
+</div>
+<div class="col">
+<button class="btn btn-11"></button>
+</div>
+<div class="col">
+<button class="btn btn-12"></button>
+</div>
+<div class="col">
+<button class="btn btn-13"></button>
+</div>
+<div class="col">
+<button class="btn btn-14"></button>
+</div>
+</div>
+<div class="row">
+<div class="col">
+<button class="btn btn-15"></button>
+</div>
+<div class="col">
+<button class="btn btn-16"></button>
+</div>
+<div class="col">
+<button class="btn btn-17"></button>
+</div>
+<div class="col">
+<button class="btn btn-18"></button>
+</div>
+<div class="col">
+<button class="btn btn-19"></button>
+</div>
+<div class="col">
+<button class="btn btn-20"></button>
+</div>
+<div class="col">
+<button class="btn btn-21"></button>
+</div>
+</div>
+<div class="row">
+<div class="col">
+<button class="btn btn-22"></button>
+</div>
+<div class="col">
+<button class="btn btn-23"></button>
+</div>
+<div class="col">
+<button class="btn btn-24"></button>
+</div>
+<div class="col">
+<button class="btn btn-25"></button>
+</div>
+<div class="col">
+<button class="btn btn-26"></button>
+</div>
+<div class="col">
+<button class="btn btn-27"></button>
+</div>
+<div class="col">
+<button class="btn btn-28"></button>
+</div>
+</div>
+<div class="row">
+<div class="col">
+<button class="btn btn-29"></button>
+</div>
+<div class="col">
+<button class="btn btn-30"></button>
+</div>
+<div class="col">
+<button class="btn btn-31"></button>
+</div>
+<div class="col">
+<button class="btn btn-32"></button>
+</div>
+<div class="col">
+<button class="btn btn-33"></button>
+</div>
+<div class="col">
+<button class="btn btn-34"></button>
+</div>
+<div class="col">
+<button class="btn btn-35"></button>
+</div>
+</div>
+<div class="row">
+<div class="col">
+<button class="btn btn-36"></button>
+</div>
+<div class="col">
+<button class="btn btn-37"></button>
+</div>
+<div class="col">
+<button class="btn btn-38"></button>
+</div>
+<div class="col">
+<button class="btn btn-39"></button>
+</div>
+<div class="col">
+<button class="btn btn-40"></button>
+</div>
+<div class="col">
+<button class="btn btn-41"></button>
+</div>
+<div class="col">
+<button class="btn btn-42"></button>
+</div>
+</div>
+</div>
+<button id="reset-btn" type="button">Play Again</button>
+</div>
+<script defer="" src="script.js"></script>
+<script defer="" src="/js/privacy.js"></script></body>
 </html>
+
