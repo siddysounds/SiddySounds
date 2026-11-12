@@ -51,35 +51,31 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.siddysounds.com">
 
-    <!-- CSS Reference -->
-    <link rel="stylesheet" href="css/css_reference.css">
+    <!-- Styles are discoverable in parallel without a CSS import chain. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7.22/klaro.min.css">
+<link rel="stylesheet" href="css/barfiller.css">
+<link rel="stylesheet" href="css/nowfont.css">
+<link rel="stylesheet" href="css/rockville.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/owl.theme.default.min.css">
+<link rel="stylesheet" href="css/slicknav.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/site.css">
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <!-- Clarity tracking code for https://siddysounds.com/ -->
-    <script type="text/javascript">
-        (function(c, l, a, r, i, t, y) {
-        				c[a] = c[a] ||
-        				function() { (c[a].q = c[a].q || []).push(arguments)
-        				};
-        				t = l.createElement(r);
-        				t.async = 1;
-        				t.src = "https://www.clarity.ms/tag/" + i;
-        				y = l.getElementsByTagName(r)[0];
-        				y.parentNode.insertBefore(t, y);
-        			})(window, document, "clarity", "script", "qtg8lvylx4");
-    </script>
+    
     <!-- make sure the config gets loaded before Klaro -->
-    <script defer type="text/javascript" src="config.js">
-    </script>
-    <script defer type="text/javascript" src="https://cdn.kiprotect.com/klaro/v0.7.22/klaro.js">
-    </script>
+    
+    
 </head>
 
 <body>
     <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
+    <!-- Content renders immediately; no full-page loading overlay. -->
 
     <!-- Header Section Begin -->
     <header class="header header--normal">
@@ -187,7 +183,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="about__pic" style="padding-top: 110px;">
-                        <img src="images/Siddy.jpg" alt="Siddy">
+                        <img loading="lazy" decoding="async" src="images/Siddy.jpg" alt="Siddy">
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -296,29 +292,24 @@
      <!-- Js Plugins -->
 
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/jquery.nicescroll.min.js"></script>
-    <script src="js/jquery.barfiller.js"></script>
-        <script src="js/jquery.countdown.min.js"></script>
+    
+    
+    
+    
+    
+        
 
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+    
+    
+    
 
     <!-- Music Plugin -->
-    <script src="js/jquery.jplayer.min.js"></script>
-    <script src="js/jplayerInit.js"></script>
+    
+    
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-25HPYYD2GT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-25HPYYD2GT');
-</script>
+
+<script defer src="js/js_reference.js"></script>
 </body>
 
 </html>

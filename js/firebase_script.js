@@ -57,10 +57,12 @@ async function startCountdown() {
     document.querySelector("#countdown-time .countdown__item:nth-child(4) span").innerText = seconds < 10 ? "0" + seconds : seconds;
   }
 
-  // Update the timer every second
+  // Declare the timer before the first update (the release may be in the past).
+  let interval = setInterval(updateTimer, 1000);
   updateTimer();
-  const interval = setInterval(updateTimer, 1000);
 }
 
 // Start the countdown when the page loads
-startCountdown();
+if (document.querySelector("#countdown-time")) {
+  startCountdown().catch(error => console.warn("Countdown unavailable", error));
+}

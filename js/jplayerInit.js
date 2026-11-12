@@ -11,7 +11,9 @@
 			var ancestor = player.data('ancestor');
 			var songUrl = player.data('url');
 			player.jPlayer({
-				ready: function () {
+				timeupdate: currentTimeAlign,
+                seeked: currentTimeAlign,
+                ready: function () {
 					$(this).jPlayer("setMedia", {
 						mp3:songUrl
 					});
@@ -34,7 +36,7 @@
 				smoothPlayBar: true,
 				keyEnabled: true,
 				solution: 'html',
-				preload: 'metadata',
+				preload: 'none',
 				volume: 0.8,
 				muted: false,
 				backgroundColor: '#000000',
@@ -54,7 +56,8 @@
 			}
 		});
 	}
-	setInterval(currentTimeAlign, 10);
+	// Align on media events instead of polling the layout 100 times a second.
+	currentTimeAlign();
 	
 
 	

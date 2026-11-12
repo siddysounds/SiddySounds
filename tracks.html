@@ -51,17 +51,26 @@
 	<!-- Canonical URL -->
 	<link rel="canonical" href="https://www.siddysounds.com">
 
-	<!-- CSS Reference -->
-	<link rel="stylesheet" href="css/css_reference.css">
+	<!-- Styles are discoverable in parallel without a CSS import chain. -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://cdn.kiprotect.com/klaro/v0.7.22/klaro.min.css">
+<link rel="stylesheet" href="css/barfiller.css">
+<link rel="stylesheet" href="css/nowfont.css">
+<link rel="stylesheet" href="css/rockville.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/owl.theme.default.min.css">
+<link rel="stylesheet" href="css/slicknav.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/site.css">
 	<!-- Css Styles -->
 	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 
 <body>
 	<!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
-	</div>
+	<!-- Content renders immediately; no full-page loading overlay. -->
 
 	<!-- Header Section Begin -->
 	<header class="header header--normal">
@@ -546,7 +555,7 @@
 				</div>
 				<div class="col-lg-5 p-0">
 					<div class="track__pic">
-						<img src="images/music.jpg" alt="">
+						<img loading="lazy" decoding="async" src="images/music.jpg" alt="">
 					</div>
 				</div>
 			</div>
@@ -630,7 +639,7 @@
 	<a href="https://www.youtube.com/@SiddySounds" target="_blank" class="floating-youtube">
 		<i class="fa fa-youtube"></i>
 	</a>
-	<script src="js/js_reference.js"></script>
+	<script defer src="js/js_reference.js"></script>
 </body>
 
 </html>
